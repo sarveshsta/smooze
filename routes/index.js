@@ -63,7 +63,7 @@ router.post('/login', (req, res, next) => {
 
 
 //logout
-router.get('/logout', (req, res, next) => {
+router.post('/logout', (req, res, next) => {
   res.setHeader('Set-Cookie', [
     'isLoggedin = false; HttpOnly; Secure',
     'Expires = Expired; HttpOnly; Secure'
