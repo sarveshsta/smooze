@@ -23,6 +23,10 @@ const User = mongoose.Schema({
         type: String,
         required: true
     },
+    dateOfBirth: {
+        type: Date,
+        required: true
+    },
     gender: {
         type: String,
         enum: ["Male", "Female", "Other"]
@@ -53,5 +57,7 @@ const User = mongoose.Schema({
 
 });
 
+const users = mongoose.model('User', User);
+
 console.log("Successfully connected to mongodb database...");
-module.exports = { db, User };
+module.exports = { db, users};

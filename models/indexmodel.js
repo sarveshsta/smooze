@@ -1,4 +1,4 @@
-const { db, User } = require('./connection');
+const { db, users } = require('./connection');
 const indianCities = require('indian-cities-database');
 const cities = indianCities.cities
 const states = [...new Set(cities.map(city => city.state))];
@@ -10,7 +10,7 @@ const cities1 = [...new Set(cities.map(city => city.city))];
 
 function indexmodel() {
 
-    this.registeruser = (User, callback) => {
+    this.registeruser = (users, callback) => {
         // if (!/^[0-9]{10}$/.test(User.phone)) {
         //     callback(false, { "msg": '' });
         //     return;
@@ -42,34 +42,34 @@ function indexmodel() {
                             max_id = row._id
                         }
                     }
-                    User._id = max_id + 1
+                    users._id = max_id + 1
                 } else {
-                    User._id = 1
+                    users._id = 1
                 }
                 var flag = 1
                 if (result.length > 0) {
                     for (let row of result) {
-                        if (User.email == row.email) {
+                        if (users.email == row.email) {
                             flag = 0
                             break
                         }
                     }
                 }
                 if (flag == 1) {
-                    User.status = 0
-                    User.role = "user"
-                    User.dt = Date()
-                    User.Isactive = {
+                    users.status = 0
+                    users.role = "user"
+                    users.dt = Date()
+                    users.Isactive = {
                         type: Boolean,
                         default: false,
                     }
-                    db.collection("users").insertOne(User, (err, result) => {
+                    db.collection("users").insertOne(users, (err, result) => {
                         if (err) {
                             console.log(err)
                             callback(false)
                         }
                         else {
-                            db.collection('users').updateOne({ email: User.email }, { $set: { Isactive: true } })
+                            db.collection('users').updateOne({ email: users.email }, { $set: { Isactive: true } })
                                 .then(() => {
                                     console.log('User marked as active.');
                                     callback(true);
@@ -89,14 +89,14 @@ function indexmodel() {
             })
     }
 
-    this.userlogin = (User, callback) => {
-        db.collection('users').find({ email: User.email, password: User.password }).toArray()
+    this.userlogin = (users, callback) => {
+        db.collection('users').find({ email: users.email, password: users.password }).toArray()
             .then((result) => {
                 if (result.length > 0) {
                     const user = result[0];
                     if (!user.Isactive) {
                         // Activate the user
-                        db.collection('users').updateOne({ email: User.email }, { $set: { Isactive: true } })
+                        db.collection('users').updateOne({ email: users.email }, { $set: { Isactive: true } })
                             .then(() => {
                                 console.log('User activated.');
                             })
@@ -116,8 +116,8 @@ function indexmodel() {
             });
     }
 
-    this.deactivateUser = (User, callback) => {
-        db.collection('users').updateOne({ email: User.email, password: User.password }, { $set: { Isactive: false } })
+    this.deactivateUser = (users, callback) => {
+        db.collection('users').updateOne({ email: users.email, password: users.password }, { $set: { Isactive: false } })
             .then((result) => {
                 // console.log('User deactivated.');
                 callback(result);
@@ -128,16 +128,14 @@ function indexmodel() {
             });
     }
 
-    // this.deleteuser = (User,callback)=>{
-    //     db.collection('users').deleteOne({email : User.email,password:User.password})
-    //     .then((result) => {
-    //         result.deletedCount+=1;
-    //         callback(result);
-    //         console.log(result);
-    //     }).catch((err) => {
-    //         console.log(err);
-    //     });
-    // }
+    this.deleteuser = (users,callback)=>{
+        db.collection('users').deleteOne({email : users.email,password:users.password})
+        .then((result) => {
+            callback(result);
+        }).catch((err) => {
+            console.log(err);
+        });
+    }
     
 }
 
