@@ -11,25 +11,25 @@ const cities1 = [...new Set(cities.map(city => city.city))];
 function indexmodel() {
 
     this.registeruser = (users, callback) => {
-        // if (!/^[0-9]{10}$/.test(User.phone)) {
-        //     callback(false, { "msg": '' });
-        //     return;
-        // }
+        if (!/^[0-9]{10}$/.test(users.phone)) {
+            callback(false, { "msg": '' });
+            return;
+        }
 
-        // if (!['Male', 'Female', 'Other'].includes(User.gender)) {
-        //     callback(false, { "msg-gen": '' });
-        //     return;
-        // }
+        if (!['Male', 'Female', 'Others'].includes(users.gender)) {
+            callback(false, { "gen": '' });
+            return;
+        }
 
-        // if (!states.includes(User.state)) {
-        //     callback(false, { "msgState": '' });
-        //     return;
-        // }
+        if (!states.includes(users.state)) {
+            callback(false, { "msgState": '' });
+            return;
+        }
 
-        // if (!cities1.some(city => city.name === User.city && city.state === User.state)) {
-        //     callback(false, { "msgCity": '' });
-        //     return;
-        // }
+        if (!cities1.includes(users.city)) {
+            callback(false, { "msgCity": '' });
+            return;
+        }
 
         db.collection("users").find().toArray()
             .then((val => {
@@ -128,15 +128,15 @@ function indexmodel() {
             });
     }
 
-    this.deleteuser = (users,callback)=>{
-        db.collection('users').deleteOne({email : users.email,password:users.password})
-        .then((result) => {
-            callback(result);
-        }).catch((err) => {
-            console.log(err);
-        });
+    this.deleteuser = (users, callback) => {
+        db.collection('users').deleteOne({ email: users.email, password: users.password })
+            .then((result) => {
+                callback(result);
+            }).catch((err) => {
+                console.log(err);
+            });
     }
-    
+
 }
 
 module.exports = new indexmodel();

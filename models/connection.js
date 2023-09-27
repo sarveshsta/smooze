@@ -29,7 +29,7 @@ const User = mongoose.Schema({
     },
     gender: {
         type: String,
-        enum: ["Male", "Female", "Other"]
+        enum: ["Male", "Female", "Others"]
     },
     phone: {
         type: String,
@@ -54,10 +54,9 @@ const User = mongoose.Schema({
             message: 'Invalid city.'
         }
     },
-
 });
 
 const users = mongoose.model('User', User);
 
 console.log("Successfully connected to mongodb database...");
-module.exports = { db, users};
+module.exports = { db, users };
