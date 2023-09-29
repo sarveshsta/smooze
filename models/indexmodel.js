@@ -63,6 +63,14 @@ function indexmodel() {
                         type: Boolean,
                         default: false,
                     }
+                    users.IsGoogle = {
+                        type: Boolean,
+                        default: false,
+                    }
+                    users.IsApple = {
+                        type: Boolean,
+                        default: false,
+                    }
                     db.collection("users").insertOne(users, (err, result) => {
                         if (err) {
                             console.log(err)
@@ -78,6 +86,8 @@ function indexmodel() {
                                     console.log('Error updating user status:', updateErr);
                                     callback(false);
                                 });
+
+
                         }
                     })
                 } else {
@@ -134,6 +144,52 @@ function indexmodel() {
                 callback(result);
             }).catch((err) => {
                 console.log(err);
+            });
+    }
+
+    this.onboardingQuestion = (onboardings, selectedOptions, callback) => {
+        db.collection("onboardings").find().toArray()
+            .then((val => {
+                console.log(val);
+                var result = val;
+                if (result.length > 0) {
+                    var max_id = result[0]._id;
+                    for (let row of result) {
+                        if (max_id < row._id) {
+                            max_id = row._id;
+                        }
+                    }
+                    onboardings._id = max_id + 1;
+                } else {
+                    onboardings._id = 1;
+                }
+                var flag = 1;
+                if (result.length > 0) {
+                    for (let row of result) {
+                        if (onboardings._id == row._id) {
+                            flag = 0;
+                            break;
+                        }
+                    }
+                }
+                if (flag == 1) {
+                    onboardings.OptedOption = selectedOptions
+                    onboardings.dt = Date();
+                    db.collection("onboardings").insertOne(onboardings, (err, result) => {
+                        if (err) {
+                            console.log(err);
+                            callback(false);
+                        } else {
+                            callback(true);
+                        }
+                    });
+                } else {
+                    callback(false);
+                }
+            }))
+            .catch((err) => {
+                console.log(err);
+                callback(false);
             });
     }
 

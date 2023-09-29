@@ -53,10 +53,31 @@ const User = mongoose.Schema({
             },
             message: 'Invalid city.'
         }
-    },
+    }
 });
-
 const users = mongoose.model('User', User);
 
+
+//onboarding Schema
+const OnBoarding = mongoose.Schema({
+    questions: {
+        type: String,
+        required: true
+    },
+    options: {
+        type: [String],
+        required: true
+    },
+    OptedOption: {
+        type: [String],
+        required: true
+    },
+    user : {
+        type : Number
+    }
+});
+const onboardings = mongoose.model('OnBoarding', OnBoarding);
+
+
 console.log("Successfully connected to mongodb database...");
-module.exports = { db, users };
+module.exports = { db, users ,onboardings};
