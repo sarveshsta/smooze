@@ -11,7 +11,7 @@ router.post('/', function (req, res, next) {
             console.log("user registered successfully");
         }
         else {
-            if (msg) {
+            if (result.msg) {
                 console.log({ "msg": "invalid phone number" });
             }
             else {
@@ -33,7 +33,7 @@ router.post('/', function (req, res, next) {
                 }
             }
 
-            // res.render('register', { "msg": 'User already exists Please Register again...' });
+          
         }
 
     })

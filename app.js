@@ -10,10 +10,11 @@ var logoutRouter = require('./routes/logout');
 var deactivateRouter = require('./routes/deactivate');
 var deleteuser = require('./routes/delete');
 var onboarding = require('./routes/onboarding');
+var forgotPassword = require('./routes/forgotPassword');
 
 var app = express();
 
-// view engine setup
+// // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -29,6 +30,7 @@ app.use('/logout', logoutRouter);
 app.use('/deactivate', deactivateRouter);
 app.use('/delete', deleteuser);
 app.use('/onboarding', onboarding);
+app.use('/forgotPassword', forgotPassword);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -45,5 +47,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;

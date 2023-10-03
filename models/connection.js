@@ -1,8 +1,8 @@
 var mongoose = require("mongoose");
-var url = require('../constants/constants');
+var {URL} = require('../constants/constants');
 const indianCities = require('indian-cities-database');
 
-mongoose.connect(url);
+mongoose.connect(URL);
 var db = mongoose.connection;
 
 const cities = indianCities.cities
@@ -57,7 +57,6 @@ const User = mongoose.Schema({
 });
 const users = mongoose.model('User', User);
 
-
 //onboarding Schema
 const OnBoarding = mongoose.Schema({
     questions: {
@@ -71,9 +70,6 @@ const OnBoarding = mongoose.Schema({
     OptedOption: {
         type: [String],
         required: true
-    },
-    user : {
-        type : Number
     }
 });
 const onboardings = mongoose.model('OnBoarding', OnBoarding);

@@ -1,5 +1,7 @@
-const { db, users } = require('./connection');
+const { db, users, onboardings } = require('./connection');
 const indianCities = require('indian-cities-database');
+const nodemailer = require('nodemailer');
+const { EMAIL, PASS } = require('../constants/constants');
 const cities = indianCities.cities
 const states = [...new Set(cities.map(city => city.state))];
 const cities1 = [...new Set(cities.map(city => city.city))];
@@ -12,92 +14,73 @@ function indexmodel() {
 
     this.registeruser = (users, callback) => {
         if (!/^[0-9]{10}$/.test(users.phone)) {
-            callback(false, { "msg": '' });
+            callback(false, { "msg": 'Invalid phone number' });
             return;
         }
 
         if (!['Male', 'Female', 'Others'].includes(users.gender)) {
-            callback(false, { "gen": '' });
+            callback(false, { "gen": 'Invalid gender' });
             return;
         }
 
         if (!states.includes(users.state)) {
-            callback(false, { "msgState": '' });
+            callback(false, { "msgState": 'Invalid state' });
             return;
         }
 
         if (!cities1.includes(users.city)) {
-            callback(false, { "msgCity": '' });
+            callback(false, { "msgCity": 'Invalid city for the selected state' });
             return;
         }
 
         db.collection("users").find().toArray()
-            .then((val => {
-                console.log(val)
-                var result = val
+            .then((val) => {
+                console.log(val);
+                var result = val;
                 if (result.length > 0) {
-                    var max_id = result[0]._id
+                    var max_id = result[0]._id;
                     for (let row of result) {
                         if (max_id < row._id) {
-                            max_id = row._id
+                            max_id = row._id;
                         }
                     }
-                    users._id = max_id + 1
+                    users._id = max_id + 1;
                 } else {
-                    users._id = 1
+                    users._id = 1;
                 }
-                var flag = 1
+                var flag = 1;
                 if (result.length > 0) {
                     for (let row of result) {
                         if (users.email == row.email) {
-                            flag = 0
-                            break
+                            flag = 0;
+                            break;
                         }
                     }
                 }
                 if (flag == 1) {
-                    users.status = 0
-                    users.role = "user"
-                    users.dt = Date()
-                    users.Isactive = {
-                        type: Boolean,
-                        default: false,
-                    }
-                    users.IsGoogle = {
-                        type: Boolean,
-                        default: false,
-                    }
-                    users.IsApple = {
-                        type: Boolean,
-                        default: false,
-                    }
-                    db.collection("users").insertOne(users, (err, result) => {
+                    users.status = 0;
+                    users.role = "user";
+                    users.dt = new Date();  // Use new Date() to get the current date and time
+                    users.Isactive = false
+                    users.IsGoogle = false
+                    users.IsApple = false
+                    db.collection("users").insertOne(users, (err) => {
                         if (err) {
-                            console.log(err)
-                            callback(false)
+                            console.log(err);
+                            callback(false);
+                        } else {
+                            callback(true);
                         }
-                        else {
-                            db.collection('users').updateOne({ email: users.email }, { $set: { Isactive: true } })
-                                .then(() => {
-                                    console.log('User marked as active.');
-                                    callback(true);
-                                })
-                                .catch((updateErr) => {
-                                    console.log('Error updating user status:', updateErr);
-                                    callback(false);
-                                });
-
-
-                        }
-                    })
+                    });
                 } else {
-                    callback(false)
+                    callback(false, { "msg": 'User already exists' });
                 }
-            }))
-            .catch((err) => {
-                console.log(err)
             })
-    }
+            .catch((err) => {
+                console.log(err);
+                callback(false, { "msg": 'Error registering user' });
+            });
+    };
 
     this.userlogin = (users, callback) => {
         db.collection('users').find({ email: users.email, password: users.password }).toArray()
@@ -193,6 +176,44 @@ function indexmodel() {
             });
     }
 
+    this.forgotPassword = (users, callback) => {
+            db.collection('users').find({ email: users.email, password: users.password }).toArray()
+            .then((result) => {
+                if (result.length > 0) {
+                    const user = result[0];
+                    let config = {
+                        service: 'gmail',
+                        auth: {
+                            user: EMAIL,
+                            pass: PASS
+                        }
+                    }
+                    let transporter = nodemailer.createTransport(config);
+    
+                    let message = {
+                        from: EMAIL,
+                        to: users.email,
+                        subject: "Reset Password Mail",
+                        html: '<p>hlo </p>' + '<b>' + users.name + '</b>' + '<b> please click here to <a href="http://localhost:8000/verifyMail?email=' + users.email + '">Verify</a> your mail.</b>'
+                    }
+    
+                    transporter.sendMail(message, function (err, info) {
+                        if (err) {
+                            console.log(err);
+                        } else {
+                            console.log("Email has been sent", info.response);
+                            callback(true);
+                        }
+                    })
+                } else {
+                    console.log('User not found.');
+                }
+            })
+            .catch((err) => {
+                console.log('Error:', err);
+                callback([]);
+            });
+    }
 }
 
 module.exports = new indexmodel();
