@@ -10,7 +10,7 @@ const cities1 = [...new Set(cities.map(city => city.city))];
 // console.log('Available cities:', cities1);
 // console.log(cities);
 
-function indexmodel() {
+function indexmodel() { 
 
     this.registeruser = (users, callback) => {
         if (!/^[0-9]{10}$/.test(users.phone)) {
@@ -214,6 +214,7 @@ function indexmodel() {
                 callback([]);
             });
     }
+    
 }
 
 module.exports = new indexmodel();

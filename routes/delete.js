@@ -2,9 +2,11 @@ var express = require('express');
 var router = express.Router();
 var indexmodel = require('../models/indexmodel');
 
-router.delete('/', (req, res, next) => {
+//DELETE USER ROUTE
+
+router.delete('/', (req, res) => {
   indexmodel.deleteuser(req.body, (result) => {
-    if (result) {
+    if (result){
       console.log('User deleted successfully.');
       res.status(200).send('User deleted successfully.');
     } else {
@@ -14,6 +16,4 @@ router.delete('/', (req, res, next) => {
   });
 });
 
-
 module.exports = router;
-

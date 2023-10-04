@@ -2,6 +2,7 @@ var mongoose = require("mongoose");
 var {URL} = require('../constants/constants');
 const indianCities = require('indian-cities-database');
 
+//DATABASE CONNECTIVITY 
 mongoose.connect(URL);
 var db = mongoose.connection;
 
@@ -10,6 +11,8 @@ const states = [...new Set(cities.map(city => city.state))];
 const cities1 = [...new Set(cities.map(city => city.city))];
 // console.log('Available states:', states);
 // console.log('Available cities:', cities1);
+
+// USER SCHEMA
 const User = mongoose.Schema({
     name: {
         type: String,
@@ -57,7 +60,7 @@ const User = mongoose.Schema({
 });
 const users = mongoose.model('User', User);
 
-//onboarding Schema
+//ONBOARDING SCHEMA
 const OnBoarding = mongoose.Schema({
     questions: {
         type: String,

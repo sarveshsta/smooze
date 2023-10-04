@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 var indexmodel = require('../models/indexmodel');
 
-//login route
+//LOGIN ROUTE
+
 router.post('/', (req, res, next) => {
     indexmodel.userlogin(req.body, (results) => {
         console.log(results);

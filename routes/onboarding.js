@@ -4,6 +4,8 @@ var indexmodel = require('../models/indexmodel');
 
 let currentQuestionIndex = 0;
 
+//ONBOARDING QUESTIONS
+
 const questions = [
     {
         question1: "If Jadoo was your bartender today, what would you like to drink?",
@@ -63,7 +65,8 @@ const questions = [
     }
 ];
 
-// onboarding route
+// ONBOARDING ROUTE
+
 router.post('/', (req, res, next) => {
     const currentQuestion = questions[currentQuestionIndex];
     const selectedOptions = req.body.options; 

@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 var indexmodel = require('../models/indexmodel');
 
-//logout route
+//LOGOUT ROUTE 
+
 router.post('/', (req, res, next) => {
     res.setHeader('Set-Cookie', [
         'isLoggedin = false; HttpOnly; Secure',

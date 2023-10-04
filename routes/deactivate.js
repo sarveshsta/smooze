@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var indexmodel = require('../models/indexmodel');
 
+//DEACTIVATE USER ROUTE
+
 router.post('/', (req, res, next) => {
   indexmodel.deactivateUser(req.body, (result) => {
     if (result) {

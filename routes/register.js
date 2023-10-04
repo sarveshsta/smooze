@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 var indexmodel = require('../models/indexmodel');
 
-//regsitration route
+//REGISTER ROUTE
+
 router.post('/', function (req, res, next) {
     // console.log(req.body)
     indexmodel.registeruser(req.body, (result) => {
