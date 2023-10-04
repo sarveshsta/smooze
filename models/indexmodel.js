@@ -1,6 +1,7 @@
 const { db, users, onboardings } = require('./connection');
 const indianCities = require('indian-cities-database');
 const nodemailer = require('nodemailer');
+const bcrypt = require('bcrypt');
 const { EMAIL, PASS } = require('../constants/constants');
 const cities = indianCities.cities
 const states = [...new Set(cities.map(city => city.state))];
@@ -10,24 +11,25 @@ const cities1 = [...new Set(cities.map(city => city.city))];
 // console.log('Available cities:', cities1);
 // console.log(cities);
 
-function indexmodel() { 
+function indexmodel() {
 
     this.registeruser = (users, callback) => {
+        //PHONE VALIDATION
         if (!/^[0-9]{10}$/.test(users.phone)) {
             callback(false, { "msg": 'Invalid phone number' });
             return;
         }
-
+        //GENDER VALIDATION
         if (!['Male', 'Female', 'Others'].includes(users.gender)) {
             callback(false, { "gen": 'Invalid gender' });
             return;
         }
-
+        //STATES VALIDATION
         if (!states.includes(users.state)) {
             callback(false, { "msgState": 'Invalid state' });
             return;
         }
-
+        //CITIES VALIDATION
         if (!cities1.includes(users.city)) {
             callback(false, { "msgCity": 'Invalid city for the selected state' });
             return;
@@ -64,14 +66,24 @@ function indexmodel() {
                     users.Isactive = false
                     users.IsGoogle = false
                     users.IsApple = false
-                    db.collection("users").insertOne(users, (err) => {
-                        if (err) {
-                            console.log(err);
-                            callback(false);
-                        } else {
-                            callback(true);
-                        }
-                    });
+                    //INSERTING DATA INTO DATABASE
+                    bcrypt.hash(users.password, 10).then((hash) => {
+                        // console.log(hash);
+                        db.collection("users").insertOne(users, (err) => {
+                            if (err) {
+                                console.log(err);
+                                callback(false);
+                            } else {
+                                db.collection("users").updateOne(users, { $set: { password: hash } })
+                                    .then(
+                                        callback(true)
+                                    )
+                                    .catch((err) => {
+                                        console.log(err);
+                                    })
+                            }
+                        });
+                    })
                 } else {
                     callback(false, { "msg": 'User already exists' });
                 }
@@ -82,22 +94,34 @@ function indexmodel() {
             });
     };
 
+
+
+    
     this.userlogin = (users, callback) => {
-        db.collection('users').find({ email: users.email, password: users.password }).toArray()
+        //GETTING OR FETCHING THE DETAILS FROM DATABASE TO MATCH THE DETAILS GIVEN BY USER
+        db.collection('users').find({ email: users.email }).toArray()
             .then((result) => {
                 if (result.length > 0) {
                     const user = result[0];
-                    if (!user.Isactive) {
-                        // Activate the user
-                        db.collection('users').updateOne({ email: users.email }, { $set: { Isactive: true } })
-                            .then(() => {
-                                console.log('User activated.');
-                            })
-                            .catch((updateErr) => {
-                                console.log('Error activating user:', updateErr);
-                            });
-                    }
-                    callback(result);
+                    const dbPassword = user.password;
+                    bcrypt.compare(users.password, dbPassword).then((match) => {
+                        if (!match) {
+                            console.log("user credentials not matched");
+                            callback([]);
+                        } else {
+                            if (!user.Isactive) {
+                                // Activate the user
+                                db.collection('users').updateOne({ email: users.email }, { $set: { Isactive: true } })
+                                    .then(() => {
+                                        console.log('User activated.');
+                                    })
+                                    .catch((updateErr) => {
+                                        console.log('Error activating user:', updateErr);
+                                    });
+                            }
+                            callback(result);
+                        }
+                    });
                 } else {
                     console.log('User not found.');
                     callback([]);
@@ -107,7 +131,10 @@ function indexmodel() {
                 console.log('Error:', err);
                 callback([]);
             });
-    }
+    };
+    
+
+
 
     this.deactivateUser = (users, callback) => {
         db.collection('users').updateOne({ email: users.email, password: users.password }, { $set: { Isactive: false } })
@@ -121,6 +148,8 @@ function indexmodel() {
             });
     }
 
+
+
     this.deleteuser = (users, callback) => {
         db.collection('users').deleteOne({ email: users.email, password: users.password })
             .then((result) => {
@@ -129,6 +158,8 @@ function indexmodel() {
                 console.log(err);
             });
     }
+
+
 
     this.onboardingQuestion = (onboardings, selectedOptions, callback) => {
         db.collection("onboardings").find().toArray()
@@ -176,8 +207,10 @@ function indexmodel() {
             });
     }
 
+
+    
     this.forgotPassword = (users, callback) => {
-            db.collection('users').find({ email: users.email, password: users.password }).toArray()
+        db.collection('users').find({ email: users.email, password: users.password }).toArray()
             .then((result) => {
                 if (result.length > 0) {
                     const user = result[0];
@@ -189,14 +222,14 @@ function indexmodel() {
                         }
                     }
                     let transporter = nodemailer.createTransport(config);
-    
+
                     let message = {
                         from: EMAIL,
                         to: users.email,
                         subject: "Reset Password Mail",
                         html: '<p>hlo </p>' + '<b>' + users.name + '</b>' + '<b> please click here to <a href="http://localhost:8000/verifyMail?email=' + users.email + '">Verify</a> your mail.</b>'
                     }
-    
+
                     transporter.sendMail(message, function (err, info) {
                         if (err) {
                             console.log(err);
@@ -214,7 +247,7 @@ function indexmodel() {
                 callback([]);
             });
     }
-    
+
 }
 
 module.exports = new indexmodel();

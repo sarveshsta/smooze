@@ -20,6 +20,7 @@ router.post('/', (req, res, next) => {
                     sameSite: 'strict',
                 });
 
+                //SETTING COOKIES WHILE LOGIN
                 res.setHeader('Set-Cookie', [
                     'isLoggedin= true; HttpOnly; Secure',
                     `Expires=${date}; HttpOnly; Secure`,

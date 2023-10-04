@@ -6,7 +6,6 @@ var logger = require('morgan');
 
 
 //ALL THE ROUTES ARE HERE
-
 var registerRouter = require('./routes/register');
 var loginRouter = require('./routes/login');
 var logoutRouter = require('./routes/logout');
@@ -28,7 +27,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //ALL MIDDLEWARES ARE USED HERE
-
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);

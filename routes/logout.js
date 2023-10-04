@@ -5,6 +5,7 @@ var indexmodel = require('../models/indexmodel');
 //LOGOUT ROUTE 
 
 router.post('/', (req, res, next) => {
+    //ALL COOKIES REMOVED
     res.setHeader('Set-Cookie', [
         'isLoggedin = false; HttpOnly; Secure',
         'Expires = Expired; HttpOnly; Secure'
