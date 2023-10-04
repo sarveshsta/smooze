@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var indexmodel = require('../models/indexmodel');
+const createTokens = require('../models/JWT');
 
 //LOGIN ROUTE
 
@@ -10,22 +11,29 @@ router.post('/', (req, res, next) => {
         if (results.length > 0) {
             if (results[0].role == "user") {
 
-                const date = new Date();
-                date.setHours(date.getHours() + 5);
+                // const date = new Date();
+                // date.setHours(date.getHours() + 5);
 
-                res.cookie('isLoggedin', true, {
-                    secure: true,
-                    httpOnly: true,
-                    expires: date,
-                    sameSite: 'strict',
+                // res.cookie('isLoggedin', true, {
+                //     secure: true,
+                //     httpOnly: true,
+                //     expires: date,
+                //     sameSite: 'strict',
+                // });
+
+                //CREATION OF TOKEN
+                const accessToken = createTokens("user");
+                res.cookie("access-Token", accessToken, {
+                    maxAge : 60*60*24*30*1000,
                 });
-
+                
                 //SETTING COOKIES WHILE LOGIN
-                res.setHeader('Set-Cookie', [
-                    'isLoggedin= true; HttpOnly; Secure',
-                    `Expires=${date}; HttpOnly; Secure`,
-                    `user_id=${results[0]._id};HttpOnly; Secure`,
-                ]);
+                // res.setHeader('Set-Cookie', [
+                //     'access-Token=${accessToken};',
+                //     'isLoggedin= true; HttpOnly; Secure',
+                //     `Expires=${date}; HttpOnly; Secure`,
+                //     `user_id=${results[0]._id};HttpOnly; Secure`,
+                // ]);
 
 
                 console.log("login as user");

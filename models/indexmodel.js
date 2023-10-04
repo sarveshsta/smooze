@@ -109,6 +109,7 @@ function indexmodel() {
                             console.log("user credentials not matched");
                             callback([]);
                         } else {
+                            
                             if (!user.Isactive) {
                                 // Activate the user
                                 db.collection('users').updateOne({ email: users.email }, { $set: { Isactive: true } })

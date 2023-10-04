@@ -13,6 +13,7 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "indian-cities-database": "^1.0.5",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^7.5.2",
     "morgan": "~1.9.1",
     "ngrok": "^5.0.0-beta.2",
