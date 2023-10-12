@@ -13,6 +13,7 @@ var deactivateRouter = require('./routes/deactivate');
 var deleteuser = require('./routes/delete');
 var onboarding = require('./routes/onboarding');
 var forgotPassword = require('./routes/forgotPassword');
+const resetPassword  = require('./routes/resetPassword');
 
 var app = express();
 
@@ -34,6 +35,7 @@ app.use('/deactivate', deactivateRouter);
 app.use('/delete', deleteuser);
 app.use('/onboarding', onboarding);
 app.use('/forgotPassword', forgotPassword);
+app.use('/resetPassword', resetPassword);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

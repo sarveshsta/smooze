@@ -2,6 +2,7 @@ const { db, users, onboardings } = require('./connection');
 const indianCities = require('indian-cities-database');
 const nodemailer = require('nodemailer');
 const bcrypt = require('bcrypt');
+const createTokens = require('../utils/JWT');
 const { EMAIL, PASS } = require('../constants/constants');
 const cities = indianCities.cities
 const states = [...new Set(cities.map(city => city.state))];
@@ -13,7 +14,7 @@ const cities1 = [...new Set(cities.map(city => city.city))];
 
 function indexmodel() {
 
-    this.registeruser = (users, callback) => {
+    this.registeruser = (users, accessToken, callback) => {
         //PHONE VALIDATION
         if (!/^[0-9]{10}$/.test(users.phone)) {
             callback(false, { "msg": 'Invalid phone number' });
@@ -66,6 +67,7 @@ function indexmodel() {
                     users.Isactive = false
                     users.IsGoogle = false
                     users.IsApple = false
+                    users.token = accessToken
                     //INSERTING DATA INTO DATABASE
                     bcrypt.hash(users.password, 10).then((hash) => {
                         // console.log(hash);
@@ -85,18 +87,18 @@ function indexmodel() {
                         });
                     })
                 } else {
-                    callback(false, { "msg": 'User already exists' });
+                    callback(false, { "msg": "" });
                 }
             })
             .catch((err) => {
                 console.log(err);
-                callback(false, { "msg": 'Error registering user' });
+                callback(false);
             });
     };
 
 
 
-    
+
     this.userlogin = (users, callback) => {
         //GETTING OR FETCHING THE DETAILS FROM DATABASE TO MATCH THE DETAILS GIVEN BY USER
         db.collection('users').find({ email: users.email }).toArray()
@@ -109,7 +111,6 @@ function indexmodel() {
                             console.log("user credentials not matched");
                             callback([]);
                         } else {
-                            
                             if (!user.Isactive) {
                                 // Activate the user
                                 db.collection('users').updateOne({ email: users.email }, { $set: { Isactive: true } })
@@ -133,15 +134,29 @@ function indexmodel() {
                 callback([]);
             });
     };
-    
+
 
 
 
     this.deactivateUser = (users, callback) => {
-        db.collection('users').updateOne({ email: users.email, password: users.password }, { $set: { Isactive: false } })
+        db.collection('users').updateOne({ email: users.email }, { $set: { Isactive: false } })
             .then((result) => {
-                // console.log('User deactivated.');
-                callback(result);
+                if (result.length > 0) {
+                    const user = result[0];
+                    const dbPassword = user.password;
+                    bcrypt.compare(user.password, dbPassword).then((match) => {
+                        if (!match) {
+                            console.log("user credentials not matched");
+                            callback([]);
+                        } else {
+                            // console.log('User deactivated.');
+                            callback(result);
+                        }
+                    });
+                } else {
+                    console.log('User not found.');
+                    callback([]);
+                }
             })
             .catch((updateErr) => {
                 console.log('Error deactivating user:', updateErr);
@@ -151,14 +166,31 @@ function indexmodel() {
 
 
 
+
     this.deleteuser = (users, callback) => {
-        db.collection('users').deleteOne({ email: users.email, password: users.password })
+        db.collection('users').deleteOne({ email: users.email })
             .then((result) => {
-                callback(result);
+                if (result.length > 0) {
+                    const user = result[0];
+                    const dbPassword = user.password;
+                    bcrypt.compare(user.password, dbPassword).then((match) => {
+                        if (!match) {
+                            console.log("user credentials not matched");
+                            callback([]);
+                        } else {
+                            callback(result);
+                        }
+                    });
+                } else {
+                    console.log('User not found.');
+                    callback([]);
+                }
+
             }).catch((err) => {
                 console.log(err);
             });
     }
+
 
 
 
@@ -209,45 +241,101 @@ function indexmodel() {
     }
 
 
-    
+
+
     this.forgotPassword = (users, callback) => {
-        db.collection('users').find({ email: users.email, password: users.password }).toArray()
+        db.collection('users').find({ email: users.email }).toArray()
             .then((result) => {
-                if (result.length > 0) {
-                    const user = result[0];
-                    let config = {
-                        service: 'gmail',
-                        auth: {
-                            user: EMAIL,
-                            pass: PASS
-                        }
-                    }
-                    let transporter = nodemailer.createTransport(config);
 
-                    let message = {
-                        from: EMAIL,
-                        to: users.email,
-                        subject: "Reset Password Mail",
-                        html: '<p>hlo </p>' + '<b>' + users.name + '</b>' + '<b> please click here to <a href="http://localhost:8000/verifyMail?email=' + users.email + '">Verify</a> your mail.</b>'
+                let config = {
+                    service: 'gmail',
+                    auth: {
+                        user: EMAIL,
+                        pass: PASS
                     }
-
-                    transporter.sendMail(message, function (err, info) {
-                        if (err) {
-                            console.log(err);
-                        } else {
-                            console.log("Email has been sent", info.response);
-                            callback(true);
-                        }
-                    })
-                } else {
-                    console.log('User not found.');
                 }
+
+                let transporter = nodemailer.createTransport(config);
+                let accessToken = createTokens("users");
+
+                let message = {
+                    from: EMAIL,
+                    to: users.email,
+                    subject: "Reset Password Mail",
+                    html: '<p>hlo </p>' + '<b>' + users.name + '</b>' + '<b> please click here to <a href="http://localhost:3000/resetPassword?Token=' + accessToken + '">Verify</a> your mail.</b>'
+                }
+
+                transporter.sendMail(message, function (err, info) {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        console.log("Email has been sent", info.response);
+                        callback(result);
+                    }
+                });
+
             })
             .catch((err) => {
                 console.log('Error:', err);
                 callback([]);
             });
     }
+
+
+
+
+    
+    // this.resetPassword = (users, newPassword, Token, callback) => {
+    //     db.collection('users').find({ token: users.token }).toArray()
+    //         .then((result) => {
+    //             if (Token == users.token) {
+    //                 bcrypt.hash(newPassword, 10).then((hash) => {
+    //                     db.collection("users").updateOne({ email: users.email }, { $set: { password: hash } }, { new: true })
+    //                         .then(() => {
+    //                             callback(result);
+    //                         })
+    //                         .catch((err) => {
+    //                             console.log(err);
+    //                             callback(false);
+    //                         });
+    //                 });
+    //             }
+    //             else {
+    //                 console.log("Token not found or expired");
+    //             }
+
+    //         })
+    //         .catch((err) => {
+    //             console.log("Error:", err);
+    //             callback(false);
+    //         });
+    // }
+    this.resetPassword = (users, Token, newPassword, callback) => {
+        db.collection('users').find({ token: Token }).toArray()
+            .then((result) => {
+                if (result.length > 0) { // Check if a user with the provided token was found
+                    const user = result[0];
+                    bcrypt.hash(newPassword, 10).then((hash) => {
+                        db.collection("users").updateOne({ email: user.email }, { $set: { password: hash } }, { new: true })
+                            .then(() => {
+                                callback(result);
+                            })
+                            .catch((err) => {
+                                console.log(err);
+                                callback(false);
+                            });
+                    });
+                } else {
+                    console.log("Token not found or expired");
+                    callback(false);
+                }
+            })
+            .catch((err) => {
+                console.log("Error:", err);
+                callback(false);
+            });
+    };
+    
 
 }
 
