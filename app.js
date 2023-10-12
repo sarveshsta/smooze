@@ -6,14 +6,14 @@ var logger = require('morgan');
 
 
 //ALL THE ROUTES ARE HERE
-var registerRouter = require('./routes/register');
-var loginRouter = require('./routes/login');
-var logoutRouter = require('./routes/logout');
-var deactivateRouter = require('./routes/deactivate');
-var deleteuser = require('./routes/delete');
-var onboarding = require('./routes/onboarding');
-var forgotPassword = require('./routes/forgotPassword');
-const resetPassword  = require('./routes/resetPassword');
+var registerRouter = require('./routes/usersRoute/register');
+var loginRouter = require('./routes/usersRoute/login');
+var logoutRouter = require('./routes/usersRoute/logout');
+var deactivateRouter = require('./routes/usersRoute/deactivate');
+var deleteuser = require('./routes/usersRoute/delete');
+var onboarding = require('./routes/usersRoute/onboarding');
+var forgotPassword = require('./routes/usersRoute/forgotPassword');
+const resetPassword  = require('./routes/usersRoute/resetPassword');
 
 var app = express();
 
