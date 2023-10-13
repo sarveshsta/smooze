@@ -14,6 +14,8 @@ var deleteuser = require('./routes/usersRoute/delete');
 var onboarding = require('./routes/usersRoute/onboarding');
 var forgotPassword = require('./routes/usersRoute/forgotPassword');
 const resetPassword  = require('./routes/usersRoute/resetPassword');
+const loginOTP = require('./routes/usersRoute/loginOTP');
+const verifyotp = require('./routes/usersRoute/verifyotp');
 
 var app = express();
 
@@ -36,6 +38,8 @@ app.use('/delete', deleteuser);
 app.use('/onboarding', onboarding);
 app.use('/forgotPassword', forgotPassword);
 app.use('/resetPassword', resetPassword);
+app.use('/loginOTP',loginOTP);
+app.use('/verifyOTP',verifyotp);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

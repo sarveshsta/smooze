@@ -2,8 +2,10 @@ const { db, users, onboardings } = require('./connection');
 const indianCities = require('indian-cities-database');
 const nodemailer = require('nodemailer');
 const bcrypt = require('bcrypt');
+const fast2sms = require('fast-two-sms');
 const createTokens = require('../utils/JWT');
-const { EMAIL, PASS } = require('../constants/constants');
+const { EMAIL, PASS, authOTPKEY } = require('../constants/constants');
+const otpGenerator = require('otp-generator');
 const cities = indianCities.cities
 const states = [...new Set(cities.map(city => city.state))];
 const cities1 = [...new Set(cities.map(city => city.city))];
@@ -68,6 +70,7 @@ function indexmodel() {
                     users.IsGoogle = false
                     users.IsApple = false
                     users.token = accessToken
+                    users.otp = ''
                     //INSERTING DATA INTO DATABASE
                     bcrypt.hash(users.password, 10).then((hash) => {
                         // console.log(hash);
@@ -133,6 +136,85 @@ function indexmodel() {
                 console.log('Error:', err);
                 callback([]);
             });
+    };
+
+
+
+
+    
+    this.login_with_otp = (users, callback) => {
+        db.collection('users').find({ phone: users.phone }).toArray()
+            .then((result) => {
+                if (result.length > 0) {
+                    const OTP = otpGenerator.generate(4, {
+                        digits: true,
+                        lowerCaseAlphabets: false,
+                        upperCaseAlphabets: false,
+                        specialChars: false
+                    });
+
+                    const new_otp = OTP;
+                    console.log("Generated OTP :", new_otp);
+
+                    const options = {
+                        authorization: authOTPKEY,
+                        message: `Your OTP is: ${new_otp}`,
+                        numbers: [users.phone]
+                    };
+
+                    fast2sms.sendMessage(options)
+                        .then(() => {
+                            db.collection("users").updateOne({phone : users.phone}, {$set : { otp : new_otp}})
+                            .then(()=>{
+                                console.log("added otp");
+                            })
+                            .catch((err)=>{
+                                console.log(err);
+                            })
+                            callback(result, OTP);
+                        })
+                        .catch((err) => {
+                            console.log('Error sending OTP:', err);
+                            callback([], null);
+                        });
+                } else {
+                    console.log('User not found.');
+                    callback([], null);
+                }
+            })
+            .catch((err) => {
+                console.log('Error:', err);
+                callback([], null);
+            });
+    };
+
+
+
+    this.VerifyOTP = (users , otp,callback) => {
+        db.collection('users').find({ phone: users.phone }).toArray()
+            .then((result) => {
+                if (result.length > 0) {
+                    if(otp == users.otp){
+                        callback(result);
+                        db.collection("users").updateOne({phone : users.phone}, {$set : { otp : ''}})
+                        .then(()=>{
+                            console.log("otp used");
+                        })
+                        .catch((err)=>{
+                            console.log(err);
+                        })
+                    }else{
+                        console.log("otp not matched");
+                    }     
+                }
+                else{
+                    console.log('User not found.');
+                    callback([], null);
+                }
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
     };
 
 
@@ -309,7 +391,7 @@ function indexmodel() {
     //             callback(false);
     //         });
     // }
- 
+
 
 }
 
