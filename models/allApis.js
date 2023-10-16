@@ -253,7 +253,7 @@ function indexmodel() {
 
 
 
-    
+
     this.deleteuser = (users, callback) => {
         db.collection('users').deleteOne({ email: users.email })
             .then((result) => {
@@ -281,7 +281,7 @@ function indexmodel() {
 
 
 
-    
+
     this.onboardingQuestion = (onboardings, selectedOptions, callback) => {
         db.collection("onboardings").find().toArray()
             .then((val => {
@@ -331,7 +331,7 @@ function indexmodel() {
 
 
 
-    
+
     this.forgotPassword = (users, callback) => {
         db.collection('users').find({ email: users.email }).toArray()
             .then((result) => {
@@ -401,95 +401,101 @@ function indexmodel() {
 
 
 
+    //REGISTER CLUB
+    this.registerClub = (clubs, accessToken, callback) => {
 
-    // this.registerClub = (clubs, accessToken, callback) => {
-    //     //PHONE VALIDATION
-    //     // if (!/^[0-9]{10}$/.test(clubs.phone)) {
-    //     //     callback(false, { "msg": 'Invalid phone number' });
-    //     //     return;
-    //     // }
-
-    //     db.collection("clubs").find().toArray()
-    //         .then((val) => {
-    //             console.log(val);
-    //             var result = val;
-    //             if (result.length > 0) {
-    //                 var max_id = result[0]._id;
-    //                 for (let row of result) {
-    //                     if (max_id < row._id) {
-    //                         max_id = row._id;
-    //                     }
-    //                 }
-    //                 clubs._id = max_id + 1;
-    //             } else {
-    //                 clubs._id = 1;
-    //             }
-    //             var flag = 1;
-    //             if (result.length > 0) {
-    //                 for (let row of result) {
-    //                     if (clubs.email == row.email) {
-    //                         flag = 0;
-    //                         break;
-    //                     }
-    //                 }
-    //             }
-
-    //             if (flag == 1) {
-    //                 clubs.status = 0;
-    //                 clubs.role = "Club_Owner";
-    //                 clubs.dt = new Date();  // Use new Date() to get the current date and time
-    //                 clubs.Isactive = false
-    //                 clubs.token = accessToken
-    //                 clubs.otp = ''
-    //                 //INSERTING DATA INTO DATABASE
-
-    //                 db.collection("clubs").insertOne(clubs, (err) => {
-    //                     if (err) {
-    //                         console.log(err);
-    //                         callback(false);
-    //                     } else {
-    //                         callback([])
-    //                         return true
-    //                     }
-    //                 });
-
-    //             }
-    //             else {
-    //                 console.log("club already exist")
-    //                 return false
-
-    //             }
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //             // callback(false);
-    //         });
-    // };
+        db.collection("clubs").find().toArray()
+            .then((val) => {
+                console.log(val);
+                var result = val;
+                if (result.length > 0) {
+                    var max_id = result[0]._id;
+                    for (let row of result) {
+                        if (max_id < row._id) {
+                            max_id = row._id;
+                        }
+                    }
+                    clubs._id = max_id + 1;
+                } else {
+                    clubs._id = 1;
+                }
+                var flag = 1;
+                if (result.length > 0) {
+                    for (let row of result) {
+                        if (clubs.email == row.email) {
+                            flag = 0;
+                            break;
+                        }
+                    }
+                }
+                if (flag == 1) {
+                    clubs.status = 0;
+                    clubs.role = "Club Owner";
+                    clubs.dt = new Date();  // Use new Date() to get the current date and time
+                    clubs.Isactive = false
+                    clubs.token = accessToken
+                    clubs.otp = ''
+                    //INSERTING DATA INTO DATABASE
+                    bcrypt.hash(clubs.password, 10).then((hash) => {
+                        // console.log(hash);
+                        db.collection("clubs").insertOne(clubs, (err) => {
+                            if (err) {
+                                console.log(err);
+                                callback(false);
+                            } else {
+                                db.collection("clubs").updateOne(clubs, { $set: { password: hash } })
+                                    .then(
+                                        callback(true)
+                                    )
+                                    .catch((err) => {
+                                        console.log(err);
+                                    })
+                            }
+                        });
+                    })
+                } else {
+                    callback(false, { "msg": "" });
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+                callback(false);
+            });
+    };
 
 
 
 
+    //DELETE CLUB API
+    this.deleteClub = (clubs , callback ) => {
+        db.collection('clubs').deleteOne({ email: clubs.email })
+            .then((result) => {
+                if (result.length > 0) {
+                    const club = result[0];
+                    const dbPassword = club.password;
+                    bcrypt.compare(club.password, dbPassword).then((match) => {
+                        if (!match) {
+                            console.log("club credentials not matched");
+                            callback([]);
+                        } else {
+                            callback(result);
+                        }
+                    });
+                } else {
+                    console.log('club not found.');
+                    callback([]);
+                }
 
-    // this.deleteClub = (clubs, callback) => {
-    //     db.collection('clubs').deleteOne({ email: clubs.email})
-    //         .then((result) => {
-    //             if (result.length > 0) {
-    //                 console.log("helloo")
-    //                 callback(result);
-    //             } else {
-    //                 console.log('club not found.');
-    //             }
-
-    //         }).catch((err) => {
-    //             console.log(err);
-    //         });
-    // }
+            }).catch((err) => {
+                console.log(err);
+            });
+    }
 
 
+    
+    
 
-
-
-    //UPDATE NAME API
+    // UPDATE NAME API
     this.updateName = (users, name, callback) => {
         db.collection('users').find({ email: users.email }).toArray()
             .then((result) => {
@@ -523,7 +529,7 @@ function indexmodel() {
 
 
 
-    
+
 
     //UPDATE PHONE API
     this.updatePhone = (users, phone, callback) => {
@@ -545,16 +551,16 @@ function indexmodel() {
                                         upperCaseAlphabets: false,
                                         specialChars: false
                                     });
-                
+
                                     const new_otp = OTP;
                                     console.log("Generated OTP :", new_otp);
-                
+
                                     const options = {
                                         authorization: authOTPKEY,
                                         message: `Your OTP is: ${new_otp}`,
                                         numbers: [users.phone]
                                     };
-                
+
                                     fast2sms.sendMessage(options)
                                         .then(() => {
                                             db.collection("users").updateOne({ phone: users.phone }, { $set: { otp: new_otp } })
@@ -590,7 +596,7 @@ function indexmodel() {
 
 
 
-    
+
 
     //UPDATE EMAIL API
     this.updateEmail = (users, newemail, callback) => {
@@ -623,6 +629,9 @@ function indexmodel() {
                 callback([]);
             });
     }
+
+
+
 
 
 
