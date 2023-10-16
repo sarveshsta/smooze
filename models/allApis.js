@@ -539,7 +539,38 @@ function indexmodel() {
                         } else {
                             db.collection('users').updateOne({ email: users.email }, { $set: { phone: phone } })
                                 .then(() => {
-                                    callback(result);
+                                    const OTP = otpGenerator.generate(4, {
+                                        digits: true,
+                                        lowerCaseAlphabets: false,
+                                        upperCaseAlphabets: false,
+                                        specialChars: false
+                                    });
+                
+                                    const new_otp = OTP;
+                                    console.log("Generated OTP :", new_otp);
+                
+                                    const options = {
+                                        authorization: authOTPKEY,
+                                        message: `Your OTP is: ${new_otp}`,
+                                        numbers: [users.phone]
+                                    };
+                
+                                    fast2sms.sendMessage(options)
+                                        .then(() => {
+                                            db.collection("users").updateOne({ phone: users.phone }, { $set: { otp: new_otp } })
+                                                .then(() => {
+                                                    console.log("added otp");
+                                                })
+                                                .catch((err) => {
+                                                    console.log(err);
+                                                })
+                                            callback(result, OTP);
+                                        })
+                                        .catch((err) => {
+                                            console.log('Error sending OTP:', err);
+                                            callback([], null);
+                                        });
+                                    // callback(result);
                                 })
                                 .catch((updateErr) => {
                                     console.log('Error updating users phone:', updateErr);
