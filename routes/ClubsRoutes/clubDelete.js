@@ -5,18 +5,15 @@ var indexmodel = require('../../models/allApis');
 //DELETE USER ROUTE
 
 router.delete('/', (req, res) => {
-  indexmodel.deleteuser(req.body, (result) => {
+  indexmodel.deleteClub(req.body, (result) => {
     if (result){
-      console.log('User deleted successfully.');
-      res.status(200).send('User deleted successfully.');
+      console.log('Club deleted successfully.');
+      res.status(200).send('Club deleted successfully.');
     } else {
-      console.log('Failed to delete user.');
+      console.log('Failed to delete Club.');
       res.status(500).render('error');
     }
   });
 });
 
 module.exports = router;
-
-
-

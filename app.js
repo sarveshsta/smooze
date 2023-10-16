@@ -16,7 +16,11 @@ var forgotPassword = require('./routes/usersRoute/forgotPassword');
 const resetPassword  = require('./routes/usersRoute/resetPassword');
 const loginOTP = require('./routes/usersRoute/loginOTP');
 const verifyotp = require('./routes/usersRoute/verifyotp');
-
+const clubRegister = require('./routes/ClubsRoutes/clubRegister');
+const clubDelete = require('./routes/ClubsRoutes/clubDelete');
+const updateName = require('./routes/usersRoute/updateName');
+const updatePhone = require('./routes/usersRoute/updatePhone');
+const updateEmail = require('./routes/usersRoute/updateEmail');
 var app = express();
 
 // // view engine setup
@@ -40,7 +44,11 @@ app.use('/forgotPassword', forgotPassword);
 app.use('/resetPassword', resetPassword);
 app.use('/loginOTP',loginOTP);
 app.use('/verifyOTP',verifyotp);
-
+app.use('/clubRegister',clubRegister);
+app.use('/clubDelete',clubDelete);
+app.use('/updateName',updateName);
+app.use('/updatePhone',updatePhone);
+app.use('/updateEmail',updateEmail);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

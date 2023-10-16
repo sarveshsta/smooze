@@ -77,6 +77,52 @@ const OnBoarding = mongoose.Schema({
 });
 const onboardings = mongoose.model('OnBoarding', OnBoarding);
 
+//CLUB SCHEMA
+const Clubs = mongoose.Schema({
+    Owner_name : {
+        type: String,
+        required: true
+    },
+    Phone : {
+        type: String,
+        validate: {
+            validator: function (value) {
+                return /^[0-9]{10}$/.test(value);
+            },
+            message: 'Phone number must be 10 digits long.'
+        },
+        required: true
+    },
+    email : {
+        type: String,
+        required: true
+    },
+    password : {
+        type : String,
+        required : true
+    },
+    Club_name : {
+        type: String,
+        required: true
+    },
+    Club_Banner : {
+        type : String,
+        required : true
+    },
+    Club_Docs : {
+        type : String,
+        required : true
+    },
+    Owner_Aadhar : {
+        type : String,
+        required : true
+    },
+    Owner_DP : {
+        type : String,
+        required : true
+    } 
+});
+const clubs = mongoose.model('Clubs',Clubs);
 
 console.log("Successfully connected to mongodb database...");
-module.exports = { db, users ,onboardings};
+module.exports = { db, users, onboardings, clubs};

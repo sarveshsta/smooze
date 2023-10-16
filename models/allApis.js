@@ -1,4 +1,4 @@
-const { db, users, onboardings } = require('./connection');
+const { db, users, onboardings, clubs } = require('./connection');
 const indianCities = require('indian-cities-database');
 const nodemailer = require('nodemailer');
 const bcrypt = require('bcrypt');
@@ -102,6 +102,7 @@ function indexmodel() {
 
 
 
+
     this.userlogin = (users, callback) => {
         //GETTING OR FETCHING THE DETAILS FROM DATABASE TO MATCH THE DETAILS GIVEN BY USER
         db.collection('users').find({ email: users.email }).toArray()
@@ -141,7 +142,7 @@ function indexmodel() {
 
 
 
-    
+
     this.login_with_otp = (users, callback) => {
         db.collection('users').find({ phone: users.phone }).toArray()
             .then((result) => {
@@ -164,13 +165,13 @@ function indexmodel() {
 
                     fast2sms.sendMessage(options)
                         .then(() => {
-                            db.collection("users").updateOne({phone : users.phone}, {$set : { otp : new_otp}})
-                            .then(()=>{
-                                console.log("added otp");
-                            })
-                            .catch((err)=>{
-                                console.log(err);
-                            })
+                            db.collection("users").updateOne({ phone: users.phone }, { $set: { otp: new_otp } })
+                                .then(() => {
+                                    console.log("added otp");
+                                })
+                                .catch((err) => {
+                                    console.log(err);
+                                })
                             callback(result, OTP);
                         })
                         .catch((err) => {
@@ -190,32 +191,35 @@ function indexmodel() {
 
 
 
-    this.VerifyOTP = (users , otp,callback) => {
+
+
+    this.VerifyOTP = (users, otp, callback) => {
         db.collection('users').find({ phone: users.phone }).toArray()
             .then((result) => {
                 if (result.length > 0) {
-                    if(otp == users.otp){
+                    if (otp == users.otp) {
                         callback(result);
-                        db.collection("users").updateOne({phone : users.phone}, {$set : { otp : ''}})
-                        .then(()=>{
-                            console.log("otp used");
-                        })
-                        .catch((err)=>{
-                            console.log(err);
-                        })
-                    }else{
+                        db.collection("users").updateOne({ phone: users.phone }, { $set: { otp: '' } })
+                            .then(() => {
+                                console.log("otp used");
+                            })
+                            .catch((err) => {
+                                console.log(err);
+                            })
+                    } else {
                         console.log("otp not matched");
-                    }     
+                    }
                 }
-                else{
+                else {
                     console.log('User not found.');
                     callback([], null);
                 }
             })
-            .catch((err)=>{
+            .catch((err) => {
                 console.log(err);
             })
     };
+
 
 
 
@@ -249,6 +253,7 @@ function indexmodel() {
 
 
 
+    
     this.deleteuser = (users, callback) => {
         db.collection('users').deleteOne({ email: users.email })
             .then((result) => {
@@ -276,6 +281,7 @@ function indexmodel() {
 
 
 
+    
     this.onboardingQuestion = (onboardings, selectedOptions, callback) => {
         db.collection("onboardings").find().toArray()
             .then((val => {
@@ -325,6 +331,7 @@ function indexmodel() {
 
 
 
+    
     this.forgotPassword = (users, callback) => {
         db.collection('users').find({ email: users.email }).toArray()
             .then((result) => {
@@ -391,6 +398,201 @@ function indexmodel() {
     //             callback(false);
     //         });
     // }
+
+
+
+
+    // this.registerClub = (clubs, accessToken, callback) => {
+    //     //PHONE VALIDATION
+    //     // if (!/^[0-9]{10}$/.test(clubs.phone)) {
+    //     //     callback(false, { "msg": 'Invalid phone number' });
+    //     //     return;
+    //     // }
+
+    //     db.collection("clubs").find().toArray()
+    //         .then((val) => {
+    //             console.log(val);
+    //             var result = val;
+    //             if (result.length > 0) {
+    //                 var max_id = result[0]._id;
+    //                 for (let row of result) {
+    //                     if (max_id < row._id) {
+    //                         max_id = row._id;
+    //                     }
+    //                 }
+    //                 clubs._id = max_id + 1;
+    //             } else {
+    //                 clubs._id = 1;
+    //             }
+    //             var flag = 1;
+    //             if (result.length > 0) {
+    //                 for (let row of result) {
+    //                     if (clubs.email == row.email) {
+    //                         flag = 0;
+    //                         break;
+    //                     }
+    //                 }
+    //             }
+
+    //             if (flag == 1) {
+    //                 clubs.status = 0;
+    //                 clubs.role = "Club_Owner";
+    //                 clubs.dt = new Date();  // Use new Date() to get the current date and time
+    //                 clubs.Isactive = false
+    //                 clubs.token = accessToken
+    //                 clubs.otp = ''
+    //                 //INSERTING DATA INTO DATABASE
+
+    //                 db.collection("clubs").insertOne(clubs, (err) => {
+    //                     if (err) {
+    //                         console.log(err);
+    //                         callback(false);
+    //                     } else {
+    //                         callback([])
+    //                         return true
+    //                     }
+    //                 });
+
+    //             }
+    //             else {
+    //                 console.log("club already exist")
+    //                 return false
+
+    //             }
+    //         })
+    //         .catch((err) => {
+    //             console.log(err);
+    //             // callback(false);
+    //         });
+    // };
+
+
+
+
+
+    // this.deleteClub = (clubs, callback) => {
+    //     db.collection('clubs').deleteOne({ email: clubs.email})
+    //         .then((result) => {
+    //             if (result.length > 0) {
+    //                 console.log("helloo")
+    //                 callback(result);
+    //             } else {
+    //                 console.log('club not found.');
+    //             }
+
+    //         }).catch((err) => {
+    //             console.log(err);
+    //         });
+    // }
+
+
+
+
+
+    //UPDATE NAME API
+    this.updateName = (users, name, callback) => {
+        db.collection('users').find({ email: users.email }).toArray()
+            .then((result) => {
+                if (result.length > 0) {
+                    const user = result[0];
+                    const dbPassword = user.password;
+                    bcrypt.compare(users.password, dbPassword).then((match) => {
+                        if (!match) {
+                            console.log("user credentials not matched");
+                            callback([]);
+                        } else {
+                            db.collection('users').updateOne({ email: users.email }, { $set: { name: name } })
+                                .then(() => {
+                                    callback(result);
+                                })
+                                .catch((updateErr) => {
+                                    console.log('Error updating users name :', updateErr);
+                                });
+                        }
+                    });
+                } else {
+                    console.log('User not found.');
+                    callback([]);
+                }
+            })
+            .catch((err) => {
+                console.log('Error:', err);
+                callback([]);
+            });
+    }
+
+
+
+    
+
+    //UPDATE PHONE API
+    this.updatePhone = (users, phone, callback) => {
+        db.collection('users').find({ email: users.email }).toArray()
+            .then((result) => {
+                if (result.length > 0) {
+                    const user = result[0];
+                    const dbPassword = user.password;
+                    bcrypt.compare(users.password, dbPassword).then((match) => {
+                        if (!match) {
+                            console.log("user credentials not matched");
+                            callback([]);
+                        } else {
+                            db.collection('users').updateOne({ email: users.email }, { $set: { phone: phone } })
+                                .then(() => {
+                                    callback(result);
+                                })
+                                .catch((updateErr) => {
+                                    console.log('Error updating users phone:', updateErr);
+                                });
+                        }
+                    });
+                } else {
+                    console.log('User not found.');
+                    callback([]);
+                }
+            })
+            .catch((err) => {
+                console.log('Error:', err);
+                callback([]);
+            });
+    }
+
+
+
+    
+
+    //UPDATE EMAIL API
+    this.updateEmail = (users, newemail, callback) => {
+        db.collection('users').find({ email: users.email }).toArray()
+            .then((result) => {
+                if (result.length > 0) {
+                    const user = result[0];
+                    const dbPassword = user.password;
+                    bcrypt.compare(users.password, dbPassword).then((match) => {
+                        if (!match) {
+                            console.log("user credentials not matched");
+                            callback([]);
+                        } else {
+                            db.collection('users').updateOne({ email: users.email }, { $set: { email: newemail } })
+                                .then(() => {
+                                    callback(result);
+                                })
+                                .catch((updateErr) => {
+                                    console.log('Error updating users phone:', updateErr);
+                                });
+                        }
+                    });
+                } else {
+                    console.log('User not found.');
+                    callback([]);
+                }
+            })
+            .catch((err) => {
+                console.log('Error:', err);
+                callback([]);
+            });
+    }
+
 
 
 }
