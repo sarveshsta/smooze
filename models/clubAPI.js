@@ -68,7 +68,7 @@ function clubmodel() {
 
 
     //not working
-    //DELETE CLUB API
+    // DELETE CLUB API
     // this.deleteClub = (clubs, callback) => {
     //     db.collection('clubs').deleteOne({ email: clubs.email })
     //         .then((result) => {
@@ -231,34 +231,34 @@ function clubmodel() {
 
 
 
-
+    //not  working
     //verify Club Phone api
-    this.verifyClub_phone = (clubs, OTP, callback) => {
-        db.collection('clubs').find({ Phone: clubs.Phone }).toArray()
-            .then((result) => {
-                if (result.length > 0) {
-                    if (OTP == clubs.otp) {
-                        callback(result);
-                        db.collection("clubs").updateOne({ Phone: clubs.Phone }, { $set: { otp: '' } })
-                            .then(() => {
-                                console.log("otp used");
-                            })
-                            .catch((err) => {
-                                console.log(err);
-                            })
-                    } else {
-                        console.log("otp not matched");
-                    }
-                }
-                else {
-                    console.log('clubs not found.');
-                    callback([], null);
-                }
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    };
+    // this.verifyClub_phone = (clubs, OTP, callback) => {
+    //     db.collection('clubs').find({ Phone: clubs.Phone }).toArray()
+    //         .then((result) => {
+    //             if (result.length > 0) {
+    //                 if (OTP == clubs.otp) {
+    //                     callback(result);
+    //                     db.collection("clubs").updateOne({ Phone: clubs.Phone }, { $set: { otp: '' } })
+    //                         .then(() => {
+    //                             console.log("otp used");
+    //                         })
+    //                         .catch((err) => {
+    //                             console.log(err);
+    //                         })
+    //                 } else {
+    //                     console.log("otp not matched");
+    //                 }
+    //             }
+    //             else {
+    //                 console.log('clubs not found.');
+    //                 callback([], null);
+    //             }
+    //         })
+    //         .catch((err) => {
+    //             console.log(err);
+    //         })
+    // };
 
 
 
@@ -269,6 +269,44 @@ function clubmodel() {
 
     //UPDATE EMAIL API
     this.updateClub_Email = (clubs, newemail, callback) => {
+        db.collection('clubs').find({ email: clubs.email }).toArray()
+            .then((result) => {
+                if (result.length > 0) {
+                    const club = result[0];
+                    const dbPassword = club.password;
+                    bcrypt.compare(clubs.password, dbPassword).then((match) => {
+                        if (!match) {
+                            console.log("user credentials not matched");
+                            callback([]);
+                        } else {
+                            db.collection('clubs').updateOne({ email: clubs.email }, { $set: { email: newemail } })
+                                .then(() => {
+                                    callback(result);
+                                })
+                                .catch((updateErr) => {
+                                    console.log('Error updating clubs email:', updateErr);
+                                });
+                        }
+                    });
+                } else {
+                    console.log('clubs not found.');
+                    callback([]);
+                }
+            })
+            .catch((err) => {
+                console.log('Error:', err);
+                callback([]);
+            });
+    }
+
+
+
+
+
+
+
+
+    this.updateOwner_DP = (clubs, newemail, callback) => {
         db.collection('clubs').find({ email: clubs.email }).toArray()
             .then((result) => {
                 if (result.length > 0) {
