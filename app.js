@@ -21,6 +21,11 @@ const clubDelete = require('./routes/ClubsRoutes/clubDelete');
 const updateName = require('./routes/usersRoute/updateName');
 const updatePhone = require('./routes/usersRoute/updatePhone');
 const updateEmail = require('./routes/usersRoute/updateEmail');
+const updateClub_name = require('./routes/ClubsRoutes/updateClub_name');
+const updateClub_Phone = require('./routes/ClubsRoutes/updateClub_Phone');
+const verifyClub_phone = require('./routes/ClubsRoutes/verifyClub_phone');
+const updateClub_Email = require('./routes/ClubsRoutes/updateClub_Email');
+const update_Owner_name = require('./routes/ClubsRoutes/update_Owner_name');
 var app = express();
 
 // // view engine setup
@@ -44,11 +49,17 @@ app.use('/forgotPassword', forgotPassword);
 app.use('/resetPassword', resetPassword);
 app.use('/loginOTP',loginOTP);
 app.use('/verifyOTP',verifyotp);
+app.use('verifyClub_phone',verifyClub_phone);
 app.use('/clubRegister',clubRegister);
 app.use('/clubDelete',clubDelete);
+app.use('/updateClub_name',updateClub_name);
+app.use('/updateClub_Phone',updateClub_Phone);
+app.use('/updateClub_Email',updateClub_Email);
+app.use('/update_Owner_name',update_Owner_name);
 app.use('/updateName',updateName);
 app.use('/updatePhone',updatePhone);
 app.use('/updateEmail',updateEmail);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

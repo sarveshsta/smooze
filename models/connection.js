@@ -81,7 +81,7 @@ const onboardings = mongoose.model('OnBoarding', OnBoarding);
 const Clubs = mongoose.Schema({
     Owner_name : {
         type: String,
-        required: true
+        
     },
     Phone : {
         type: String,
@@ -91,35 +91,35 @@ const Clubs = mongoose.Schema({
             },
             message: 'Phone number must be 10 digits long.'
         },
-        required: true
+        
     },
     email : {
         type: String,
-        required: true
+        
     },
     password : {
         type : String,
-        required : true
+        
     },
     Club_name : {
         type: String,
-        required: true
+        
     },
     Club_Banner : {
-        type : String,
-        required : true
+        data : String,
+        
     },
     Club_Docs : {
         type : String,
-        required : true
+        
     },
     Owner_Aadhar : {
         type : String,
-        required : true
+       
     },
     Owner_DP : {
         type : String,
-        required : true
+        
     } 
 });
 const clubs = mongoose.model('Clubs',Clubs);

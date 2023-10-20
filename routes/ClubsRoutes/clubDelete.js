@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var indexmodel = require('../../models/allApis');
+var clubmodel = require('../../models/clubAPI');
 
 //DELETE USER ROUTE
 
 router.delete('/', (req, res) => {
-  indexmodel.deleteClub(req.body, (result) => {
+  clubmodel.deleteClub(req.body, (result) => {
     if (result){
       console.log('Club deleted successfully.');
       res.status(200).send('Club deleted successfully.');

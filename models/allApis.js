@@ -1,4 +1,4 @@
-const { db, users, onboardings, clubs } = require('./connection');
+const { db, users, onboardings } = require('./connection');
 const indianCities = require('indian-cities-database');
 const nodemailer = require('nodemailer');
 const bcrypt = require('bcrypt');
@@ -16,6 +16,7 @@ const cities1 = [...new Set(cities.map(city => city.city))];
 
 function indexmodel() {
 
+    //user register api
     this.registeruser = (users, accessToken, callback) => {
         //PHONE VALIDATION
         if (!/^[0-9]{10}$/.test(users.phone)) {
@@ -69,6 +70,7 @@ function indexmodel() {
                     users.Isactive = false
                     users.IsGoogle = false
                     users.IsApple = false
+                    users.IsEmailVerified = false
                     users.token = accessToken
                     users.otp = ''
                     //INSERTING DATA INTO DATABASE
@@ -102,7 +104,7 @@ function indexmodel() {
 
 
 
-
+    //user login api
     this.userlogin = (users, callback) => {
         //GETTING OR FETCHING THE DETAILS FROM DATABASE TO MATCH THE DETAILS GIVEN BY USER
         db.collection('users').find({ email: users.email }).toArray()
@@ -142,7 +144,7 @@ function indexmodel() {
 
 
 
-
+    //login users with otp api
     this.login_with_otp = (users, callback) => {
         db.collection('users').find({ phone: users.phone }).toArray()
             .then((result) => {
@@ -192,7 +194,7 @@ function indexmodel() {
 
 
 
-
+    //Verify users OTP api
     this.VerifyOTP = (users, otp, callback) => {
         db.collection('users').find({ phone: users.phone }).toArray()
             .then((result) => {
@@ -223,7 +225,7 @@ function indexmodel() {
 
 
 
-
+    //deactivate users api
     this.deactivateUser = (users, callback) => {
         db.collection('users').updateOne({ email: users.email }, { $set: { Isactive: false } })
             .then((result) => {
@@ -254,6 +256,7 @@ function indexmodel() {
 
 
 
+    //delete user api
     this.deleteuser = (users, callback) => {
         db.collection('users').deleteOne({ email: users.email })
             .then((result) => {
@@ -282,6 +285,7 @@ function indexmodel() {
 
 
 
+    //onboarding question api
     this.onboardingQuestion = (onboardings, selectedOptions, callback) => {
         db.collection("onboardings").find().toArray()
             .then((val => {
@@ -332,6 +336,7 @@ function indexmodel() {
 
 
 
+    //sending mail for forgot password api
     this.forgotPassword = (users, callback) => {
         db.collection('users').find({ email: users.email }).toArray()
             .then((result) => {
@@ -372,6 +377,8 @@ function indexmodel() {
 
 
 
+
+
     //not working
     // this.resetPassword = (users, newPassword, Token, callback) => {
     //     db.collection('users').find({ token: users.token }).toArray()
@@ -401,99 +408,9 @@ function indexmodel() {
 
 
 
-    //REGISTER CLUB
-    this.registerClub = (clubs, accessToken, callback) => {
-
-        db.collection("clubs").find().toArray()
-            .then((val) => {
-                console.log(val);
-                var result = val;
-                if (result.length > 0) {
-                    var max_id = result[0]._id;
-                    for (let row of result) {
-                        if (max_id < row._id) {
-                            max_id = row._id;
-                        }
-                    }
-                    clubs._id = max_id + 1;
-                } else {
-                    clubs._id = 1;
-                }
-                var flag = 1;
-                if (result.length > 0) {
-                    for (let row of result) {
-                        if (clubs.email == row.email) {
-                            flag = 0;
-                            break;
-                        }
-                    }
-                }
-                if (flag == 1) {
-                    clubs.status = 0;
-                    clubs.role = "Club Owner";
-                    clubs.dt = new Date();  // Use new Date() to get the current date and time
-                    clubs.Isactive = false
-                    clubs.token = accessToken
-                    clubs.otp = ''
-                    //INSERTING DATA INTO DATABASE
-                    bcrypt.hash(clubs.password, 10).then((hash) => {
-                        // console.log(hash);
-                        db.collection("clubs").insertOne(clubs, (err) => {
-                            if (err) {
-                                console.log(err);
-                                callback(false);
-                            } else {
-                                db.collection("clubs").updateOne(clubs, { $set: { password: hash } })
-                                    .then(
-                                        callback(true)
-                                    )
-                                    .catch((err) => {
-                                        console.log(err);
-                                    })
-                            }
-                        });
-                    })
-                } else {
-                    callback(false, { "msg": "" });
-                }
-            })
-            .catch((err) => {
-                console.log(err);
-                callback(false);
-            });
-    };
 
 
 
-
-    //DELETE CLUB API
-    this.deleteClub = (clubs , callback ) => {
-        db.collection('clubs').deleteOne({ email: clubs.email })
-            .then((result) => {
-                if (result.length > 0) {
-                    const club = result[0];
-                    const dbPassword = club.password;
-                    bcrypt.compare(club.password, dbPassword).then((match) => {
-                        if (!match) {
-                            console.log("club credentials not matched");
-                            callback([]);
-                        } else {
-                            callback(result);
-                        }
-                    });
-                } else {
-                    console.log('club not found.');
-                    callback([]);
-                }
-
-            }).catch((err) => {
-                console.log(err);
-            });
-    }
-
-
-    
-    
 
     // UPDATE NAME API
     this.updateName = (users, name, callback) => {
@@ -526,6 +443,8 @@ function indexmodel() {
                 callback([]);
             });
     }
+
+
 
 
 
@@ -598,6 +517,7 @@ function indexmodel() {
 
 
 
+
     //UPDATE EMAIL API
     this.updateEmail = (users, newemail, callback) => {
         db.collection('users').find({ email: users.email }).toArray()
@@ -615,7 +535,7 @@ function indexmodel() {
                                     callback(result);
                                 })
                                 .catch((updateErr) => {
-                                    console.log('Error updating users phone:', updateErr);
+                                    console.log('Error updating users email:', updateErr);
                                 });
                         }
                     });
@@ -629,7 +549,6 @@ function indexmodel() {
                 callback([]);
             });
     }
-
 
 
 
