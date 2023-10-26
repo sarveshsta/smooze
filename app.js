@@ -11,9 +11,9 @@ var loginRouter = require('./routes/usersRoute/login');
 var logoutRouter = require('./routes/usersRoute/logout');
 var deactivateRouter = require('./routes/usersRoute/deactivate');
 var deleteuser = require('./routes/usersRoute/delete');
-var onboarding = require('./routes/usersRoute/onboarding');
+var onboarding = require('./routes/onBoardRoute/onboarding');
 var forgotPassword = require('./routes/usersRoute/forgotPassword');
-const resetPassword  = require('./routes/usersRoute/resetPassword');
+const resetPassword = require('./routes/usersRoute/resetPassword');
 const loginOTP = require('./routes/usersRoute/loginOTP');
 const verifyotp = require('./routes/usersRoute/verifyotp');
 const clubRegister = require('./routes/ClubsRoutes/clubRegister');
@@ -26,6 +26,12 @@ const updateClub_Phone = require('./routes/ClubsRoutes/updateClub_Phone');
 const verifyClub_phone = require('./routes/ClubsRoutes/verifyClub_phone');
 const updateClub_Email = require('./routes/ClubsRoutes/updateClub_Email');
 const update_Owner_name = require('./routes/ClubsRoutes/update_Owner_name');
+const getUserDetails = require('./routes/onBoardRoute/getUserDetail');
+const clubMenu = require('./routes/menuRoute/clubMenu');
+const getClubMenuDetails = require('./routes/menuRoute/getClubMenuDetails');
+
+
+
 var app = express();
 
 // // view engine setup
@@ -47,26 +53,30 @@ app.use('/delete', deleteuser);
 app.use('/onboarding', onboarding);
 app.use('/forgotPassword', forgotPassword);
 app.use('/resetPassword', resetPassword);
-app.use('/loginOTP',loginOTP);
-app.use('/verifyOTP',verifyotp);
-app.use('verifyClub_phone',verifyClub_phone);
-app.use('/clubRegister',clubRegister);
-app.use('/clubDelete',clubDelete);
-app.use('/updateClub_name',updateClub_name);
-app.use('/updateClub_Phone',updateClub_Phone);
-app.use('/updateClub_Email',updateClub_Email);
-app.use('/update_Owner_name',update_Owner_name);
-app.use('/updateName',updateName);
-app.use('/updatePhone',updatePhone);
-app.use('/updateEmail',updateEmail);
+app.use('/loginOTP', loginOTP);
+app.use('/verifyOTP', verifyotp);
+app.use('verifyClub_phone', verifyClub_phone);
+app.use('/clubRegister', clubRegister);
+app.use('/clubDelete', clubDelete);
+app.use('/updateClub_name', updateClub_name);
+app.use('/updateClub_Phone', updateClub_Phone);
+app.use('/updateClub_Email', updateClub_Email);
+app.use('/update_Owner_name', update_Owner_name);
+app.use('/updateName', updateName);
+app.use('/updatePhone', updatePhone);
+app.use('/updateEmail', updateEmail);
+app.use('/getUserDetails', getUserDetails);
+app.use('/clubMenu', clubMenu);
+app.use('/getClubMenuDetails', getClubMenuDetails);
+
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

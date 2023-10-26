@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-var {URL} = require('../constants/constants');
+var { URL } = require('../constants/constants');
 const indianCities = require('indian-cities-database');
 
 //DATABASE CONNECTIVITY 
@@ -56,12 +56,17 @@ const User = mongoose.Schema({
             },
             message: 'Invalid city.'
         }
-    }
+    },
+
 });
 const users = mongoose.model('User', User);
 
 //ONBOARDING SCHEMA
 const OnBoarding = mongoose.Schema({
+    userEmail: {
+        type: String,
+        required: true,
+    },
     questions: {
         type: String,
         required: true
@@ -79,11 +84,11 @@ const onboardings = mongoose.model('OnBoarding', OnBoarding);
 
 //CLUB SCHEMA
 const Clubs = mongoose.Schema({
-    Owner_name : {
+    Owner_name: {
         type: String,
-        
+
     },
-    Phone : {
+    Phone: {
         type: String,
         validate: {
             validator: function (value) {
@@ -91,38 +96,66 @@ const Clubs = mongoose.Schema({
             },
             message: 'Phone number must be 10 digits long.'
         },
-        
+
     },
-    email : {
+    email: {
         type: String,
-        
+
     },
-    password : {
-        type : String,
-        
-    },
-    Club_name : {
+    password: {
         type: String,
-        
+
     },
-    Club_Banner : {
-        data : String,
-        
+    Club_name: {
+        type: String,
+
     },
-    Club_Docs : {
-        type : String,
-        
+    Club_Banner: {
+        data: String,
+
     },
-    Owner_Aadhar : {
-        type : String,
-       
+    Club_Docs: {
+        type: String,
+
     },
-    Owner_DP : {
-        type : String,
-        
-    } 
+    Owner_Aadhar: {
+        type: String,
+
+    },
+    Owner_DP: {
+        type: String,
+
+    }
 });
-const clubs = mongoose.model('Clubs',Clubs);
+const clubs = mongoose.model('Clubs', Clubs);
+
+const Menu = mongoose.Schema({
+    categories: [
+        {
+            Club_name: {
+                type: String,
+                required: true
+            },
+            GivenMenu: {
+                type: String,
+                required: true
+            },
+            options: [
+                {
+                    name: {
+                        type: String,
+                        required: true
+                    },
+                    price: {
+                        type: Number,
+                        required : true
+                    }
+                }
+            ]
+        }
+    ]
+})
+const menu = mongoose.model('Menu', Menu);
 
 console.log("Successfully connected to mongodb database...");
-module.exports = { db, users, onboardings, clubs};
+module.exports = { db, users, onboardings, clubs, menu };
