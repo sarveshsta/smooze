@@ -63,8 +63,7 @@ function MenuModel() {
                     as: "Details",
                 },
             },
-        ])
-            .toArray()
+        ]).toArray()
             .then((data) => {
                 callback(data);
                 console.log(data)
@@ -74,6 +73,38 @@ function MenuModel() {
                 callback([]);
             })
     };
+
+
+
+
+
+    //update api for update menu
+    this.updatePrice = (menu, OptedMenu, callback) => {
+        db.collection("menu").find({_id : menu._id}).toArray()
+            .then((result) => {
+                console.log(result)
+                if (result.length > 0) {
+                    db.collection('menu').updateOne({ _id : menu._id }, { $set: { OptedMenu: OptedMenu } })
+                        .then(() => {
+                            console.log('menu updated successfully');
+                            callback(result);
+                        })
+                        .catch((updateErr) => {
+                            console.log('Error updating Club menu:', updateErr);
+                            callback([]);
+                        });
+                } else {
+                    console.log('Club menu not found.');
+                    callback([]);
+                }
+            })
+            .catch((err) => {
+                console.log('Error:', err);
+                callback([]);
+            });
+    }
+
+
 }
 
 

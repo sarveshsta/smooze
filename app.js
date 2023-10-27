@@ -29,6 +29,8 @@ const update_Owner_name = require('./routes/ClubsRoutes/update_Owner_name');
 const getUserDetails = require('./routes/onBoardRoute/getUserDetail');
 const clubMenu = require('./routes/menuRoute/clubMenu');
 const getClubMenuDetails = require('./routes/menuRoute/getClubMenuDetails');
+const updatePrice = require('./routes/menuRoute/updatePrice');
+const updateonboarding = require('./routes/onBoardRoute/updateonboarding');
 
 
 
@@ -68,7 +70,8 @@ app.use('/updateEmail', updateEmail);
 app.use('/getUserDetails', getUserDetails);
 app.use('/clubMenu', clubMenu);
 app.use('/getClubMenuDetails', getClubMenuDetails);
-
+app.use('/updatePrice', updatePrice);
+app.use('/updateonboarding', updateonboarding);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

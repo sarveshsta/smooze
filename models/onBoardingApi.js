@@ -51,6 +51,9 @@ function onboardModel() {
     }
 
 
+
+
+
     //get all user api
     this.getUserDetails = (callback) => {
         db.collection("users").aggregate([
@@ -73,6 +76,40 @@ function onboardModel() {
                 callback([]);
             })
     };
+
+
+
+
+
+    
+    //update api for onboarding question
+    this.updateonboarding = (onboardings, OptedOption,callback) => {
+        db.collection("onboardings").find({ _id : onboardings._id, userEmail : onboardings.userEmail}).toArray()
+            .then((result) => {
+                console.log(result)
+                if (result.length > 0) {
+                    db.collection('onboardings').updateOne({ _id : onboardings._id ,userEmail : onboardings.userEmail}, { $set: { OptedOption: OptedOption } })
+                        .then(() => {
+                            console.log('onboarding updated successfully');
+                            callback(result);
+                        })
+                        .catch((updateErr) => {
+                            console.log('Error updating onboarding question:', updateErr);
+                            callback([]);
+                        });
+                } else {
+                    console.log('onboarding question not found.');
+                    callback([]);
+                }
+            })
+            .catch((err) => {
+                console.log('Error:', err);
+                callback([]);
+            });
+    }
+
+
+
 
 
 }

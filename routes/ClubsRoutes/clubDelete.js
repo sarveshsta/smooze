@@ -5,13 +5,15 @@ var clubmodel = require('../../models/clubAPI');
 //DELETE USER ROUTE
 
 router.delete('/', (req, res) => {
-  clubmodel.deleteClub(req.body, (result) => {
-    if (result){
+  const _id = req.body._id;
+  const email = req.body.email;
+  clubmodel.clubDelete(_id, email, (result) => {
+    if (result) {
       console.log('Club deleted successfully.');
       res.status(200).send('Club deleted successfully.');
     } else {
       console.log('Failed to delete Club.');
-      res.status(500).render('error');
+      res.status(404).send('Club not found'); 
     }
   });
 });

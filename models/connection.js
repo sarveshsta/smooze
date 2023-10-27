@@ -12,6 +12,8 @@ const cities1 = [...new Set(cities.map(city => city.city))];
 // console.log('Available states:', states);
 // console.log('Available cities:', cities1);
 
+
+
 // USER SCHEMA
 const User = mongoose.Schema({
     name: {
@@ -61,6 +63,8 @@ const User = mongoose.Schema({
 });
 const users = mongoose.model('User', User);
 
+
+
 //ONBOARDING SCHEMA
 const OnBoarding = mongoose.Schema({
     userEmail: {
@@ -81,6 +85,8 @@ const OnBoarding = mongoose.Schema({
     }
 });
 const onboardings = mongoose.model('OnBoarding', OnBoarding);
+
+
 
 //CLUB SCHEMA
 const Clubs = mongoose.Schema({
@@ -129,6 +135,8 @@ const Clubs = mongoose.Schema({
 });
 const clubs = mongoose.model('Clubs', Clubs);
 
+
+
 const Menu = mongoose.Schema({
     categories: [
         {
@@ -156,6 +164,8 @@ const Menu = mongoose.Schema({
     ]
 })
 const menu = mongoose.model('Menu', Menu);
+
+
 
 console.log("Successfully connected to mongodb database...");
 module.exports = { db, users, onboardings, clubs, menu };

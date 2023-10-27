@@ -67,22 +67,21 @@ function clubmodel() {
 
 
 
-    //not working
     // DELETE CLUB API
-    // this.deleteClub = (clubs, callback) => {
-    //     db.collection('clubs').deleteOne({ email: clubs.email })
-    //         .then((result) => {
-    //             if (result.length > 0) {
-    //                 console.log("if part come");
-    //                 callback(result);
-    //             } else {
-    //                 console.log("club not  found");
-    //             }
-    //         }).catch((err) => {
-    //             console.log(err);
-    //         });
-    // }
-
+    this.clubDelete = (_id, email, callback) => {
+        db.collection("clubs").deleteOne({ _id: _id, email: email })
+            .then((result) => {
+                if (result.deletedCount > 0) {
+                    callback(true); 
+                } else {
+                    console.log("Club not found");
+                    callback(false);
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
 
 
 
