@@ -12,7 +12,7 @@ function clubmodel() {
 
 
     //REGISTER CLUB
-    this.registerClub = (clubs, accessToken, password, callback) => {
+    this.registerClub = (clubs, Club_Banner, Club_Docs,Owner_Aadhar,Owner_DP,accessToken, password, callback) => {
         db.collection("clubs").find().toArray()
             .then((val) => {
                 console.log(val);
@@ -34,11 +34,15 @@ function clubmodel() {
                 }
 
                 if (flag == 1) {
+                    clubs.Club_Banner = Club_Banner;
+                    clubs.Club_Docs = Club_Docs;
+                    clubs.Owner_Aadhar = Owner_Aadhar;
+                    clubs.Owner_DP = Owner_DP;
                     clubs.status = 0;
                     clubs.role = "Club Owner";
                     clubs.dt = new Date();
                     clubs.Isactive = false;
-                    clubs.IsEmailVerified = false
+                    clubs.IsEmailVerified = false;
                     clubs.token = accessToken;
                     clubs.otp = '';
                     bcrypt.hash(password, 10).then((hash) => {
@@ -48,7 +52,7 @@ function clubmodel() {
                                 console.log(err);
                                 callback(false);
                             } else {
-                                callback(true);
+                                callback(true)
                             }
                         });
                     });
@@ -72,7 +76,7 @@ function clubmodel() {
         db.collection("clubs").deleteOne({ _id: _id, email: email })
             .then((result) => {
                 if (result.deletedCount > 0) {
-                    callback(true); 
+                    callback(true);
                 } else {
                     console.log("Club not found");
                     callback(false);
@@ -86,7 +90,7 @@ function clubmodel() {
 
 
 
-    
+
 
     // UPDATE CLUB_NAME API
     this.update_Club_name = (clubs, Clubnewname, callback) => {

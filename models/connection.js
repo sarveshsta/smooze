@@ -117,8 +117,7 @@ const Clubs = mongoose.Schema({
 
     },
     Club_Banner: {
-        data: String,
-
+        type: String,
     },
     Club_Docs: {
         type: String,
