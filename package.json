@@ -11,6 +11,7 @@
     "debug": "~2.6.9",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
+    "express-validator": "^7.0.1",
     "fast-two-sms": "^3.0.0",
     "http-errors": "~1.6.3",
     "indian-cities-database": "^1.0.5",

@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const validateFiles = require('../../utils/validateFiles'); 
 const clubmodel = require('../../models/clubAPI');
 const createTokens = require('../../utils/JWT');
 const upload = require('../../utils/imageUpload');
 
 
 //REGISTER ROUTE
-router.post('/', upload, function (req, res, next) {
+router.post('/', upload,validateFiles,function (req, res, next) {
     const accessToken = createTokens("clubs");
     res.cookie("access-Token", accessToken, {
         maxAge: 60 * 60 * 24 * 30 * 1000,
