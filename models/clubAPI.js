@@ -86,6 +86,8 @@ function clubmodel() {
 
 
 
+    
+
     // UPDATE CLUB_NAME API
     this.update_Club_name = (clubs, Clubnewname, callback) => {
         db.collection('clubs').find({ email: clubs.email }).toArray()
