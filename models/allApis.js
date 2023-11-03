@@ -104,6 +104,60 @@ function indexmodel() {
 
 
 
+    //get user Photos
+    this.getUserPhotos = (userphotos, accessToken,callback) => {
+        db.collection("userphotos").find().toArray()
+            .then((val) => {
+                console.log(val);
+                var result = val;
+                if (result.length > 0) {
+                    var max_id = result[0]._id;
+                    for (let row of result) {
+                        if (max_id < row._id) {
+                            max_id = row._id;
+                        }
+                    }
+                    userphotos._id = max_id + 1;
+                } else {
+                    userphotos._id = 1;
+                }
+                var flag = 1;
+                if (result.length > 0) {
+                    for (let row of result) {
+                        if (userphotos._id == row._id) {
+                            flag = 0;
+                            break;
+                        }
+                    }
+                }
+                if (flag == 1) {
+                    userphotos.status = 0;
+                    userphotos.role = "user";
+                    userphotos.dt = new Date();  // Use new Date() to get the current date and time
+                    userphotos.token = accessToken
+                    db.collection("users").insertOne(users, (err) => {
+                        if (err) {
+                            console.log(err);
+                            callback(false);
+                        } else {
+                            callback(true)
+                        }
+                    });
+
+                } else {
+                    callback(false, { "msg": "" });
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+                callback(false);
+            });
+    }
+
+
+
+
+
     //user login api
     this.userlogin = (users, callback) => {
         //GETTING OR FETCHING THE DETAILS FROM DATABASE TO MATCH THE DETAILS GIVEN BY USER

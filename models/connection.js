@@ -65,6 +65,28 @@ const users = mongoose.model('User', User);
 
 
 
+const UserPhotos = mongoose.Schema({
+    image1 : {
+        type : String,
+        required : true
+    },
+    image2 : {
+        type : String,
+        required : true
+    },
+    image3 : {
+        type : String,
+        required : true
+    },
+    image4 : {
+        type : String,
+        required : true
+    }
+});
+const userphotos = mongoose.model('UserPhotos',UserPhotos);
+
+
+
 //ONBOARDING SCHEMA
 const OnBoarding = mongoose.Schema({
     userEmail: {
@@ -135,7 +157,7 @@ const Clubs = mongoose.Schema({
 const clubs = mongoose.model('Clubs', Clubs);
 
 
-
+//Menu Schema
 const Menu = mongoose.Schema({
     categories: [
         {
@@ -167,4 +189,4 @@ const menu = mongoose.model('Menu', Menu);
 
 
 console.log("Successfully connected to mongodb database...");
-module.exports = { db, users, onboardings, clubs, menu };
+module.exports = { db, users, userphotos,onboardings, clubs, menu };
