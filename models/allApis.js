@@ -562,6 +562,31 @@ function indexmodel() {
 
 
 
+
+    this.getUserDetailsWithPhotos = (callback) => {
+        db.collection("users").aggregate([
+            {
+                $lookup: {
+                    from: "userphotos",
+                    localField: "email",
+                    foreignField: "email",
+                    as: "Details",
+                },
+            },
+        ])
+            .toArray()
+            .then((data) => {
+                callback(data);
+                console.log(data)
+            })
+            .catch((err) => {
+                console.log(err);
+                callback([]);
+            })
+    }
+
+    
+
 }
 
 module.exports = new indexmodel();
