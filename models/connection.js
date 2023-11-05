@@ -66,6 +66,10 @@ const users = mongoose.model('User', User);
 
 
 const UserPhotos = mongoose.Schema({
+    email:{
+        type : String,
+        required : true
+    },
     image1 : {
         type : String,
         required : true

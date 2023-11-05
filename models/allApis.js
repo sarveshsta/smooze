@@ -105,10 +105,9 @@ function indexmodel() {
 
 
     //get user Photos
-    this.getUserPhotos = (userphotos, accessToken,callback) => {
+    this.getUserPhotos = (userphotos, image1, image2, image3, image4, accessToken, callback) => {
         db.collection("userphotos").find().toArray()
             .then((val) => {
-                console.log(val);
                 var result = val;
                 if (result.length > 0) {
                     var max_id = result[0]._id;
@@ -131,19 +130,23 @@ function indexmodel() {
                     }
                 }
                 if (flag == 1) {
-                    userphotos.status = 0;
+                    userphotos.image1 = image1;
+                    userphotos.image2 = image2;
+                    userphotos.image3 = image3;
+                    userphotos.image4 = image4;
                     userphotos.role = "user";
-                    userphotos.dt = new Date();  // Use new Date() to get the current date and time
-                    userphotos.token = accessToken
-                    db.collection("users").insertOne(users, (err) => {
+                    userphotos.dt = new Date();
+                    userphotos.token = accessToken;
+
+                    // You should insert into the "userphotos" collection, not "users"
+                    db.collection("userphotos").insertOne(userphotos, (err) => {
                         if (err) {
                             console.log(err);
                             callback(false);
                         } else {
-                            callback(true)
+                            callback(true);
                         }
                     });
-
                 } else {
                     callback(false, { "msg": "" });
                 }
