@@ -6,13 +6,16 @@ const upload2 = require('../../utils/imageUpload');
 const validateFiles = require('../../utils/validateFiles');
 
 //AddEvent ROUTE
-router.post('/',upload2,validateFiles,function (req, res, next) {
+router.post('/', upload2, validateFiles, function (req, res, next) {
     const accessToken = createTokens("clubs");
     res.cookie("access-Token", accessToken, {
         maxAge: 60 * 60 * 24 * 30 * 1000,
     });
     const addphotos = req.files.addphotos[0].filename
-    eventmodel.addEvent(req.body,addphotos,(result) => {
+    const addphotos1 = req.files.addphotos1[0].filename
+    const addphotos2 = req.files.addphotos2[0].filename
+    
+    eventmodel.addEvent(req.body, addphotos, addphotos1, addphotos2, accessToken, (result) => {
         console.log("Result:", result);
         if (result) {
             res.send("Event added successfully");

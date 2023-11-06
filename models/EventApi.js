@@ -1,15 +1,8 @@
 const { db, clubs, events } = require('./connection');
-const nodemailer = require('nodemailer');
-const bcrypt = require('bcrypt');
-const fast2sms = require('fast-two-sms');
-const createTokens = require('../utils/JWT');
-const { EMAIL, PASS, authOTPKEY } = require('../constants/constants');
-const otpGenerator = require('otp-generator');
-
 
 function eventmodel() {
 
-    this.addEvent = (events,addphotos, callback) => {
+    this.addEvent = (events, addphotos, addphotos1, addphotos2,accessToken, callback) => {
         db.collection("events").find().toArray()
             .then((val) => {
                 console.log(val);
@@ -23,7 +16,7 @@ function eventmodel() {
                 let flag = 1;
                 if (result.length > 0) {
                     for (let row of result) {
-                        if (events.email == row.email) {
+                        if (events.title == row.title) {
                             flag = 0;
                             break;
                         }
@@ -32,8 +25,9 @@ function eventmodel() {
 
                 if (flag == 1) {
                     events.addphotos = addphotos
-                    events.date = new Date();
-                    events.time = new Date().getTime();
+                    events.addphotos1 = addphotos1
+                    events.addphotos2 = addphotos2
+                    events.dt = new Date();
                     events.token = accessToken;
                     db.collection("events").insertOne(events, (err) => {
                         if (err) {
@@ -52,6 +46,112 @@ function eventmodel() {
                 callback(false);
             });
     }
+
+
+
+
+
+    this.deleteEvent = (events, callback) => {
+        db.collection('events').deleteOne({ clubName: events.clubName, title: events.title })
+            .then((result) => {
+                if (result.length > 0) {
+                    callback(result);
+                } else {
+                    console.log('Event not found.');
+                    callback([]);
+                }
+
+            }).catch((err) => {
+                console.log(err);
+            });
+    }
+
+
+
+
+
+    this.updateEventDate = (events, updateDate, callback) => {
+        db.collection("events").find({ clubName: events.clubName }).toArray()
+            .then((result) => {
+                console.log(result)
+                if (result.length > 0) {
+                    db.collection('events').updateOne({ clubName: events.clubName }, { $set: { date: updateDate } })
+                        .then(() => {
+                            console.log('Date updated successfully');
+                            callback(result);
+                        })
+                        .catch((updateErr) => {
+                            console.log('Error while updating new Date:', updateErr);
+                            callback([]);
+                        });
+                } else {
+                    console.log('Event not found.');
+                    callback([]);
+                }
+            })
+            .catch((err) => {
+                console.log('Error:', err);
+                callback([]);
+            });
+    }
+
+
+
+
+
+    this.updateEventTime = (events, updateTime, callback) => {
+        db.collection("events").find({ clubName: events.clubName }).toArray()
+            .then((result) => {
+                console.log(result)
+                if (result.length > 0) {
+                    db.collection('events').updateOne({ clubName: events.clubName }, { $set: { time: updateTime } })
+                        .then(() => {
+                            console.log('Time updated successfully');
+                            callback(result);
+                        })
+                        .catch((updateErr) => {
+                            console.log('Error while updating new Time:', updateErr);
+                            callback([]);
+                        });
+                } else {
+                    console.log('Event not found.');
+                    callback([]);
+                }
+            })
+            .catch((err) => {
+                console.log('Error:', err);
+                callback([]);
+            });
+    }
+
+
+
+
+
+    this.getClubEvents = (callback) => {
+        db.collection("clubs").aggregate([
+            {
+                $lookup: {
+                    from: "events",
+                    localField: "Club_name",
+                    foreignField: "clubName",
+                    as: "All Events",
+                },
+            },
+        ])
+            .toArray()
+            .then((data) => {
+                callback(data);
+                console.log(data)
+            })
+            .catch((err) => {
+                console.log(err);
+                callback([]);
+            })
+    }
+
+
+
 
 }
 

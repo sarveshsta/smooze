@@ -197,7 +197,17 @@ const Event  =  mongoose.Schema({
         type : String,
         required : true
     },
+    clubName : {
+        type : String,
+        required : true
+    },
     addphotos : {
+        type : String,
+    },
+    addphotos1 : {
+        type : String,
+    },
+    addphotos2 : {
         type : String,
     },
     event_description : {
