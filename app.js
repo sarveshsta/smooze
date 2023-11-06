@@ -6,26 +6,26 @@ var logger = require('morgan');
 
 
 //ALL THE ROUTES ARE HERE
-var registerRouter = require('./routes/usersRoute/register');
-var loginRouter = require('./routes/usersRoute/login');
-var logoutRouter = require('./routes/usersRoute/logout');
-var deactivateRouter = require('./routes/usersRoute/deactivate');
-var deleteuser = require('./routes/usersRoute/delete');
-var onboarding = require('./routes/onBoardRoute/onboarding');
-var forgotPassword = require('./routes/usersRoute/forgotPassword');
+const registerRouter = require('./routes/usersRoute/register');
+const loginRouter = require('./routes/usersRoute/login');
+const logoutRouter = require('./routes/usersRoute/logout');
+const deactivateRouter = require('./routes/usersRoute/deactivate');
+const deleteuser = require('./routes/usersRoute/delete');
+const onboarding = require('./routes/onBoardRoute/onboarding');
+const forgotPassword = require('./routes/usersRoute/forgotPassword');
 const resetPassword = require('./routes/usersRoute/resetPassword');
 const loginOTP = require('./routes/usersRoute/loginOTP');
 const verifyotp = require('./routes/usersRoute/verifyotp');
-const clubRegister = require('./routes/ClubsRoutes/clubRegister');
-const clubDelete = require('./routes/ClubsRoutes/clubDelete');
+const clubRegister = require('./routes/clubsRoutes/clubRegister');
+const clubDelete = require('./routes/clubsRoutes/clubDelete');
 const updateName = require('./routes/usersRoute/updateName');
 const updatePhone = require('./routes/usersRoute/updatePhone');
 const updateEmail = require('./routes/usersRoute/updateEmail');
-const updateClub_name = require('./routes/ClubsRoutes/updateClub_name');
-const updateClub_Phone = require('./routes/ClubsRoutes/updateClub_Phone');
-const verifyClub_phone = require('./routes/ClubsRoutes/verifyClub_phone');
-const updateClub_Email = require('./routes/ClubsRoutes/updateClub_Email');
-const update_Owner_name = require('./routes/ClubsRoutes/update_Owner_name');
+const updateClub_name = require('./routes/clubsRoutes/updateClub_name');
+const updateClub_Phone = require('./routes/clubsRoutes/updateClub_Phone');
+const verifyClub_phone = require('./routes/clubsRoutes/verifyClub_phone');
+const updateClub_Email = require('./routes/clubsRoutes/updateClub_Email');
+const update_Owner_name = require('./routes/clubsRoutes/update_Owner_name');
 const getUserDetails = require('./routes/onBoardRoute/getUserDetail');
 const clubMenu = require('./routes/menuRoute/clubMenu');
 const getClubMenuDetails = require('./routes/menuRoute/getClubMenuDetails');
@@ -33,6 +33,7 @@ const updatePrice = require('./routes/menuRoute/updatePrice');
 const updateonboarding = require('./routes/onBoardRoute/updateonboarding');
 const getUserPhotos = require('./routes/usersRoute/getUserPhotos');
 const getUserDetailsWithPhotos = require('./routes/usersRoute/getUserDetailsWithPhotos');
+const addEvent = require('./routes/EventRoutes/addEvent')
 
 
 
@@ -77,6 +78,7 @@ app.use('/updatePrice', updatePrice);
 app.use('/updateonboarding', updateonboarding);
 app.use('/getUserPhotos', getUserPhotos);
 app.use('/getUserDetailsWithPhotos', getUserDetailsWithPhotos);
+app.use('/addEvent', addEvent);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

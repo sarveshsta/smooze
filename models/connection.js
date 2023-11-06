@@ -191,6 +191,34 @@ const Menu = mongoose.Schema({
 const menu = mongoose.model('Menu', Menu);
 
 
+//Event Model
+const Event  =  mongoose.Schema({
+    title : {
+        type : String,
+        required : true
+    },
+    addphotos : {
+        type : String,
+    },
+    event_description : {
+        type : String,
+        required : true
+    },
+    date : {
+        type : Date,
+        required : true
+    },
+    time : {
+        type : Date,
+        required : true
+    },
+    location : {
+        type : String,
+        required : true
+    }
+})
+const events = mongoose.model('Event',Event);
+
 
 console.log("Successfully connected to mongodb database...");
-module.exports = { db, users, userphotos,onboardings, clubs, menu };
+module.exports = { db, users, userphotos,onboardings, clubs, menu , events};
