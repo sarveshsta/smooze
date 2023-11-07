@@ -230,5 +230,41 @@ const Event  =  mongoose.Schema({
 const events = mongoose.model('Event',Event);
 
 
+const ProfileQuestions = mongoose.Schema({
+    userEmail :{
+        type : String,
+        required : true
+    },
+    Intrest : {
+        type : [String],
+        required : true
+    },
+    Language : {
+        type : [String],
+        required : true
+    },
+    Education : {
+        type : String,
+        required : true
+    },
+    Work  : {
+        type : String,
+        required  :true
+    },
+    Bio : {
+        type : String,
+        required : true
+    },
+    Height : {
+        type : Number,
+        required  :true
+    },
+    StarSign : {
+        type : String,
+        required : true
+    }    
+})
+const profilequestion = mongoose.model('ProfileQuestions',ProfileQuestions);
+
 console.log("Successfully connected to mongodb database...");
-module.exports = { db, users, userphotos,onboardings, clubs, menu , events};
+module.exports = { db, users, userphotos,onboardings, clubs, menu , events,profilequestion};

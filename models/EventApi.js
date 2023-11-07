@@ -71,11 +71,11 @@ function eventmodel() {
 
 
     this.updateEventDate = (events, updateDate, callback) => {
-        db.collection("events").find({ clubName: events.clubName }).toArray()
+        db.collection("events").find({ clubName: events.clubName,title: events.title }).toArray()
             .then((result) => {
                 console.log(result)
                 if (result.length > 0) {
-                    db.collection('events').updateOne({ clubName: events.clubName }, { $set: { date: updateDate } })
+                    db.collection('events').updateOne({ clubName: events.clubName,title: events.title}, { $set: { date: updateDate } })
                         .then(() => {
                             console.log('Date updated successfully');
                             callback(result);
@@ -100,11 +100,11 @@ function eventmodel() {
 
 
     this.updateEventTime = (events, updateTime, callback) => {
-        db.collection("events").find({ clubName: events.clubName }).toArray()
+        db.collection("events").find({ clubName: events.clubName,title: events.title }).toArray()
             .then((result) => {
                 console.log(result)
                 if (result.length > 0) {
-                    db.collection('events').updateOne({ clubName: events.clubName }, { $set: { time: updateTime } })
+                    db.collection('events').updateOne({ clubName: events.clubName,title: events.title}, { $set: { time: updateTime } })
                         .then(() => {
                             console.log('Time updated successfully');
                             callback(result);
@@ -125,6 +125,40 @@ function eventmodel() {
     }
 
 
+
+
+
+
+
+
+    this.updateEventDescription = (events, updateDescription, callback) => {
+        db.collection("events").find({ clubName: events.clubName,title: events.title }).toArray()
+            .then((result) => {
+                console.log(result)
+                if (result.length > 0) {
+                    db.collection('events').updateOne({ clubName: events.clubName , title: events.title}, { $set: { event_description: updateDescription } })
+                        .then(() => {
+                            console.log('event_description updated successfully');
+                            callback(result);
+                        })
+                        .catch((updateErr) => {
+                            console.log('Error while updating event_description:', updateErr);
+                            callback([]);
+                        });
+                } else {
+                    console.log('Event not found.');
+                    callback([]);
+                }
+            })
+            .catch((err) => {
+                console.log('Error:', err);
+                callback([]);
+            });
+    }
+
+
+
+    
 
 
 

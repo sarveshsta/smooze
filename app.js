@@ -38,6 +38,8 @@ const deleteEvent = require('./routes/EventRoutes/deleteEvent');
 const updateEventDate = require('./routes/EventRoutes/updateEventDate');
 const updateEventTime = require('./routes/EventRoutes/updateEventTime');
 const getClubEvents = require('./routes/EventRoutes/getClubEvents');
+const updateEventDescription = require('./routes/EventRoutes/updateEventDescription');
+const UserProfile  = require('./routes/usersRoute/UserProfile');
 
 
 
@@ -87,6 +89,8 @@ app.use('/deleteEvent', deleteEvent);
 app.use('/updateEventDate', updateEventDate);
 app.use('/updateEventTime', updateEventTime);
 app.use('/getClubEvents', getClubEvents);
+app.use('/updateEventDescription',updateEventDescription);
+app.use('/UserProfile',UserProfile);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -1,4 +1,4 @@
-const { db, users, onboardings } = require('./connection');
+const { db, users, profilequestions } = require('./connection');
 const indianCities = require('indian-cities-database');
 const nodemailer = require('nodemailer');
 const bcrypt = require('bcrypt');
@@ -584,6 +584,56 @@ function indexmodel() {
                 callback([]);
             })
     }
+
+
+
+
+
+
+    this.UserProfile = (profilequestions, accessToken,callback) => {
+        db.collection("profilequestions").find().toArray()
+            .then((val) => {
+                console.log(val);
+                var result = val;
+                let max_id = 0;
+                if (result.length > 0) {
+                    max_id = Math.max(...result.map((row) => row._id));
+                }
+                profilequestions._id = max_id + 1;
+
+                let flag = 1;
+                if (result.length > 0) {
+                    for (let row of result) {
+                        if (profilequestions.userEmail == row.userEmail) {
+                            flag = 0;
+                            break;
+                        }
+                    }
+                }
+
+                if (flag == 1) {
+                    profilequestions.role = "user"
+                    profilequestions.dt = new Date();
+                    profilequestions.token = accessToken;
+                    db.collection("profilequestions").insertOne(profilequestions, (err) => {
+                        if (err) {
+                            console.log(err);
+                            callback(false);
+                        } else {
+                            callback(true)
+                        }
+                    });
+                } else {
+                    callback(false);
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+                callback(false);
+            });
+    }
+
+
 
     
 
