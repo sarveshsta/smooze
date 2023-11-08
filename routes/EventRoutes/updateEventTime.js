@@ -2,8 +2,7 @@ var express = require('express');
 var router = express.Router();
 var eventmodel = require('../../models/EventApi');
 
-//FORGOTPASSWORD ROUTE
-
+//update event time ROUTE
 router.post('/', function (req, res, next) {
     const updateTime = req.body.time
     eventmodel.updateEventTime(req.body, updateTime, (result) => {

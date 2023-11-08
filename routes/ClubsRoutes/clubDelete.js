@@ -3,7 +3,6 @@ var router = express.Router();
 var clubmodel = require('../../models/clubAPI');
 
 //DELETE USER ROUTE
-
 router.delete('/', (req, res) => {
   const _id = req.body._id;
   const email = req.body.email;

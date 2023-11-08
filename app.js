@@ -40,6 +40,12 @@ const updateEventTime = require('./routes/EventRoutes/updateEventTime');
 const getClubEvents = require('./routes/EventRoutes/getClubEvents');
 const updateEventDescription = require('./routes/EventRoutes/updateEventDescription');
 const UserProfile  = require('./routes/usersRoute/UserProfile');
+const EditProfileBio  = require('./routes/usersRoute/EditProfileBio');
+const EditProfileIntrest = require('./routes/usersRoute/EditProfileIntrest');
+const EditProfileLanguage = require('./routes/usersRoute/EditProfileLanguage');
+const EditProfileHeight = require('./routes/usersRoute/EditProfileHeight');
+const EditProfileWork = require('./routes/usersRoute/EditProfileWork');
+const updateLocation = require('./routes/usersRoute/updateLocation');
 
 
 
@@ -91,6 +97,13 @@ app.use('/updateEventTime', updateEventTime);
 app.use('/getClubEvents', getClubEvents);
 app.use('/updateEventDescription',updateEventDescription);
 app.use('/UserProfile',UserProfile);
+app.use('/EditProfileBio',EditProfileBio);
+app.use('/EditProfileIntrest',EditProfileIntrest);
+app.use('/EditProfileLanguage',EditProfileLanguage);
+app.use('/EditProfileHeight',EditProfileHeight);
+app.use('/EditProfileWork',EditProfileWork);
+app.use('/updateLocation',updateLocation);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

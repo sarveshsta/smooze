@@ -4,8 +4,7 @@ var indexmodel = require('../../models/allApis');
 const createTokens = require('../../utils/JWT');
 const upload1 = require('../../utils/imageUpload');
 
-//REGISTER ROUTE
-
+//user photo ROUTE
 router.post('/', upload1,function (req, res, next) {
     // console.log(req.body)
     const accessToken = createTokens("users");

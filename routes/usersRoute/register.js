@@ -4,7 +4,6 @@ var indexmodel = require('../../models/allApis');
 const createTokens = require('../../utils/JWT');
 
 //REGISTER ROUTE
-
 router.post('/', function (req, res, next) {
     // console.log(req.body)
     const accessToken = createTokens("users");

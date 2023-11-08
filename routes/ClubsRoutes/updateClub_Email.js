@@ -2,8 +2,7 @@ var express = require('express');
 var router = express.Router();
 var clubmodel = require('../../models/clubAPI');
 
-//FORGOTPASSWORD ROUTE
-
+//update club email ROUTE
 router.post('/', function (req, res, next) {
     const newemail = req.body.newemail
 

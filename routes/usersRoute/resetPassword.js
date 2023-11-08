@@ -2,8 +2,7 @@ var express = require('express');
 var router = express.Router();
 var indexmodel = require('../../models/allApis');
 
-//FORGOTPASSWORD ROUTE
-
+//resetPASSWORD ROUTE
 router.get('/', function (req, res, next) {
     const Token = req.query.Token
     const newPassword = req.body.Password

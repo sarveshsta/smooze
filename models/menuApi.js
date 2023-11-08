@@ -52,7 +52,7 @@ function MenuModel() {
 
 
 
-
+    //add club and menu model together
     this.getClubMenuDetails = (callback) => {
         db.collection("clubs").aggregate([
             {

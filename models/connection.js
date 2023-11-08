@@ -46,6 +46,10 @@ const User = mongoose.Schema({
         },
         required: true
     },
+    location: {
+        type: String,
+        required: true
+    },
     state: {
         type: String,
         enum: states
@@ -66,28 +70,28 @@ const users = mongoose.model('User', User);
 
 
 const UserPhotos = mongoose.Schema({
-    email:{
-        type : String,
-        required : true
+    email: {
+        type: String,
+        required: true
     },
-    image1 : {
-        type : String,
-        required : true
+    image1: {
+        type: String,
+        required: true
     },
-    image2 : {
-        type : String,
-        required : true
+    image2: {
+        type: String,
+        required: true
     },
-    image3 : {
-        type : String,
-        required : true
+    image3: {
+        type: String,
+        required: true
     },
-    image4 : {
-        type : String,
-        required : true
+    image4: {
+        type: String,
+        required: true
     }
 });
-const userphotos = mongoose.model('UserPhotos',UserPhotos);
+const userphotos = mongoose.model('UserPhotos', UserPhotos);
 
 
 
@@ -181,7 +185,7 @@ const Menu = mongoose.Schema({
                     },
                     price: {
                         type: Number,
-                        required : true
+                        required: true
                     }
                 }
             ]
@@ -192,79 +196,83 @@ const menu = mongoose.model('Menu', Menu);
 
 
 //Event Model
-const Event  =  mongoose.Schema({
-    title : {
-        type : String,
-        required : true
+const Event = mongoose.Schema({
+    title: {
+        type: String,
+        required: true
     },
-    clubName : {
-        type : String,
-        required : true
+    clubName: {
+        type: String,
+        required: true
     },
-    addphotos : {
-        type : String,
+    addphotos: {
+        type: String,
     },
-    addphotos1 : {
-        type : String,
+    addphotos1: {
+        type: String,
     },
-    addphotos2 : {
-        type : String,
+    addphotos2: {
+        type: String,
     },
-    event_description : {
-        type : String,
-        required : true
+    event_description: {
+        type: String,
+        required: true
     },
-    date : {
-        type : Date,
-        required : true
+    date: {
+        type: Date,
+        required: true
     },
-    time : {
-        type : Date,
-        required : true
+    time: {
+        type: Date,
+        required: true
     },
-    location : {
-        type : String,
-        required : true
+    location: {
+        type: String,
+        required: true
     }
 })
-const events = mongoose.model('Event',Event);
+const events = mongoose.model('Event', Event);
 
 
 const ProfileQuestions = mongoose.Schema({
-    userEmail :{
-        type : String,
-        required : true
+    userEmail: {
+        type: String,
+        required: true
     },
-    Intrest : {
-        type : [String],
-        required : true
+    Intrest: [
+        {
+            type: [String],
+            required: true
+        }
+    ],
+    Language: [
+        {
+            type: [String],
+            required: true
+        }
+    ],
+    Education: {
+        type: String,
+        required: true
     },
-    Language : {
-        type : [String],
-        required : true
+    Work: {
+        type: String,
+        required: true
     },
-    Education : {
-        type : String,
-        required : true
+    Bio: {
+        type: String,
+        required: true
     },
-    Work  : {
-        type : String,
-        required  :true
+    Height: {
+        type: Number,
+        required: true
     },
-    Bio : {
-        type : String,
-        required : true
-    },
-    Height : {
-        type : Number,
-        required  :true
-    },
-    StarSign : {
-        type : String,
-        required : true
-    }    
+    StarSign: {
+        type: String,
+        required: true
+    }
 })
-const profilequestion = mongoose.model('ProfileQuestions',ProfileQuestions);
+const profilequestion = mongoose.model('ProfileQuestions', ProfileQuestions);
 
 console.log("Successfully connected to mongodb database...");
-module.exports = { db, users, userphotos,onboardings, clubs, menu , events,profilequestion};
+module.exports = { db, users, userphotos, onboardings, clubs, menu, events, profilequestion };

@@ -310,7 +310,7 @@ function clubmodel() {
 
 
 
-
+    //update Owner_DP in club model
     this.updateOwner_DP = (clubs, newemail, callback) => {
         db.collection('clubs').find({ email: clubs.email }).toArray()
             .then((result) => {

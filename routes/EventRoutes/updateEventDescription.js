@@ -2,8 +2,7 @@ var express = require('express');
 var router = express.Router();
 var eventmodel = require('../../models/EventApi');
 
-//FORGOTPASSWORD ROUTE
-
+//update event description ROUTE
 router.post('/', function (req, res, next) {
     const updateDescription = req.body.event_description
     eventmodel.updateEventDescription(req.body, updateDescription, (result) => {

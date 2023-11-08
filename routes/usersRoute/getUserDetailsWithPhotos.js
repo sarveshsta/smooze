@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var indexmodel = require('../../models/allApis');
 
+
+//getUserDetailsWithPhotos
 router.get('/', (req, res) => {
     indexmodel.getUserDetailsWithPhotos((data) => {
         if (data) {

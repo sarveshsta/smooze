@@ -23,7 +23,7 @@ var express = require('express');
 var router = express.Router();
 var MenuModel = require('../../models/menuApi');
 
-//FORGOTPASSWORD ROUTE
+//update price ROUTE
 
 router.post('/', function (req, res, next) {
     const OptedMenu = req.body.OptedMenu

@@ -563,6 +563,48 @@ function indexmodel() {
 
 
 
+
+
+
+    //UPDATE location API
+    this.updateLocation = (users, newLocation, callback) => {
+        db.collection('users').find({ email: users.email }).toArray()
+            .then((result) => {
+                if (result.length > 0) {
+                    const user = result[0];
+                    const dbPassword = user.password;
+                    bcrypt.compare(users.password, dbPassword).then((match) => {
+                        if (!match) {
+                            console.log("user credentials not matched");
+                            callback([]);
+                        } else {
+                            db.collection('users').updateOne({ email: users.email }, { $set: { location: newLocation } })
+                                .then(() => {
+                                    callback(result);
+                                })
+                                .catch((updateErr) => {
+                                    console.log('Error updating users location:', updateErr);
+                                });
+                        }
+                    });
+                } else {
+                    console.log('User not found.');
+                    callback([]);
+                }
+            })
+            .catch((err) => {
+                console.log('Error:', err);
+                callback([]);
+            });
+    }
+
+
+
+
+
+
+
+    //get User Details With Photos
     this.getUserDetailsWithPhotos = (callback) => {
         db.collection("users").aggregate([
             {
@@ -589,8 +631,8 @@ function indexmodel() {
 
 
 
-
-    this.UserProfile = (profilequestions, accessToken,callback) => {
+    //getting userprofile details from user
+    this.UserProfile = (profilequestions, accessToken, callback) => {
         db.collection("profilequestions").find().toArray()
             .then((val) => {
                 console.log(val);
@@ -635,7 +677,164 @@ function indexmodel() {
 
 
 
-    
+
+
+
+    //edit Bio in user Profile
+    this.EditProfileBio = (profilequestions, Bio, callback) => {
+        db.collection("profilequestions").find({ userEmail: profilequestions.userEmail }).toArray()
+            .then((result) => {
+                console.log(result)
+                if (result.length > 0) {
+                    db.collection('profilequestions').updateOne({ userEmail: profilequestions.userEmail }, { $set: { Bio: Bio } })
+                        .then(() => {
+                            console.log('user Bio updated successfully');
+                            callback(result);
+                        })
+                        .catch((updateErr) => {
+                            console.log('Error while updating user bio', updateErr);
+                            callback([]);
+                        });
+                } else {
+                    console.log('user profile not found.');
+                    callback([]);
+                }
+            })
+            .catch((err) => {
+                console.log('Error:', err);
+                callback([]);
+            });
+    }
+
+
+
+
+
+
+    //edit Intrest in user Profile
+    this.EditProfileIntrest = (profilequestions, Intrest, callback) => {
+        db.collection("profilequestions").find({ userEmail: profilequestions.userEmail }).toArray()
+            .then((result) => {
+                console.log(result)
+                if (result.length > 0) {
+                    db.collection('profilequestions').updateOne({ userEmail: profilequestions.userEmail }, { $set: { Intrest: Intrest } })
+                        .then(() => {
+                            console.log('user Intrest updated successfully');
+                            callback(result);
+                        })
+                        .catch((updateErr) => {
+                            console.log('Error while updating user Intrest', updateErr);
+                            callback([]);
+                        });
+                } else {
+                    console.log('user profile not found.');
+                    callback([]);
+                }
+            })
+            .catch((err) => {
+                console.log('Error:', err);
+                callback([]);
+            });
+    }
+
+
+
+
+
+
+
+    //edit Language in user Profile
+    this.EditProfileLanguage = (profilequestions, Language, callback) => {
+        db.collection("profilequestions").find({ userEmail: profilequestions.userEmail }).toArray()
+            .then((result) => {
+                console.log(result)
+                if (result.length > 0) {
+                    db.collection('profilequestions').updateOne({ userEmail: profilequestions.userEmail }, { $set: { Language: Language } })
+                        .then(() => {
+                            console.log('user Language updated successfully');
+                            callback(result);
+                        })
+                        .catch((updateErr) => {
+                            console.log('Error while updating user Language', updateErr);
+                            callback([]);
+                        });
+                } else {
+                    console.log('user profile not found.');
+                    callback([]);
+                }
+            })
+            .catch((err) => {
+                console.log('Error:', err);
+                callback([]);
+            });
+    }
+
+
+
+
+
+
+    //edit Height in user Profile
+    this.EditProfileHeight = (profilequestions, Height, callback) => {
+        db.collection("profilequestions").find({ userEmail: profilequestions.userEmail }).toArray()
+            .then((result) => {
+                console.log(result)
+                if (result.length > 0) {
+                    db.collection('profilequestions').updateOne({ userEmail: profilequestions.userEmail }, { $set: { Height: Height } })
+                        .then(() => {
+                            console.log('user Height updated successfully');
+                            callback(result);
+                        })
+                        .catch((updateErr) => {
+                            console.log('Error while updating user Height', updateErr);
+                            callback([]);
+                        });
+                } else {
+                    console.log('user profile not found.');
+                    callback([]);
+                }
+            })
+            .catch((err) => {
+                console.log('Error:', err);
+                callback([]);
+            });
+    }
+
+
+
+
+
+
+    //edit Work in user Profile
+    this.EditProfileWork = (profilequestions, Work, callback) => {
+        db.collection("profilequestions").find({ userEmail: profilequestions.userEmail }).toArray()
+            .then((result) => {
+                console.log(result)
+                if (result.length > 0) {
+                    db.collection('profilequestions').updateOne({ userEmail: profilequestions.userEmail }, { $set: { Work: Work } })
+                        .then(() => {
+                            console.log('user work updated successfully');
+                            callback(result);
+                        })
+                        .catch((updateErr) => {
+                            console.log('Error while updating user work', updateErr);
+                            callback([]);
+                        });
+                } else {
+                    console.log('user profile not found.');
+                    callback([]);
+                }
+            })
+            .catch((err) => {
+                console.log('Error:', err);
+                callback([]);
+            });
+    }
+
+
+
+
+
 
 }
 

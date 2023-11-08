@@ -4,7 +4,6 @@ var indexmodel = require('../../models/allApis');
 const createTokens = require('../../utils/JWT');
 
 //LOGIN ROUTE
-
 router.post('/', (req, res, next) => {
     indexmodel.userlogin(req.body, (results) => {
         console.log(results);

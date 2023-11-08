@@ -3,7 +3,6 @@ var router = express.Router();
 var indexmodel = require('../../models/allApis');
 
 //LOGOUT ROUTE 
-
 router.post('/', (req, res, next) => {
     //ALL COOKIES REMOVED
     res.setHeader('Set-Cookie', [

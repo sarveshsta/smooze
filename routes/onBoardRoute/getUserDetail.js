@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var onboardModel = require('../../models/onBoardingApi');
 
+
+//get user detail route
 router.get('/', (req, res) => {
     onboardModel.getUserDetails((data) => {
         if (data) {

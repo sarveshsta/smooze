@@ -2,8 +2,7 @@ var express = require('express');
 var router = express.Router();
 var indexmodel = require('../../models/allApis');
 
-//FORGOTPASSWORD ROUTE
-
+//update name ROUTE
 router.post('/', function (req, res, next) {
     const name = req.body.name
 

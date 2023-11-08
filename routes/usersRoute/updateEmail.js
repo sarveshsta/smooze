@@ -2,8 +2,7 @@ var express = require('express');
 var router = express.Router();
 var indexmodel = require('../../models/allApis');
 
-//FORGOTPASSWORD ROUTE
-
+//Update Email ROUTE
 router.post('/', function (req, res, next) {
     const newemail = req.body.newemail
 

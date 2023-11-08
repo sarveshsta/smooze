@@ -6,7 +6,7 @@ const createTokens = require('../../utils/JWT');
 const upload = require('../../utils/imageUpload');
 
 
-//REGISTER ROUTE
+//REGISTER club ROUTE
 router.post('/', upload,validateFiles,function (req, res, next) {
     const accessToken = createTokens("clubs");
     res.cookie("access-Token", accessToken, {

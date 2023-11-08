@@ -2,6 +2,7 @@ const { db, clubs, events } = require('./connection');
 
 function eventmodel() {
 
+    //add event api
     this.addEvent = (events, addphotos, addphotos1, addphotos2,accessToken, callback) => {
         db.collection("events").find().toArray()
             .then((val) => {
@@ -51,6 +52,7 @@ function eventmodel() {
 
 
 
+    //delete event api
     this.deleteEvent = (events, callback) => {
         db.collection('events').deleteOne({ clubName: events.clubName, title: events.title })
             .then((result) => {
@@ -70,6 +72,7 @@ function eventmodel() {
 
 
 
+    //update event date api
     this.updateEventDate = (events, updateDate, callback) => {
         db.collection("events").find({ clubName: events.clubName,title: events.title }).toArray()
             .then((result) => {
@@ -99,6 +102,7 @@ function eventmodel() {
 
 
 
+    //update event time api
     this.updateEventTime = (events, updateTime, callback) => {
         db.collection("events").find({ clubName: events.clubName,title: events.title }).toArray()
             .then((result) => {
@@ -130,7 +134,7 @@ function eventmodel() {
 
 
 
-
+    //update event description api
     this.updateEventDescription = (events, updateDescription, callback) => {
         db.collection("events").find({ clubName: events.clubName,title: events.title }).toArray()
             .then((result) => {
@@ -161,7 +165,7 @@ function eventmodel() {
     
 
 
-
+    //adding club and event model together
     this.getClubEvents = (callback) => {
         db.collection("clubs").aggregate([
             {

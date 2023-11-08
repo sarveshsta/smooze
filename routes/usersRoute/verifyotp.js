@@ -2,8 +2,7 @@ var express = require('express');
 var router = express.Router();
 var indexmodel = require('../../models/allApis');
 
-//LOGIN With OTP ROUTE
-
+//verify OTP ROUTE
 router.post('/', (req, res, next) => {
     const otp = req.body.otp
     indexmodel.VerifyOTP(req.body, otp,(results) => {

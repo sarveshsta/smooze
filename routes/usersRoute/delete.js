@@ -3,7 +3,6 @@ var router = express.Router();
 var indexmodel = require('../../models/allApis');
 
 //DELETE USER ROUTE
-
 router.delete('/', (req, res) => {
   indexmodel.deleteuser(req.body, (result) => {
     if (result){

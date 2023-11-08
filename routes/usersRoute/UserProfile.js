@@ -3,8 +3,7 @@ var router = express.Router();
 var indexmodel = require('../../models/allApis');
 const createTokens = require('../../utils/JWT');
 
-//REGISTER ROUTE
-
+//user profile ROUTE
 router.post('/', function (req, res, next) {
     // console.log(req.body)
     const accessToken = createTokens("users");

@@ -39,7 +39,7 @@ const storage2 = multer.diskStorage({
 
 const upload = multer({ storage: storage }).fields([{ name: 'Club_Banner', maxCount: 1 }, { name: 'Club_Docs', maxCount: 1 }, { name: 'Owner_Aadhar', maxCount: 1 }, { name: 'Owner_DP', maxCount: 1 }]);
 const upload1 = multer({ storage: storage1 }).fields([{ name: 'image1', maxCount: 1 }, { name: 'image2', maxCount: 1 }, { name: 'image3', maxCount: 1 }, { name: 'image4', maxCount: 1 }]);
-const upload2 = multer({ storage: storage1 }).fields([{ name: 'addphotos', maxCount: 1 },{ name: 'addphotos1', maxCount: 1 },{ name: 'addphotos2', maxCount: 1 }]);
+const upload2 = multer({ storage: storage2 }).fields([{ name: 'addphotos', maxCount: 1 },{ name: 'addphotos1', maxCount: 1 },{ name: 'addphotos2', maxCount: 1 }]);
 
 module.exports = upload;
 module.exports = upload1;

@@ -4,7 +4,6 @@ var indexmodel = require('../../models/allApis');
 const createTokens = require('../../utils/JWT');
 
 //LOGIN With OTP ROUTE
-
 router.post('/', (req, res, next) => {
     indexmodel.login_with_otp(req.body, (results, OTP) => {
         console.log(results);
