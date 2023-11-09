@@ -46,6 +46,11 @@ const EditProfileLanguage = require('./routes/usersRoute/EditProfileLanguage');
 const EditProfileHeight = require('./routes/usersRoute/EditProfileHeight');
 const EditProfileWork = require('./routes/usersRoute/EditProfileWork');
 const updateLocation = require('./routes/usersRoute/updateLocation');
+const userPreferences = require('./routes/usersRoute/userPreferences');
+const update_Min_Max_Age = require('./routes/usersRoute/update_Min_Max_Age');
+const updateDistanceRadius = require('./routes/usersRoute/updateDistanceRadius');
+const DeleteProfile = require('./routes/usersRoute/DeleteProfile');
+const EditProfileStarSign = require('./routes/usersRoute/EditProfileStarSign');
 
 
 
@@ -103,6 +108,11 @@ app.use('/EditProfileLanguage',EditProfileLanguage);
 app.use('/EditProfileHeight',EditProfileHeight);
 app.use('/EditProfileWork',EditProfileWork);
 app.use('/updateLocation',updateLocation);
+app.use('/userPreferences',userPreferences);
+app.use('/update_Min_Max_Age',update_Min_Max_Age);
+app.use('/updateDistanceRadius',updateDistanceRadius);
+app.use('/DeleteProfile',DeleteProfile);
+app.use('/EditProfileStarSign',EditProfileStarSign);
 
 
 // catch 404 and forward to error handler

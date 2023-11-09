@@ -1,6 +1,7 @@
 const { db, clubs } = require('./connection');
 const nodemailer = require('nodemailer');
 const bcrypt = require('bcrypt');
+const crypto = require('crypto');
 const fast2sms = require('fast-two-sms');
 const createTokens = require('../utils/JWT');
 const { EMAIL, PASS, authOTPKEY } = require('../constants/constants');
@@ -32,8 +33,9 @@ function clubmodel() {
                         }
                     }
                 }
-
+                let uuid = crypto.randomUUID();
                 if (flag == 1) {
+                    clubs.uuid = uuid
                     clubs.Club_Banner = Club_Banner;
                     clubs.Club_Docs = Club_Docs;
                     clubs.Owner_Aadhar = Owner_Aadhar;

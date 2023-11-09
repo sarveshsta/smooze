@@ -1,4 +1,5 @@
 const { db, menu } = require('./connection');
+const crypto = require('crypto');
 
 function MenuModel() {
 
@@ -28,9 +29,13 @@ function MenuModel() {
                         }
                     }
                 }
+
+                let uuid = crypto.randomUUID();
+
                 if (flag == 1) {
                     menu.OptedMenu = selectedOptions
                     menu.Club_name = Club_name
+                    menu.uuid = uuid
                     menu.dt = Date();
                     db.collection("menu").insertOne(menu, (err, result) => {
                         if (err) {
@@ -49,6 +54,8 @@ function MenuModel() {
                 callback(false);
             });
     }
+
+
 
 
 
@@ -74,6 +81,8 @@ function MenuModel() {
             })
     };
 
+
+    
 
 
 

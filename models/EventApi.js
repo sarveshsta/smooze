@@ -1,4 +1,5 @@
 const { db, clubs, events } = require('./connection');
+const crypto = require('crypto');
 
 function eventmodel() {
 
@@ -23,8 +24,9 @@ function eventmodel() {
                         }
                     }
                 }
-
+                let uuid = crypto.randomUUID();
                 if (flag == 1) {
+                    events.uuid = uuid
                     events.addphotos = addphotos
                     events.addphotos1 = addphotos1
                     events.addphotos2 = addphotos2

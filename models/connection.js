@@ -274,5 +274,26 @@ const ProfileQuestions = mongoose.Schema({
 })
 const profilequestion = mongoose.model('ProfileQuestions', ProfileQuestions);
 
+
+const  Preferences = mongoose.Schema({
+    userEmail : {
+        type : String,
+        required : true
+    },
+    min_age : {
+        type : String,
+        required : true
+    },
+    max_age : {
+        type : String,
+        required : true
+    },
+    DistanceRadius : {
+        type : Number,
+        required : true
+    }
+})
+const preferences = mongoose.model('Preferences',Preferences);
+
 console.log("Successfully connected to mongodb database...");
-module.exports = { db, users, userphotos, onboardings, clubs, menu, events, profilequestion };
+module.exports = { db, users, userphotos, onboardings, clubs, menu, events, profilequestion, preferences };

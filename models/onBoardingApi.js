@@ -1,4 +1,5 @@
 const { db, users, onboardings } = require('./connection');
+const crypto = require('crypto');
 
 function onboardModel() {
 
@@ -28,9 +29,13 @@ function onboardModel() {
                         }
                     }
                 }
+
+                let uuid = crypto.randomUUID();
+
                 if (flag == 1) {
                     onboardings.OptedOption = selectedOptions
                     onboardings.userEmail = userEmail
+                    onboardings.uuid = uuid
                     onboardings.dt = Date();
                     db.collection("onboardings").insertOne(onboardings, (err, result) => {
                         if (err) {

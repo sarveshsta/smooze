@@ -1,7 +1,8 @@
-const { db, users, profilequestions } = require('./connection');
+const { db, users, profilequestions, preferences } = require('./connection');
 const indianCities = require('indian-cities-database');
 const nodemailer = require('nodemailer');
 const bcrypt = require('bcrypt');
+const crypto = require('crypto');
 const fast2sms = require('fast-two-sms');
 const createTokens = require('../utils/JWT');
 const { EMAIL, PASS, authOTPKEY } = require('../constants/constants');
@@ -63,7 +64,11 @@ function indexmodel() {
                         }
                     }
                 }
+
+                let uuid = crypto.randomUUID();
+
                 if (flag == 1) {
+                    users.uuid = uuid
                     users.status = 0;
                     users.role = "user";
                     users.dt = new Date();  // Use new Date() to get the current date and time
@@ -104,6 +109,9 @@ function indexmodel() {
 
 
 
+
+
+
     //get user Photos
     this.getUserPhotos = (userphotos, image1, image2, image3, image4, accessToken, callback) => {
         db.collection("userphotos").find().toArray()
@@ -129,7 +137,9 @@ function indexmodel() {
                         }
                     }
                 }
+                let uuid = crypto.randomUUID();
                 if (flag == 1) {
+                    userphotos.uuid = uuid
                     userphotos.image1 = image1;
                     userphotos.image2 = image2;
                     userphotos.image3 = image3;
@@ -156,6 +166,8 @@ function indexmodel() {
                 callback(false);
             });
     }
+
+
 
 
 
@@ -197,6 +209,9 @@ function indexmodel() {
                 callback([]);
             });
     };
+
+
+
 
 
 
@@ -251,6 +266,9 @@ function indexmodel() {
 
 
 
+
+
+
     //Verify users OTP api
     this.VerifyOTP = (users, otp, callback) => {
         db.collection('users').find({ phone: users.phone }).toArray()
@@ -282,6 +300,10 @@ function indexmodel() {
 
 
 
+
+
+
+
     //deactivate users api
     this.deactivateUser = (users, callback) => {
         db.collection('users').updateOne({ email: users.email }, { $set: { Isactive: false } })
@@ -308,6 +330,9 @@ function indexmodel() {
                 callback(false);
             });
     }
+
+
+
 
 
 
@@ -382,6 +407,8 @@ function indexmodel() {
                 callback([]);
             });
     }
+
+
 
 
 
@@ -526,6 +553,8 @@ function indexmodel() {
 
 
 
+
+
     //UPDATE EMAIL API
     this.updateEmail = (users, newemail, callback) => {
         db.collection('users').find({ email: users.email }).toArray()
@@ -557,7 +586,6 @@ function indexmodel() {
                 callback([]);
             });
     }
-
 
 
 
@@ -631,6 +659,7 @@ function indexmodel() {
 
 
 
+
     //getting userprofile details from user
     this.UserProfile = (profilequestions, accessToken, callback) => {
         db.collection("profilequestions").find().toArray()
@@ -652,8 +681,9 @@ function indexmodel() {
                         }
                     }
                 }
-
+                let uuid = crypto.randomUUID();
                 if (flag == 1) {
+                    profilequestions.uuid = uuid
                     profilequestions.role = "user"
                     profilequestions.dt = new Date();
                     profilequestions.token = accessToken;
@@ -805,6 +835,7 @@ function indexmodel() {
 
 
 
+
     //edit Work in user Profile
     this.EditProfileWork = (profilequestions, Work, callback) => {
         db.collection("profilequestions").find({ userEmail: profilequestions.userEmail }).toArray()
@@ -830,6 +861,177 @@ function indexmodel() {
                 callback([]);
             });
     }
+
+
+
+    
+
+
+
+    //not working
+    //delete profile api
+    this.DeleteProfile = (profilequestions, callback) => {
+        db.collection('profilequestions').deleteOne({ email: profilequestions.email })
+            .then((result) => {
+                if (result.length > 0) {
+                    callback(result);
+                } else {
+                    console.log('Profile not found.');
+                    callback([]);
+                }
+            }).catch((err) => {
+                console.log(err);
+            });
+    }
+
+
+
+
+
+
+
+
+
+    this.EditProfileStarSign = (profilequestions, newStarSign, callback) => {
+        db.collection("profilequestions").find({ userEmail: profilequestions.userEmail }).toArray()
+            .then((result) => {
+                console.log(result)
+                if (result.length > 0) {
+                    db.collection('profilequestions').updateOne({ userEmail: profilequestions.userEmail }, { $set: { StarSign: newStarSign } })
+                        .then(() => {
+                            console.log('user newStarSign updated successfully');
+                            callback(result);
+                        })
+                        .catch((updateErr) => {
+                            console.log('Error while updating user newStarSign', updateErr);
+                            callback([]);
+                        });
+                } else {
+                    console.log('user profile not found.');
+                    callback([]);
+                }
+            })
+            .catch((err) => {
+                console.log('Error:', err);
+                callback([]);
+            });
+    }
+
+
+
+
+
+
+
+    //create user preference model
+    this.userPreferences = (preferences, min_age, max_age, accessToken, callback) => {
+        db.collection("preferences").find().toArray()
+            .then((val) => {
+                console.log(val);
+                var result = val;
+                let max_id = 0;
+                if (result.length > 0) {
+                    max_id = Math.max(...result.map((row) => row._id));
+                }
+                preferences._id = max_id + 1;
+
+                let flag = 1;
+                if (result.length > 0) {
+                    for (let row of result) {
+                        if (preferences.userEmail == row.userEmail) {
+                            flag = 0;
+                            break;
+                        }
+                    }
+                }
+                let uuid = crypto.randomUUID();
+                if (flag == 1) {
+                    preferences.uuid = uuid
+                    preferences.min_age = min_age
+                    preferences.max_age = max_age
+                    preferences.role = "user"
+                    preferences.dt = new Date();
+                    preferences.token = accessToken;
+                    db.collection("preferences").insertOne(preferences, (err) => {
+                        if (err) {
+                            console.log(err);
+                            callback(false);
+                        } else {
+                            callback(true)
+                        }
+                    });
+                } else {
+                    callback(false);
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+                callback(false);
+            });
+    }
+
+
+
+
+
+
+    //update min and max age 
+    this.update_Min_Max_Age = (preferences, newMinAge, newMaxAge, callback) => {
+        db.collection("preferences").find({ userEmail: preferences.userEmail }).toArray()
+            .then((result) => {
+                console.log(result)
+                if (result.length > 0) {
+                    db.collection('preferences').updateOne({ userEmail: preferences.userEmail }, { $set: { min_age: newMinAge, max_age: newMaxAge } })
+                        .then(() => {
+                            console.log('new min and max Age updated successfully');
+                            callback(result);
+                        })
+                        .catch((updateErr) => {
+                            console.log('Error while updating new Min and max Age', updateErr);
+                            callback([]);
+                        });
+                } else {
+                    console.log('user preference not found.');
+                    callback([]);
+                }
+            })
+            .catch((err) => {
+                console.log('Error:', err);
+                callback([]);
+            });
+    }
+
+
+
+
+
+
+    //Update Distance api
+    this.updateDistanceRadius = (preferences, newDistanceRadius, callback) => {
+        db.collection("preferences").find({ userEmail: preferences.userEmail }).toArray()
+            .then((result) => {
+                console.log(result)
+                if (result.length > 0) {
+                    db.collection('preferences').updateOne({ userEmail: preferences.userEmail }, { $set: { DistanceRadius: newDistanceRadius } })
+                        .then(() => {
+                            console.log('new Distance updated successfully');
+                            callback(result);
+                        })
+                        .catch((updateErr) => {
+                            console.log('Error while updating new Distance', updateErr);
+                            callback([]);
+                        });
+                } else {
+                    console.log('user preference not found.');
+                    callback([]);
+                }
+            })
+            .catch((err) => {
+                console.log('Error:', err);
+                callback([]);
+            });
+    }
+
 
 
 
