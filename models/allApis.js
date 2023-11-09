@@ -39,7 +39,6 @@ function indexmodel() {
             callback(false, { "msgCity": 'Invalid city for the selected state' });
             return;
         }
-
         db.collection("users").find().toArray()
             .then((val) => {
                 console.log(val);
@@ -66,7 +65,6 @@ function indexmodel() {
                 }
 
                 let uuid = crypto.randomUUID();
-
                 if (flag == 1) {
                     users.uuid = uuid
                     users.status = 0;
@@ -864,7 +862,7 @@ function indexmodel() {
 
 
 
-    
+
 
 
 

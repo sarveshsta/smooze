@@ -62,8 +62,7 @@ const User = mongoose.Schema({
             },
             message: 'Invalid city.'
         }
-    },
-
+    }
 });
 const users = mongoose.model('User', User);
 
