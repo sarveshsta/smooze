@@ -86,14 +86,14 @@ function onboardModel() {
 
 
 
-    
+
     //update api for onboarding question
-    this.updateonboarding = (onboardings, OptedOption,callback) => {
-        db.collection("onboardings").find({ _id : onboardings._id, userEmail : onboardings.userEmail}).toArray()
+    this.updateonboarding = (onboardings, OptedOption, callback) => {
+        db.collection("onboardings").find({ _id: onboardings._id, userEmail: onboardings.userEmail }).toArray()
             .then((result) => {
                 console.log(result)
                 if (result.length > 0) {
-                    db.collection('onboardings').updateOne({ _id : onboardings._id ,userEmail : onboardings.userEmail}, { $set: { OptedOption: OptedOption } })
+                    db.collection('onboardings').updateOne({ _id: onboardings._id, userEmail: onboardings.userEmail }, { $set: { OptedOption: OptedOption } })
                         .then(() => {
                             console.log('onboarding updated successfully');
                             callback(result);

@@ -51,6 +51,7 @@ const update_Min_Max_Age = require('./routes/usersRoute/update_Min_Max_Age');
 const updateDistanceRadius = require('./routes/usersRoute/updateDistanceRadius');
 const DeleteProfile = require('./routes/usersRoute/DeleteProfile');
 const EditProfileStarSign = require('./routes/usersRoute/EditProfileStarSign');
+const UserCompatibility = require('./routes/UserCompatibility/UserCompatibility');
 
 
 
@@ -113,6 +114,7 @@ app.use('/update_Min_Max_Age',update_Min_Max_Age);
 app.use('/updateDistanceRadius',updateDistanceRadius);
 app.use('/DeleteProfile',DeleteProfile);
 app.use('/EditProfileStarSign',EditProfileStarSign);
+app.use('/UserCompatibility',UserCompatibility);
 
 
 // catch 404 and forward to error handler
