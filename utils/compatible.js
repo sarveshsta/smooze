@@ -26,11 +26,16 @@ function calculateCompatibilityForAllUsers(users) {
                 }
             }
 
-            compatibilityMatrix.push({
-                user1: user1.name,
-                user2: user2.name,
-                compatibilityPercentage: compatibilityScore * 100,
-            });
+            const compatibilityPercentage = compatibilityScore * 100;
+
+            // Add the entry to the matrix only if compatibilityPercentage is greater than 60%
+            if (compatibilityPercentage > 60) {
+                compatibilityMatrix.push({
+                    user1: user1.name,
+                    user2: user2.name,
+                    compatibilityPercentage: compatibilityPercentage,
+                });
+            }
         }
     }
 
