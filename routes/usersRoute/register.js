@@ -13,26 +13,31 @@ router.post('/', function (req, res, next) {
     indexmodel.registeruser(req.body,accessToken,(result) => {
         console.log("Result :", result);
         if (result) {
-
+            res.send("user registered successfully");
             console.log("user registered successfully");
         }
         else {
             if (result.msg) {
+                res.send({ "msg": "invalid phone number" });
                 console.log({ "msg": "invalid phone number" });
             }
             else {
                 if (result.gen) {
+                    res.send({ "gen": 'invalid gender' });
                     console.log({ "gen": 'invalid gender' });
                 }
                 else {
                     if (result.msgState) {
+                        res.send({ "msgState": 'Invalid state.' });
                         console.log({ "msgState": 'Invalid state.' });
                     }
                     else {
                         if (result.msgCity) {
+                            res.send({ "msgCity": 'Invalid city for the selected state.' });
                             console.log({ "msgCity": 'Invalid city for the selected state.' });
                         }
                         else {
+                            res.send("user already exists");
                             console.log("user already exists");
                         }
                     }

@@ -10,7 +10,7 @@ function dem(users) {
                     if (user1.location === user2.location) {
                         console.log(user1);
                         console.log(user2);
-                        console.log('Users on club:', user1.location);
+                        console.log('Users are in club:', user1.location);
                     }
                 }
             // }
