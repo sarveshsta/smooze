@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var indexmodel = require('../../models/allApis');
+var indexmodel = require('../../models/UserApi');
 const createTokens = require('../../utils/JWT');
 const upload1 = require('../../utils/imageUpload');
 

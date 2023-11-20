@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var indexmodel = require('../../models/allApis');
+var indexmodel = require('../../models/UserApi');
 
 //update Location ROUTE
 router.post('/', function (req, res, next) {

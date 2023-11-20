@@ -1,13 +1,14 @@
 var express = require('express');
 var router = express.Router();
-var indexmodel = require('../../models/UserApi');
+var ClubVisitedModel = require('../../models/clubvisited');
+var dem = require('../../utils/visitedClub');
 
-
-//getUserDetailsWithPhotos
+//get CLUB VISITED ROUTE
 router.get('/', (req, res) => {
-    indexmodel.getUserDetailsWithPhotos((data) => {
+    ClubVisitedModel.clubvisited((data) => {
         if (data) {
             res.send({ data: data });
+            dem(data)
         } else {
             res.status(500).render('error');
         }

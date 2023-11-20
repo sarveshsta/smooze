@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var indexmodel = require('../../models/allApis');
+var indexmodel = require('../../models/UserApi');
 
-//DELETE USER ROUTE
+//DELETE USER PROFILE ROUTE
 router.delete('/', (req, res) => {
     const  email = req.body.email
     indexmodel.DeleteProfile(req.body,email, (result) => {

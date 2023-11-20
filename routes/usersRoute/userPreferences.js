@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var indexmodel = require('../../models/allApis');
+var indexmodel = require('../../models/UserApi');
 const createTokens = require('../../utils/JWT');
 
-//user profile ROUTE
+//USER PREFERENCE ROUTE
 router.post('/', function (req, res, next) {
     // console.log(req.body)
     const accessToken = createTokens("users");

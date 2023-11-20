@@ -1,15 +1,15 @@
-const { db, users, onboardings} = require('./connection');
+const { db, users, clubs } = require('./connection');
 
-function CompatibleModle() {
+function ClubVisitedModel() {
 
-    //USER COMPATIBILITY API
-    this.UserCompatibility = (callback) => {
+    //CLUB VISITED API
+    this.clubvisited = (callback) => {
         db.collection("users").aggregate([
             {
                 $lookup: {
-                    from: "onboardings",
+                    from: "clubs",
                     localField: "email",
-                    foreignField: "userEmail",
+                    foreignField: "email",
                     as: "Details",
                 },
             },
@@ -21,9 +21,9 @@ function CompatibleModle() {
             .catch((err) => {
                 console.log(err);
             })
-    };
+    }
 
     
 }
 
-module.exports = new CompatibleModle();
+module.exports = new ClubVisitedModel();

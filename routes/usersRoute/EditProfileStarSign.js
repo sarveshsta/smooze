@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var indexmodel = require('../../models/allApis');
+var indexmodel = require('../../models/UserApi');
 
 
-//Update Language
+//Update Star Sign
 router.post('/', function (req, res, next) {
     const newStarSign = req.body.StarSign
     indexmodel.EditProfileStarSign(req.body, newStarSign ,(result) => {

@@ -3,7 +3,7 @@ var router = express.Router();
 var clubmodel = require('../../models/clubAPI');
 
 
-//update Club_name route
+//update CLUB_NAME route
 
 router.post('/', function (req, res) {
     const Clubnewname = req.body.Club_name

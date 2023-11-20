@@ -3,7 +3,7 @@ var router = express.Router();
 var CompatibleModle = require('../../models/compatibility');
 var calculateCompatibilityForAllUsers = require('../../utils/compatible');
 
-//get user detail route
+//GET USER COMPATIBILITY ROUTE
 router.get('/', (req, res) => {
     CompatibleModle.UserCompatibility((data) => {
         if (data) {

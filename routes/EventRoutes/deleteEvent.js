@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var eventmodel = require('../../models/EventApi');
 
-//DELETE USER ROUTE
+//DELETE EVENT ROUTE
 router.delete('/', (req, res) => {
   eventmodel.deleteEvent(req.body, (result) => {
     if (result){

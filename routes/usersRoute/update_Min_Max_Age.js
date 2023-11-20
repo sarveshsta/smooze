@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var indexmodel = require('../../models/allApis');
+var indexmodel = require('../../models/UserApi');
 
-//update name ROUTE
+//update min_max ROUTE
 router.post('/', function (req, res, next) {
     const newMinAge = req.body.min_age
     const newMaxAge = req.body.max_age

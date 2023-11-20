@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var clubmodel = require('../../models/clubAPI');
 
-//update club email ROUTE
+//UPDATE CLUB EMAIL ROUTE
 router.post('/', function (req, res, next) {
     const newemail = req.body.newemail
 

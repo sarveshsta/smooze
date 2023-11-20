@@ -52,6 +52,7 @@ const updateDistanceRadius = require('./routes/usersRoute/updateDistanceRadius')
 const DeleteProfile = require('./routes/usersRoute/DeleteProfile');
 const EditProfileStarSign = require('./routes/usersRoute/EditProfileStarSign');
 const UserCompatibility = require('./routes/UserCompatibility/UserCompatibility');
+const clubvisited = require('./routes/ClubVisited/clubvisited');
 
 
 
@@ -115,6 +116,7 @@ app.use('/updateDistanceRadius',updateDistanceRadius);
 app.use('/DeleteProfile',DeleteProfile);
 app.use('/EditProfileStarSign',EditProfileStarSign);
 app.use('/UserCompatibility',UserCompatibility);
+app.use('/clubvisited',clubvisited);
 
 
 // catch 404 and forward to error handler

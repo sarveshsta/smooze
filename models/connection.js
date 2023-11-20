@@ -67,7 +67,7 @@ const User = mongoose.Schema({
 const users = mongoose.model('User', User);
 
 
-
+//USER PHOTOS SCHEMA
 const UserPhotos = mongoose.Schema({
     email: {
         type: String,
@@ -232,7 +232,7 @@ const Event = mongoose.Schema({
 })
 const events = mongoose.model('Event', Event);
 
-
+//USER PROFILE QUESTION API
 const ProfileQuestions = mongoose.Schema({
     userEmail: {
         type: String,
@@ -274,6 +274,7 @@ const ProfileQuestions = mongoose.Schema({
 const profilequestion = mongoose.model('ProfileQuestions', ProfileQuestions);
 
 
+//USER PREFERENCE API
 const  Preferences = mongoose.Schema({
     userEmail : {
         type : String,
