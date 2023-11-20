@@ -54,7 +54,7 @@ const EditProfileStarSign = require('./routes/usersRoute/EditProfileStarSign');
 const UserCompatibility = require('./routes/UserCompatibility/UserCompatibility');
 const clubvisited = require('./routes/ClubVisited/clubvisited');
 const OfferSmooz = require('./routes/OfferSmooz/OfferSmooz');
-
+const OfferedSmooz = require('./routes/OfferSmooz/OfferedSmooz');
 
 
 
@@ -119,6 +119,7 @@ app.use('/EditProfileStarSign',EditProfileStarSign);
 app.use('/UserCompatibility',UserCompatibility);
 app.use('/clubvisited',clubvisited);
 app.use('/OfferSmooz',OfferSmooz);
+app.use('/OfferedSmooz', OfferedSmooz);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

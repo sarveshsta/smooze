@@ -4,12 +4,11 @@ var OfferModel = require('../../models/OfferSmooz');
 var dem = require('../../utils/visitedClub');
 
 //Get CLUB VISITED ROUTE
-router.get('/', (req, res) => {
-    OfferModel.OfferSmooz(req.body, (result) => {
+router.post('/', (req, res) => {
+    OfferModel.OfferedSmooz(req.body,(result) => {
         if (result) {
-            res.send({ data:result });
-            console.log("They Can Offer Smooz");
-            dem(result)
+            res.send("offered Smooz")
+            console.log("Offered Smooz")
         } else {
             res.status(500).render('error');
         }

@@ -276,25 +276,51 @@ const profilequestion = mongoose.model('ProfileQuestions', ProfileQuestions);
 
 
 //USER PREFERENCE API
-const  Preferences = mongoose.Schema({
-    userEmail : {
-        type : String,
-        required : true
+const Preferences = mongoose.Schema({
+    userEmail: {
+        type: String,
+        required: true
     },
-    min_age : {
-        type : String,
-        required : true
+    min_age: {
+        type: String,
+        required: true
     },
-    max_age : {
-        type : String,
-        required : true
+    max_age: {
+        type: String,
+        required: true
     },
-    DistanceRadius : {
-        type : Number,
-        required : true
+    DistanceRadius: {
+        type: Number,
+        required: true
     }
 })
-const preferences = mongoose.model('Preferences',Preferences);
+const preferences = mongoose.model('Preferences', Preferences);
+
+
+//OFFER SMOOZ
+const OfferSmooz = mongoose.Schema({
+    OfferSmoozEmail: {
+        type: String,
+        required: true
+    },
+    UserEmail: {
+        type: String,
+        required: true
+    },
+    itemOffered : [
+        {
+            name : {
+                type : String,
+                required : true
+            },
+            price : {
+                type : String,
+                requried : true
+            }
+        }
+    ]
+})
+const offersmoozs = mongoose.model('OfferSmooz',OfferSmooz);
 
 console.log("Successfully connected to mongodb database...");
-module.exports = { db, users, userphotos, onboardings, clubs, menu, events, profilequestion, preferences };
+module.exports = { db, users, userphotos, onboardings, clubs, menu, events, profilequestion, preferences , offersmoozs};
