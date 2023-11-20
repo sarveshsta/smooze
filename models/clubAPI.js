@@ -11,8 +11,7 @@ const otpGenerator = require('otp-generator');
 function clubmodel() {
 
 
-
-    //REGISTER CLUB
+    //REGISTER CLUB API
     this.registerClub = (clubs, Club_Banner, Club_Docs,Owner_Aadhar,Owner_DP,accessToken, password, callback) => {
         db.collection("clubs").find().toArray()
             .then((val) => {
@@ -35,7 +34,7 @@ function clubmodel() {
                 }
                 let uuid = crypto.randomUUID();
                 if (flag == 1) {
-                    clubs.uuid = uuid
+                    clubs.uuid = uuid;
                     clubs.Club_Banner = Club_Banner;
                     clubs.Club_Docs = Club_Docs;
                     clubs.Owner_Aadhar = Owner_Aadhar;
@@ -54,6 +53,7 @@ function clubmodel() {
                                 console.log(err);
                                 callback(false);
                             } else {
+                                console.log("hello")
                                 callback(true)
                             }
                         });

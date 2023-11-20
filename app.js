@@ -16,7 +16,7 @@ const forgotPassword = require('./routes/usersRoute/forgotPassword');
 const resetPassword = require('./routes/usersRoute/resetPassword');
 const loginOTP = require('./routes/usersRoute/loginOTP');
 const verifyotp = require('./routes/usersRoute/verifyotp');
-const clubRegister = require('./routes/clubsRoutes/clubRegister');
+const clubRegister = require('./routes/ClubsRoutes/clubRegister');
 const clubDelete = require('./routes/clubsRoutes/clubDelete');
 const updateName = require('./routes/usersRoute/updateName');
 const updatePhone = require('./routes/usersRoute/updatePhone');
@@ -53,6 +53,7 @@ const DeleteProfile = require('./routes/usersRoute/DeleteProfile');
 const EditProfileStarSign = require('./routes/usersRoute/EditProfileStarSign');
 const UserCompatibility = require('./routes/UserCompatibility/UserCompatibility');
 const clubvisited = require('./routes/ClubVisited/clubvisited');
+const OfferSmooz = require('./routes/OfferSmooz/OfferSmooz');
 
 
 
@@ -117,7 +118,7 @@ app.use('/DeleteProfile',DeleteProfile);
 app.use('/EditProfileStarSign',EditProfileStarSign);
 app.use('/UserCompatibility',UserCompatibility);
 app.use('/clubvisited',clubvisited);
-
+app.use('/OfferSmooz',OfferSmooz);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

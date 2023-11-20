@@ -87,7 +87,7 @@ function MenuModel() {
 
 
 
-    //update api for update menu
+    //api for update menu
     this.updatePrice = (menu, OptedMenu, callback) => {
         db.collection("menu").find({_id : menu._id}).toArray()
             .then((result) => {
