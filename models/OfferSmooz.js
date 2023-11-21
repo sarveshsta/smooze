@@ -4,7 +4,7 @@ const { db, offersmoozs } = require('./connection');
 function OfferModel() {
 
 
-    //Offer Smooz
+    //Offer Smooz (get the all user present in same location)
     this.OfferSmooz = (callback) => {
         db.collection("users").aggregate([
             {
@@ -28,7 +28,7 @@ function OfferModel() {
 
 
 
-
+    //Offer the smooz to a particular person
     this.OfferedSmooz = (offersmoozs, TotalPrice, callback) => {
         db.collection("offersmoozs").find().toArray()
             .then((val => {
@@ -83,7 +83,7 @@ function OfferModel() {
 
 
 
-
+    //billing of the smooz offered
     this.SmoozBill = (offersmoozs, callback) => {
         db.collection("offersmoozs").find({ UserEmail: offersmoozs.UserEmail }).toArray()
             .then((result) => {
@@ -98,7 +98,7 @@ function OfferModel() {
 
 
 
-
+    //recieve the smooz (Accept or Reject)
     this.itemOfferedMe = (offersmoozs, option, callback) => {
         db.collection("offersmoozs").find({ OfferSmoozEmail: offersmoozs.OfferSmoozEmail }).toArray()
             .then((result) => {
