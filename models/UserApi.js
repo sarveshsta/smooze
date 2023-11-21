@@ -889,7 +889,7 @@ function indexmodel() {
 
 
 
-
+    //update api of star sign
     this.EditProfileStarSign = (profilequestions, newStarSign, callback) => {
         db.collection("profilequestions").find({ userEmail: profilequestions.userEmail }).toArray()
             .then((result) => {

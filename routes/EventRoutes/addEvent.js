@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const eventmodel = require('../../models/EventApi');
 const createTokens = require('../../utils/JWT');
-const upload2 = require('../../utils/imageUpload');
+const upload2 = require('../../utils/EventPhotosUpload');
 const validateFiles = require('../../utils/validateFiles');
 
 //AddEvent ROUTE

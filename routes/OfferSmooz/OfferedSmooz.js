@@ -5,10 +5,25 @@ var dem = require('../../utils/visitedClub');
 
 //Get CLUB VISITED ROUTE
 router.post('/', (req, res) => {
-    OfferModel.OfferedSmooz(req.body,(result) => {
+
+    function calculateTotalPrice(items) {
+        let totalPrice = 0;
+
+        for (const item of items) {
+            totalPrice += item.price;
+        }
+
+        return totalPrice;
+    }
+
+    const totalItemPrice = calculateTotalPrice(req.body.itemOffered);
+
+    const TotalPrice = totalItemPrice;
+
+    OfferModel.OfferedSmooz(req.body, TotalPrice, (result) => {
         if (result) {
             res.send("offered Smooz")
-            console.log("Offered Smooz")
+            console.log("Offered Smooz");
         } else {
             res.status(500).render('error');
         }

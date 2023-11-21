@@ -318,7 +318,11 @@ const OfferSmooz = mongoose.Schema({
                 requried : true
             }
         }
-    ]
+    ],
+    option : {
+        type : String,
+        required : true
+    }
 })
 const offersmoozs = mongoose.model('OfferSmooz',OfferSmooz);
 

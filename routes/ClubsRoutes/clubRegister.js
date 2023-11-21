@@ -3,7 +3,7 @@ const router = express.Router();
 const validateFiles = require('../../utils/validateFiles'); 
 const clubmodel = require('../../models/clubAPI');
 const createTokens = require('../../utils/JWT');
-const upload = require('../../utils/imageUpload');
+const upload = require('../../utils/clubImageUpload');
 
 
 //REGISTER club ROUTE

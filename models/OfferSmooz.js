@@ -1,11 +1,4 @@
-const { db, clubs, users, offersmoozs } = require('./connection');
-const nodemailer = require('nodemailer');
-const bcrypt = require('bcrypt');
-const crypto = require('crypto');
-const fast2sms = require('fast-two-sms');
-const createTokens = require('../utils/JWT');
-const { EMAIL, PASS, authOTPKEY } = require('../constants/constants');
-const otpGenerator = require('otp-generator');
+const { db, offersmoozs } = require('./connection');
 
 
 function OfferModel() {
@@ -32,52 +25,95 @@ function OfferModel() {
     };
 
 
-    this.OfferedSmooz = (offersmoozs , callback ) => {
+
+
+
+
+    this.OfferedSmooz = (offersmoozs, TotalPrice, callback) => {
         db.collection("offersmoozs").find().toArray()
-        .then((val => {
-            console.log(val);
-            var result = val;
-            if (result.length > 0) {
-                var max_id = result[0]._id;
-                for (let row of result) {
-                    if (max_id < row._id) {
-                        max_id = row._id;
+            .then((val => {
+                console.log(val);
+                var result = val;
+                if (result.length > 0) {
+                    var max_id = result[0]._id;
+                    for (let row of result) {
+                        if (max_id < row._id) {
+                            max_id = row._id;
+                        }
+                    }
+                    offersmoozs._id = max_id + 1;
+                } else {
+                    offersmoozs._id = 1;
+                }
+                var flag = 1;
+                if (result.length > 0) {
+                    for (let row of result) {
+                        if (offersmoozs._id == row._id) {
+                            flag = 0;
+                            break;
+                        }
                     }
                 }
-                offersmoozs._id = max_id + 1;
-            } else {
-                offersmoozs._id = 1;
-            }
-            var flag = 1;
-            if (result.length > 0) {
-                for (let row of result) {
-                    if (offersmoozs._id == row._id) {
-                        flag = 0;
-                        break;
-                    }
+                let uuid = crypto.randomUUID();
+                if (flag == 1) {
+                    offersmoozs.TotalPrice = TotalPrice
+                    offersmoozs.uuid = uuid
+                    offersmoozs.dt = Date();
+                    offersmoozs.option = "Reject"
+                    db.collection("offersmoozs").insertOne(offersmoozs, (err, result) => {
+                        if (err) {
+                            console.log(err);
+                            callback(false);
+                        } else {
+                            console.log(result)
+                            callback(result);
+                        }
+                    });
+                } else {
+                    callback(false);
                 }
-            }
-            let uuid = crypto.randomUUID();
-            if (flag == 1) {
-                offersmoozs.uuid = uuid
-                offersmoozs.dt = Date();
-                db.collection("offersmoozs").insertOne(offersmoozs, (err, result) => {
-                    if (err) {
-                        console.log(err);
-                        callback(false);
-                    } else {
-                        callback(result);
-                    }
-                });
-            } else {
+            }))
+            .catch((err) => {
+                console.log(err);
                 callback(false);
-            }
-        }))
-        .catch((err) => {
-            console.log(err);
-            callback(false);
-        });
+            });
     }
+
+
+
+
+
+
+    this.SmoozBill = (offersmoozs, callback) => {
+        db.collection("offersmoozs").find({ UserEmail: offersmoozs.UserEmail }).toArray()
+            .then((result) => {
+                callback(result)
+            })
+            .catch((err) => {
+                confirm.log(err)
+            })
+    }
+
+
+
+
+
+
+    this.itemOfferedMe = (offersmoozs, option, callback) => {
+        db.collection("offersmoozs").find({ OfferSmoozEmail: offersmoozs.OfferSmoozEmail }).toArray()
+            .then((result) => {
+                db.collection("offersmoozs").updateOne({ OfferSmoozEmail: offersmoozs.OfferSmoozEmail }, { $set: { option: option } })
+                    .then(() => {
+                        console.log("User Answered");
+                        callback(result);
+                    })
+                    .catch((updateErr) => {
+                        console.log('Error while answering the Offer:', updateErr);
+                    });
+            })
+    }
+
+
 
 
 }

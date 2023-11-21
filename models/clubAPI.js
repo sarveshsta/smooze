@@ -53,7 +53,6 @@ function clubmodel() {
                                 console.log(err);
                                 callback(false);
                             } else {
-                                console.log("hello")
                                 callback(true)
                             }
                         });
