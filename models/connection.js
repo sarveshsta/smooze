@@ -326,5 +326,23 @@ const OfferSmooz = mongoose.Schema({
 })
 const offersmoozs = mongoose.model('OfferSmooz',OfferSmooz);
 
+
+const UserLikeSomeOne = mongoose.Schema({
+    UserEmail : {
+        type : String,
+        required : true
+    },
+    isLiked : {
+        type : Boolean,
+        requried : true,
+        default : false
+    },
+    LikedBy : {
+        type : String,
+        required : true
+    }
+})
+const userlikesomeones = mongoose.model('UserLikeSomeOne',UserLikeSomeOne);
+
 console.log("Successfully connected to mongodb database...");
-module.exports = { db, users, userphotos, onboardings, clubs, menu, events, profilequestion, preferences , offersmoozs};
+module.exports = { db, users, userphotos, onboardings, clubs, menu, events, profilequestion, preferences , offersmoozs, userlikesomeones};

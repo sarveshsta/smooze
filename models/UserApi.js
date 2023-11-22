@@ -1,4 +1,4 @@
-const { db, users, profilequestions, preferences } = require('./connection');
+const { db, users, profilequestions, preferences, userlikesomeones } = require('./connection');
 const indianCities = require('indian-cities-database');
 const nodemailer = require('nodemailer');
 const bcrypt = require('bcrypt');
@@ -74,6 +74,8 @@ function indexmodel() {
                     users.IsGoogle = false
                     users.IsApple = false
                     users.IsEmailVerified = false
+                    users.isLiked = false
+                    users.isDisLiked = false
                     users.token = accessToken
                     users.otp = ''
                     //INSERTING DATA INTO DATABASE
@@ -1033,6 +1035,147 @@ function indexmodel() {
 
 
 
+
+
+    // user like someone api
+    this.UserLikeSomeOne = (userlikesomeones, callback) => {
+        db.collection("userlikesomeones").find().toArray()
+            .then((val) => {
+                console.log(val);
+                var result = val;
+                if (result.length > 0) {
+                    var max_id = result[0]._id;
+                    for (let row of result) {
+                        if (max_id < row._id) {
+                            max_id = row._id;
+                        }
+                    }
+                    userlikesomeones._id = max_id + 1;
+                } else {
+                    userlikesomeones._id = 1;
+                }
+                var flag = 1;
+                if (result.length > 0) {
+                    for (let row of result) {
+                        if (userlikesomeones._id == row._id) {
+                            flag = 0;
+                            break;
+                        }
+                    }
+                }
+
+                let uuid = crypto.randomUUID();
+
+                if (flag == 1) {
+                    userlikesomeones.isLiked = true;
+                    userlikesomeones.uuid = uuid;
+                    userlikesomeones.dt = Date();
+                    db.collection("userlikesomeones").insertOne(userlikesomeones, (err) => {
+                        if (err) {
+                            console.log(err);
+                            if (callback) {
+                                callback(false);
+                            }
+                        } else {
+                            db.collection("users").updateOne({ email: userlikesomeones.UserEmail }, { $set: { isLiked: true } })
+                                .then(() => {
+                                    if (callback) {
+                                        callback(true);
+                                    }
+                                })
+                                .catch((err) => {
+                                    console.log(err);
+                                    if (callback) {
+                                        callback(false);
+                                    }
+                                });
+                        }
+                    });
+                } else {
+                    if (callback) {
+                        callback(false);
+                    }
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+                if (callback) {
+                    callback(false);
+                }
+            });
+    };
+
+
+
+
+
+    // user Dislike someone api
+    this.UserDisLikeSomeOne = (UserDisLikeSomeOne, callback) => {
+        db.collection("UserDisLikeSomeOne").find().toArray()
+            .then((val) => {
+                console.log(val);
+                var result = val;
+                if (result.length > 0) {
+                    var max_id = result[0]._id;
+                    for (let row of result) {
+                        if (max_id < row._id) {
+                            max_id = row._id;
+                        }
+                    }
+                    UserDisLikeSomeOne._id = max_id + 1;
+                } else {
+                    UserDisLikeSomeOne._id = 1;
+                }
+                var flag = 1;
+                if (result.length > 0) {
+                    for (let row of result) {
+                        if (UserDisLikeSomeOne._id == row._id) {
+                            flag = 0;
+                            break;
+                        }
+                    }
+                }
+
+                let uuid = crypto.randomUUID();
+
+                if (flag == 1) {
+                    UserDisLikeSomeOne.isLiked = true;
+                    UserDisLikeSomeOne.uuid = uuid;
+                    UserDisLikeSomeOne.dt = Date();
+                    db.collection("UserDisLikeSomeOne").insertOne(UserDisLikeSomeOne, (err) => {
+                        if (err) {
+                            console.log(err);
+                            if (callback) {
+                                callback(false);
+                            }
+                        } else {
+                            db.collection("users").updateOne({ email: UserDisLikeSomeOne.UserEmail }, { $set: { isDisLiked: true } })
+                                .then(() => {
+                                    if (callback) {
+                                        callback(true);
+                                    }
+                                })
+                                .catch((err) => {
+                                    console.log(err);
+                                    if (callback) {
+                                        callback(false);
+                                    }
+                                });
+                        }
+                    });
+                } else {
+                    if (callback) {
+                        callback(false);
+                    }
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+                if (callback) {
+                    callback(false);
+                }
+            });
+    }
 
 
 
