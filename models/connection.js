@@ -275,7 +275,7 @@ const ProfileQuestions = mongoose.Schema({
 const profilequestion = mongoose.model('ProfileQuestions', ProfileQuestions);
 
 
-//USER PREFERENCE API
+//USER PREFERENCE Schema
 const Preferences = mongoose.Schema({
     userEmail: {
         type: String,
@@ -297,7 +297,7 @@ const Preferences = mongoose.Schema({
 const preferences = mongoose.model('Preferences', Preferences);
 
 
-//OFFER SMOOZ
+//OFFER SMOOZ Schema
 const OfferSmooz = mongoose.Schema({
     OfferSmoozEmail: {
         type: String,
@@ -326,7 +326,7 @@ const OfferSmooz = mongoose.Schema({
 })
 const offersmoozs = mongoose.model('OfferSmooz',OfferSmooz);
 
-
+//Schema of user like someone
 const UserLikeSomeOne = mongoose.Schema({
     UserEmail : {
         type : String,
@@ -344,5 +344,41 @@ const UserLikeSomeOne = mongoose.Schema({
 })
 const userlikesomeones = mongoose.model('UserLikeSomeOne',UserLikeSomeOne);
 
+//Schema of user  Dislike someone
+const UserDisLikeSomeOne = mongoose.Schema({
+    UserEmail : {
+        type : String,
+        required : true
+    },
+    isLiked : {
+        type : Boolean,
+        requried : true,
+        default : false
+    },
+    DisLikedBy : {
+        type : String,
+        required : true
+    }
+})
+const userdislikesomeones = mongoose.model('UserDisLikeSomeOne',UserDisLikeSomeOne);
+
+//Schema of user super like someone 
+const UserSuperLikeSomeOne = mongoose.Schema({
+    UserEmail : {
+        type : String,
+        required : true
+    },
+    isLiked : {
+        type : Boolean,
+        requried : true,
+        default : false
+    },
+    SuperLikedBy : {
+        type : String,
+        required : true
+    }
+})
+const usersuperlikesomeones = mongoose.model('UserSuperLikeSomeOne',UserSuperLikeSomeOne);
+
 console.log("Successfully connected to mongodb database...");
-module.exports = { db, users, userphotos, onboardings, clubs, menu, events, profilequestion, preferences , offersmoozs, userlikesomeones};
+module.exports = { db, users, userphotos, onboardings, clubs, menu, events, profilequestion, preferences , offersmoozs, userlikesomeones, userdislikesomeones, usersuperlikesomeones};

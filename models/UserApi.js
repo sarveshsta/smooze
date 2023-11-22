@@ -1,4 +1,4 @@
-const { db, users, profilequestions, preferences, userlikesomeones } = require('./connection');
+const { db, users, profilequestions, preferences, userlikesomeones, userdislikesomeones } = require('./connection');
 const indianCities = require('indian-cities-database');
 const nodemailer = require('nodemailer');
 const bcrypt = require('bcrypt');
@@ -1110,8 +1110,8 @@ function indexmodel() {
 
 
     // user Dislike someone api
-    this.UserDisLikeSomeOne = (UserDisLikeSomeOne, callback) => {
-        db.collection("UserDisLikeSomeOne").find().toArray()
+    this.UserDisLikeSomeOne = (userdislikesomeones, callback) => {
+        db.collection("userdislikesomeones").find().toArray()
             .then((val) => {
                 console.log(val);
                 var result = val;
@@ -1122,14 +1122,14 @@ function indexmodel() {
                             max_id = row._id;
                         }
                     }
-                    UserDisLikeSomeOne._id = max_id + 1;
+                    userdislikesomeones._id = max_id + 1;
                 } else {
-                    UserDisLikeSomeOne._id = 1;
+                    userdislikesomeones._id = 1;
                 }
                 var flag = 1;
                 if (result.length > 0) {
                     for (let row of result) {
-                        if (UserDisLikeSomeOne._id == row._id) {
+                        if (userdislikesomeones._id == row._id) {
                             flag = 0;
                             break;
                         }
@@ -1139,17 +1139,17 @@ function indexmodel() {
                 let uuid = crypto.randomUUID();
 
                 if (flag == 1) {
-                    UserDisLikeSomeOne.isLiked = true;
-                    UserDisLikeSomeOne.uuid = uuid;
-                    UserDisLikeSomeOne.dt = Date();
-                    db.collection("UserDisLikeSomeOne").insertOne(UserDisLikeSomeOne, (err) => {
+                    userdislikesomeones.isDisLiked = true;
+                    userdislikesomeones.uuid = uuid;
+                    userdislikesomeones.dt = Date();
+                    db.collection("userdislikesomeones").insertOne(userdislikesomeones, (err) => {
                         if (err) {
                             console.log(err);
                             if (callback) {
                                 callback(false);
                             }
                         } else {
-                            db.collection("users").updateOne({ email: UserDisLikeSomeOne.UserEmail }, { $set: { isDisLiked: true } })
+                            db.collection("users").updateOne({ email: userdislikesomeones.UserEmail }, { $set: { isDisLiked: true } })
                                 .then(() => {
                                     if (callback) {
                                         callback(true);
@@ -1177,6 +1177,78 @@ function indexmodel() {
             });
     }
 
+
+
+
+
+
+    //user SuperLike Someone api
+    this.UserSuperLikeSomeOne = (usersuperlikesomeones, callback) => {
+        db.collection("usersuperlikesomeones").find().toArray()
+            .then((val) => {
+                console.log(val);
+                var result = val;
+                if (result.length > 0) {
+                    var max_id = result[0]._id;
+                    for (let row of result) {
+                        if (max_id < row._id) {
+                            max_id = row._id;
+                        }
+                    }
+                    usersuperlikesomeones._id = max_id + 1;
+                } else {
+                    usersuperlikesomeones._id = 1;
+                }
+                var flag = 1;
+                if (result.length > 0) {
+                    for (let row of result) {
+                        if (usersuperlikesomeones._id == row._id) {
+                            flag = 0;
+                            break;
+                        }
+                    }
+                }
+
+                let uuid = crypto.randomUUID();
+
+                if (flag == 1) {
+                    usersuperlikesomeones.isSuperDisLiked = true;
+                    usersuperlikesomeones.uuid = uuid;
+                    usersuperlikesomeones.dt = Date();
+                    db.collection("usersuperlikesomeones").insertOne(usersuperlikesomeones, (err) => {
+                        if (err) {
+                            console.log(err);
+                            if (callback) {
+                                callback(false);
+                            }
+                        } else {
+                            db.collection("users").updateOne({ email: usersuperlikesomeones.UserEmail }, { $set: { isSuperDisLiked: true } })
+                                .then(() => {
+                                    if (callback) {
+                                        callback(true);
+                                    }
+                                })
+                                .catch((err) => {
+                                    console.log(err);
+                                    if (callback) {
+                                        callback(false);
+                                    }
+                                });
+                        }
+                    });
+                } else {
+                    if (callback) {
+                        callback(false);
+                    }
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+                if (callback) {
+                    callback(false);
+                }
+            });
+    }
 
 
 }

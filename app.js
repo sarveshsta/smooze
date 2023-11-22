@@ -59,6 +59,7 @@ const SmoozBill = require('./routes/OfferSmooz/SmoozBill');
 const itemOfferedMe = require('./routes/OfferSmooz/itemOfferedMe');
 const UserLikeSomeOne = require('./routes/usersRoute/UserLikeSomeOne');
 const UserDisLikeSomeOne = require('./routes/usersRoute/UserDisLikeSomeOne');
+const UserSuperLikeSomeOne = require('./routes/usersRoute/UserSuperLikeSomeOne');
 
 
 
@@ -128,6 +129,7 @@ app.use('/SmoozBill',SmoozBill);
 app.use('/itemOfferedMe', itemOfferedMe);
 app.use('/UserLikeSomeOne',UserLikeSomeOne);
 app.use('/UserDisLikeSomeOne',UserDisLikeSomeOne);
+app.use('/UserSuperLikeSomeOne',UserSuperLikeSomeOne);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
