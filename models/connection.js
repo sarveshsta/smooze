@@ -337,7 +337,7 @@ const UserLikeSomeOne = mongoose.Schema({
         requried : true,
         default : false
     },
-    LikedBy : {
+    LikedTo : {
         type : String,
         required : true
     }
@@ -355,7 +355,7 @@ const UserDisLikeSomeOne = mongoose.Schema({
         requried : true,
         default : false
     },
-    DisLikedBy : {
+    DisLikedTo : {
         type : String,
         required : true
     }
@@ -373,7 +373,7 @@ const UserSuperLikeSomeOne = mongoose.Schema({
         requried : true,
         default : false
     },
-    SuperLikedBy : {
+    SuperLikedTo : {
         type : String,
         required : true
     }

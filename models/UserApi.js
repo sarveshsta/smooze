@@ -1109,7 +1109,44 @@ function indexmodel() {
 
 
 
-    // user Dislike someone api
+
+
+
+
+    // user Like Retreve  api
+    this.RetreveLike = (userlikesomeones, callback) => {
+        db.collection('userlikesomeones').deleteOne({ UserEmail: userlikesomeones.UserEmail })
+            .then((result) => {
+                if (result.deletedCount > 0) {
+                    db.collection("users").updateOne({ email: userlikesomeones.UserEmail }, { $set: { isLiked: false } })
+                        .then(() => {
+                            if (callback) {
+                                callback(true);
+                            }
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                            if (callback) {
+                                callback(false);
+                            }
+                        });
+
+                } else {
+                    console.log('User not found.');
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+
+
+
+
+
+
+
+    //Useapir DisLike 
     this.UserDisLikeSomeOne = (userdislikesomeones, callback) => {
         db.collection("userdislikesomeones").find().toArray()
             .then((val) => {
@@ -1176,6 +1213,43 @@ function indexmodel() {
                 }
             });
     }
+
+
+
+
+
+
+
+
+
+    // user DisLike Retreve  api
+    this.RetreveDisLike = (userdislikesomeones, callback) => {
+        db.collection('userdislikesomeones').deleteOne({ UserEmail: userdislikesomeones.UserEmail })
+            .then((result) => {
+                if (result.deletedCount > 0) {
+                    db.collection("users").updateOne({ email: userdislikesomeones.UserEmail }, { $set: { isDisLiked: false } })
+                        .then(() => {
+                            if (callback) {
+                                callback(true);
+                            }
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                            if (callback) {
+                                callback(false);
+                            }
+                        });
+
+                } else {
+                    console.log('User not found.');
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+
+
 
 
 
@@ -1249,6 +1323,35 @@ function indexmodel() {
                 }
             });
     }
+
+
+
+    
+
+
+    //get liked user api
+    this.getLikedUser = (callback) => {
+        db.collection("users").aggregate([
+            {
+                $lookup: {
+                    from: "userlikesomeones",
+                    localField: "email",
+                    foreignField: "UserEmail",
+                    as: "Details",
+                },
+            },
+        ]).toArray()
+            .then((data) => {
+                callback(data);
+                console.log(data)
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
+
+
+
 
 
 }

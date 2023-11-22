@@ -1,0 +1,17 @@
+var express = require('express');
+var router = express.Router();
+var indexmodel = require('../../models/UserApi');
+
+
+//getUserDetailsWithPhotos
+router.get('/', (req, res) => {
+    indexmodel.getLikedUser((data) => {
+        if (data) {
+            res.send({ data: data });
+        } else {
+            res.status(500).render('error');
+        }
+    });
+});
+
+module.exports = router;
