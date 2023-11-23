@@ -1113,6 +1113,9 @@ function indexmodel() {
 
 
 
+
+
+
     // user Like Retreve  api
     this.RetreveLike = (userlikesomeones, callback) => {
         db.collection('userlikesomeones').deleteOne({ UserEmail: userlikesomeones.UserEmail })
@@ -1331,16 +1334,18 @@ function indexmodel() {
 
     //get liked user api
     this.getLikedUser = (callback) => {
-        db.collection("users").aggregate([
-            {
-                $lookup: {
-                    from: "userlikesomeones",
-                    localField: "email",
-                    foreignField: "UserEmail",
-                    as: "Details",
+        db.collection("users")
+            .aggregate([
+                {
+                    $lookup: {
+                        from: "userlikesomeones",
+                        localField: "email",
+                        foreignField: "UserEmail",
+                        as: "Details",
+                    },
                 },
-            },
-        ]).toArray()
+
+            ]).toArray()
             .then((data) => {
                 callback(data);
                 console.log(data)
@@ -1356,7 +1361,122 @@ function indexmodel() {
 
 
 
-    //Comment to SomeOne api
+    // get user like Count api
+    this.getLikeCount = (userlikesomeones, callback) => {
+        db.collection("userlikesomeones").aggregate([
+            {
+                $match: { UserEmail: userlikesomeones.UserEmail }
+            },
+            {
+                $count: "mycount"
+            },
+        ]).toArray()
+            .then((data) => {
+                callback(data);
+                console.log(data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+
+
+
+
+
+
+
+
+
+
+    // get user Dislike Count api
+    this.getDisLikeCount = (userdislikesomeones, callback) => {
+        db.collection("userdislikesomeones").aggregate([
+            {
+                $match: { UserEmail: userdislikesomeones.UserEmail }
+            },
+            {
+                $count: "mycount"
+            },
+        ]).toArray()
+            .then((data) => {
+                callback(data);
+                console.log(data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+
+
+
+
+
+
+
+
+
+
+    // get user Dislike Count api
+    this.getSuperLikeCount = (usersuperlikesomeones, callback) => {
+        db.collection("usersuperlikesomeones").aggregate([
+            {
+                $match: { UserEmail: usersuperlikesomeones.UserEmail }
+            },
+            {
+                $count: "mycount"
+            },
+        ]).toArray()
+            .then((data) => {
+                callback(data);
+                console.log(data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+
+
+
+
+
+
+
+
+
+
+
+    // get user Dislike Count api
+    this.getCommentCount = (commentsomeones, callback) => {
+        db.collection("commentsomeones").aggregate([
+            {
+                $match: { UserEmail: commentsomeones.UserEmail }
+            },
+            {
+                $count: "mycount"
+            },
+        ]).toArray()
+            .then((data) => {
+                callback(data);
+                console.log(data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    //comment on user profile api
     this.CommentUser = (commentsomeones, callback) => {
         db.collection("commentsomeones").find().toArray()
             .then((val) => {
@@ -1416,9 +1536,11 @@ function indexmodel() {
 
 
 
-    
-    
+
+
 
 }
 
 module.exports = new indexmodel();
+
+
