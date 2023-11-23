@@ -21,6 +21,7 @@ router.post('/', upload1,function (req, res, next) {
     indexmodel.getUserPhotos(req.body,image1,image2,image3,image4,accessToken,(result) => {
         console.log("Result :", result);
         if (result) {
+            res.send("user added photos");
             console.log("user added photos");
         }
         else {

@@ -6,6 +6,7 @@ var indexmodel = require('../../models/UserApi');
 router.post('/', (req, res, next) => {
   indexmodel.deactivateUser(req.body, (result) => {
     if (result) {
+      res.send("User deactivated successfully.")
       console.log('User deactivated successfully.');
     } else {
       console.log('Failed to deactivate user.');
