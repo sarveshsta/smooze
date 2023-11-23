@@ -380,5 +380,23 @@ const UserSuperLikeSomeOne = mongoose.Schema({
 })
 const usersuperlikesomeones = mongoose.model('UserSuperLikeSomeOne',UserSuperLikeSomeOne);
 
+
+//Schema of Comment user
+const CommentSomeone = mongoose.Schema({
+    UserEmail : {
+        type : String,
+        required : true
+    },
+    CommentTo : {
+        type : String,
+        required : true
+    },
+    Comment : {
+        type : String,
+        required : true
+    }
+})
+const commentsomeones = mongoose.model('CommentSomeone',CommentSomeone);
+
 console.log("Successfully connected to mongodb database...");
-module.exports = { db, users, userphotos, onboardings, clubs, menu, events, profilequestion, preferences , offersmoozs, userlikesomeones, userdislikesomeones, usersuperlikesomeones};
+module.exports = { db, users, userphotos, onboardings, clubs, menu, events, profilequestion, preferences , offersmoozs, userlikesomeones, userdislikesomeones, usersuperlikesomeones, commentsomeones};

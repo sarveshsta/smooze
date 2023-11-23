@@ -63,6 +63,7 @@ const UserSuperLikeSomeOne = require('./routes/usersRoute/UserSuperLikeSomeOne')
 const RetreveLike = require('./routes/usersRoute/RetreveLike');
 const RetreveDisLike = require('./routes/usersRoute/RetreveDisLike');
 const getLikedUser = require('./routes/usersRoute/getLikedUser');
+const CommentUser = require('./routes/usersRoute/CommentUser');
 
 
 
@@ -136,6 +137,7 @@ app.use('/UserDisLikeSomeOne',UserDisLikeSomeOne);
 app.use('/RetreveDisLike',RetreveDisLike);
 app.use('/UserSuperLikeSomeOne',UserSuperLikeSomeOne);
 app.use('/getLikedUser',getLikedUser);
+app.use('/CommentUser',CommentUser);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

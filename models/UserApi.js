@@ -1,4 +1,4 @@
-const { db, users, profilequestions, preferences, userlikesomeones, userdislikesomeones } = require('./connection');
+const { db, users, profilequestions, preferences, userlikesomeones, userdislikesomeones, commentsomeone } = require('./connection');
 const indianCities = require('indian-cities-database');
 const nodemailer = require('nodemailer');
 const bcrypt = require('bcrypt');
@@ -1326,7 +1326,7 @@ function indexmodel() {
 
 
 
-    
+
 
 
     //get liked user api
@@ -1353,6 +1353,71 @@ function indexmodel() {
 
 
 
+
+
+
+    //Comment to SomeOne api
+    this.CommentUser = (commentsomeones, callback) => {
+        db.collection("commentsomeones").find().toArray()
+            .then((val) => {
+                console.log(val);
+                var result = val;
+                if (result.length > 0) {
+                    var max_id = result[0]._id;
+                    for (let row of result) {
+                        if (max_id < row._id) {
+                            max_id = row._id;
+                        }
+                    }
+                    commentsomeones._id = max_id + 1;
+                } else {
+                    commentsomeones._id = 1;
+                }
+                var flag = 1;
+                if (result.length > 0) {
+                    for (let row of result) {
+                        if (commentsomeones._id == row._id) {
+                            flag = 0;
+                            break;
+                        }
+                    }
+                }
+
+                let uuid = crypto.randomUUID();
+
+                if (flag == 1) {
+                    commentsomeones.uuid = uuid;
+                    commentsomeones.dt = Date();
+                    db.collection("commentsomeones").insertOne(commentsomeones, (err) => {
+                        if (err) {
+                            console.log(err);
+                            if (callback) {
+                                callback(false);
+                            }
+                        } else {
+                            callback(true);
+                        }
+                    });
+                } else {
+                    if (callback) {
+                        callback(false);
+                    }
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+                if (callback) {
+                    callback(false);
+                }
+            });
+    }
+
+
+
+
+
+    
+    
 
 }
 
