@@ -1126,7 +1126,7 @@ function indexmodel() {
 
     // user Like Retreve  api
     this.RetreveLike = (userlikesomeones, callback) => {
-        db.collection('userlikesomeones').deleteOne({ UserEmail: userlikesomeones.UserEmail })
+        db.collection('userlikesomeones').deleteOne({ UserEmail: userlikesomeones.UserEmail, LikedTo : userlikesomeones.LikedTo })
             .then((result) => {
                 if (result.deletedCount > 0) {
                     db.collection("users").updateOne({ email: userlikesomeones.UserEmail }, { $set: { isLiked: false } })
@@ -1235,7 +1235,7 @@ function indexmodel() {
 
     // user DisLike Retreve  api
     this.RetreveDisLike = (userdislikesomeones, callback) => {
-        db.collection('userdislikesomeones').deleteOne({ UserEmail: userdislikesomeones.UserEmail })
+        db.collection('userdislikesomeones').deleteOne({ UserEmail: userdislikesomeones.UserEmail, DisLikedTo : userdislikesomeones.DisLikedTo })
             .then((result) => {
                 if (result.deletedCount > 0) {
                     db.collection("users").updateOne({ email: userdislikesomeones.UserEmail }, { $set: { isDisLiked: false } })

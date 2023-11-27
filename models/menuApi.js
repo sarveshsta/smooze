@@ -89,11 +89,11 @@ function MenuModel() {
 
     //api for update menu
     this.updatePrice = (menu, OptedMenu, callback) => {
-        db.collection("menu").find({_id : menu._id}).toArray()
+        db.collection("menu").find({Club_name : menu.Club_name}).toArray()
             .then((result) => {
                 console.log(result)
                 if (result.length > 0) {
-                    db.collection('menu').updateOne({ _id : menu._id }, { $set: { OptedMenu: OptedMenu } })
+                    db.collection('menu').updateOne({Club_name : menu.Club_name}, { $set: { OptedMenu: OptedMenu } })
                         .then(() => {
                             console.log('menu updated successfully');
                             callback(result);

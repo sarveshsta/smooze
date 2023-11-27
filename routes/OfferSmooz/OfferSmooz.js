@@ -5,7 +5,7 @@ var dem = require('../../utils/visitedClub');
 
 //Get CLUB VISITED ROUTE
 router.get('/', (req, res) => {
-    OfferModel.OfferSmooz(req.body, (result) => {
+    OfferModel.OfferSmooz((result) => {
         if (result) {
             res.send({ data:result });
             console.log("They Can Offer Smooz");

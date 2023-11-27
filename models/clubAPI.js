@@ -12,7 +12,7 @@ function clubmodel() {
 
 
     //REGISTER CLUB API
-    this.registerClub = (clubs, Club_Banner, Club_Docs,Owner_Aadhar,Owner_DP,accessToken, password, callback) => {
+    this.registerClub = (clubs, Club_Banner, Club_Docs, Owner_Aadhar, Owner_DP, accessToken, password, callback) => {
         db.collection("clubs").find().toArray()
             .then((val) => {
                 console.log(val);
@@ -73,22 +73,20 @@ function clubmodel() {
 
 
     // DELETE CLUB API
-    this.clubDelete = (_id, email, callback) => {
-        db.collection("clubs").deleteOne({ _id: _id, email: email })
+    this.clubDelete = (email, callback) => {
+        db.collection('clubs').deleteOne({ email: email })
             .then((result) => {
                 if (result.deletedCount > 0) {
-                    callback(true);
+                    callback(true); // Club deleted successfully
                 } else {
-                    console.log("Club not found");
-                    callback(false);
+                    console.log('Club not found.');
+                    callback(false); // Club not found
                 }
-            })
-            .catch((err) => {
+            }).catch((err) => {
                 console.log(err);
+                callback(false); // Error occurred
             });
-    };
-
-
+    }
 
 
 
@@ -132,7 +130,7 @@ function clubmodel() {
 
     // update_Owner_name api
     this.update_Owner_name = (clubs, Owner_name, callback) => {
-        db.collection('clubs').find({ Phone: clubs.Phone }).toArray()
+        db.collection('clubs').find({ email: clubs.email }).toArray()
             .then((result) => {
                 if (result.length > 0) {
                     const club = result[0];
@@ -142,7 +140,7 @@ function clubmodel() {
                             console.log("clubs credentials not matched");
                             callback([]);
                         } else {
-                            db.collection('clubs').updateOne({ Phone: clubs.Phone }, { $set: { Owner_name: Owner_name } })
+                            db.collection('clubs').updateOne({ email: clubs.email }, { $set: { Owner_name: Owner_name } })
                                 .then(() => {
                                     callback(result);
                                 })
@@ -347,7 +345,7 @@ function clubmodel() {
 
 
 
-    
+
 
 }
 

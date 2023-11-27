@@ -10,6 +10,8 @@ router.post('/', (req, res, next) => {
         'Expires = Expired; HttpOnly; Secure'
     ]);
     console.log('You are logged out');
+    res.send('You are logged out');
+
 });
 
 module.exports = router;
