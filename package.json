@@ -13,6 +13,7 @@
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "express-validator": "^7.0.1",
+    "express-winston": "^4.2.0",
     "fast-two-sms": "^3.0.0",
     "http-errors": "~1.6.3",
     "indian-cities-database": "^1.0.5",
@@ -27,6 +28,8 @@
     "nodemon": "^3.0.1",
     "otp-generator": "^4.0.1",
     "passport": "^0.6.0",
-    "passport-google-oauth2": "^0.2.0"
+    "passport-google-oauth2": "^0.2.0",
+    "winston": "^3.11.0",
+    "winston-mongodb": "^5.1.1"
   }
 }

@@ -1,0 +1,50 @@
+{
+  meta: {
+    req: {
+      url: '/getUserDetailsWithPhotos',
+      headers: {
+        'user-agent': 'PostmanRuntime/7.35.0',
+        accept: '*/*',
+        'postman-token': 'ec38aa33-577f-489d-8bb7-ad05c4c4dd25',
+        host: 'localhost:3000',
+        'accept-encoding': 'gzip, deflate, br',
+        connection: 'keep-alive',
+        cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEwNzE4OTF9.tV2xhlx7aa090C5FdcYjhnbitTCdGqesZ27n6C9Jric'
+      },
+      method: 'GET',
+      httpVersion: '1.1',
+      originalUrl: '/getUserDetailsWithPhotos',
+      query: {}
+    },
+    res: { statusCode: 200 },
+    responseTime: 15
+  },
+  level: 'info',
+  message: 'HTTP GET /getUserDetailsWithPhotos',
+  timestamp: '2023-11-27T10:01:29.812Z'
+}
+{
+  meta: {
+    req: {
+      url: '/getUserDetailsWithPhotos',
+      headers: {
+        'user-agent': 'PostmanRuntime/7.35.0',
+        accept: '*/*',
+        'postman-token': 'd985af08-b237-45aa-ae5b-9cb15885fb08',
+        host: 'localhost:3000',
+        'accept-encoding': 'gzip, deflate, br',
+        connection: 'keep-alive',
+        cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEwNzE4OTF9.tV2xhlx7aa090C5FdcYjhnbitTCdGqesZ27n6C9Jric'
+      },
+      method: 'GET',
+      httpVersion: '1.1',
+      originalUrl: '/getUserDetailsWithPhotos',
+      query: {}
+    },
+    res: { statusCode: 200 },
+    responseTime: 23
+  },
+  level: 'info',
+  message: 'HTTP GET /getUserDetailsWithPhotos',
+  timestamp: '2023-11-27T10:12:30.508Z'
+}

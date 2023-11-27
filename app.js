@@ -3,7 +3,10 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+const expressWinston = require('express-winston');
+require('winston-mongodb');
+const {transports , format } = require('winston');
+var { URL } = require('./constants/constants'); 
 
 //ALL THE ROUTES ARE HERE
 const registerRouter = require('./routes/usersRoute/register');
@@ -72,6 +75,36 @@ const getCommentCount = require('./routes/usersRoute/getCommentCount');
 
 
 var app = express();
+
+
+app.use(expressWinston.logger({
+  transports : [
+    new transports.Console(),
+    new transports.File({
+      level : "warn",
+      filename :  'logsWarnings.log'
+    }),
+    new transports.File({
+      level : "error",
+      filename :  'logsErrors.log'
+    }),
+    new transports.File({
+      level : "info",
+      filename :  'logsInfos.log'
+    }),
+    new transports.MongoDB({
+      db : URL,
+      collection : 'logs'
+    })
+
+  ],
+  format : format.combine(
+    format.json(),
+    format.timestamp(),
+    format.prettyPrint()
+  ),
+  statusLevels : true
+}))
 
 // // view engine setup
 app.set('views', path.join(__dirname, 'views'));
