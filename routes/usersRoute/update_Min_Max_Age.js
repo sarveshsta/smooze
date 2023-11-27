@@ -5,7 +5,7 @@ var indexmodel = require('../../models/UserApi');
 //update min_max ROUTE
 router.post('/', function (req, res, next) {
     const newMinAge = req.body.min_age
-    const newMaxAge = req.body.max_age
+    const newMaxAg = req.body.max_age
     if (newMinAge > 18 && newMinAge < 100) {
         indexmodel.update_Min_Max_Age(req.body, newMinAge, newMaxAge, (result) => {
             if (result) {

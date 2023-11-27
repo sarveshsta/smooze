@@ -5,8 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const expressWinston = require('express-winston');
 require('winston-mongodb');
-const {transports , format } = require('winston');
-var { URL } = require('./constants/constants'); 
+const loggerr = require('./logger');
+const { transports, format } = require('winston');
+
 
 //ALL THE ROUTES ARE HERE
 const registerRouter = require('./routes/usersRoute/register');
@@ -42,8 +43,8 @@ const updateEventDate = require('./routes/EventRoutes/updateEventDate');
 const updateEventTime = require('./routes/EventRoutes/updateEventTime');
 const getClubEvents = require('./routes/EventRoutes/getClubEvents');
 const updateEventDescription = require('./routes/EventRoutes/updateEventDescription');
-const UserProfile  = require('./routes/usersRoute/UserProfile');
-const EditProfileBio  = require('./routes/usersRoute/EditProfileBio');
+const UserProfile = require('./routes/usersRoute/UserProfile');
+const EditProfileBio = require('./routes/usersRoute/EditProfileBio');
 const EditProfileIntrest = require('./routes/usersRoute/EditProfileIntrest');
 const EditProfileLanguage = require('./routes/usersRoute/EditProfileLanguage');
 const EditProfileHeight = require('./routes/usersRoute/EditProfileHeight');
@@ -78,33 +79,29 @@ var app = express();
 
 
 app.use(expressWinston.logger({
-  transports : [
-    new transports.Console(),
-    new transports.File({
-      level : "warn",
-      filename :  'logsWarnings.log'
-    }),
-    new transports.File({
-      level : "error",
-      filename :  'logsErrors.log'
-    }),
-    new transports.File({
-      level : "info",
-      filename :  'logsInfos.log'
-    }),
-    new transports.MongoDB({
-      db : URL,
-      collection : 'logs'
-    })
+  winstonInstance : loggerr,
+  statusLevels: true
+}))
 
+//error format
+const myFormat = format.printf(({level,meta,timestamp})=>{
+  return `${timestamp}  ${level} : ${meta.message}`
+})
+
+//error logger
+app.use(expressWinston.errorLogger({
+  transports: [
+    new transports.File({
+      filename: 'logsInternalErrors'
+    })
   ],
-  format : format.combine(
+  format: format.combine(
     format.json(),
     format.timestamp(),
-    format.prettyPrint()
-  ),
-  statusLevels : true
+    myFormat
+  )
 }))
+
 
 // // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -149,36 +146,36 @@ app.use('/deleteEvent', deleteEvent);
 app.use('/updateEventDate', updateEventDate);
 app.use('/updateEventTime', updateEventTime);
 app.use('/getClubEvents', getClubEvents);
-app.use('/updateEventDescription',updateEventDescription);
-app.use('/UserProfile',UserProfile);
-app.use('/EditProfileBio',EditProfileBio);
-app.use('/EditProfileIntrest',EditProfileIntrest);
-app.use('/EditProfileLanguage',EditProfileLanguage);
-app.use('/EditProfileHeight',EditProfileHeight);
-app.use('/EditProfileWork',EditProfileWork);
-app.use('/updateLocation',updateLocation);
-app.use('/userPreferences',userPreferences);
-app.use('/update_Min_Max_Age',update_Min_Max_Age);
-app.use('/updateDistanceRadius',updateDistanceRadius);
-app.use('/DeleteProfile',DeleteProfile);
-app.use('/EditProfileStarSign',EditProfileStarSign);
-app.use('/UserCompatibility',UserCompatibility);
-app.use('/clubvisited',clubvisited);
-app.use('/OfferSmooz',OfferSmooz);
+app.use('/updateEventDescription', updateEventDescription);
+app.use('/UserProfile', UserProfile);
+app.use('/EditProfileBio', EditProfileBio);
+app.use('/EditProfileIntrest', EditProfileIntrest);
+app.use('/EditProfileLanguage', EditProfileLanguage);
+app.use('/EditProfileHeight', EditProfileHeight);
+app.use('/EditProfileWork', EditProfileWork);
+app.use('/updateLocation', updateLocation);
+app.use('/userPreferences', userPreferences);
+app.use('/update_Min_Max_Age', update_Min_Max_Age);
+app.use('/updateDistanceRadius', updateDistanceRadius);
+app.use('/DeleteProfile', DeleteProfile);
+app.use('/EditProfileStarSign', EditProfileStarSign);
+app.use('/UserCompatibility', UserCompatibility);
+app.use('/clubvisited', clubvisited);
+app.use('/OfferSmooz', OfferSmooz);
 app.use('/OfferedSmooz', OfferedSmooz);
-app.use('/SmoozBill',SmoozBill);
+app.use('/SmoozBill', SmoozBill);
 app.use('/itemOfferedMe', itemOfferedMe);
-app.use('/UserLikeSomeOne',UserLikeSomeOne);
-app.use('/RetreveLike',RetreveLike);
-app.use('/UserDisLikeSomeOne',UserDisLikeSomeOne);
-app.use('/RetreveDisLike',RetreveDisLike);
-app.use('/UserSuperLikeSomeOne',UserSuperLikeSomeOne);
-app.use('/getLikedUser',getLikedUser);
-app.use('/CommentUser',CommentUser);
-app.use('/getLikeCount',getLikeCount);
-app.use('/getDisLikeCount',getDisLikeCount);
-app.use('/getSuperLikeCount',getSuperLikeCount);
-app.use('/getCommentCount',getCommentCount);
+app.use('/UserLikeSomeOne', UserLikeSomeOne);
+app.use('/RetreveLike', RetreveLike);
+app.use('/UserDisLikeSomeOne', UserDisLikeSomeOne);
+app.use('/RetreveDisLike', RetreveDisLike);
+app.use('/UserSuperLikeSomeOne', UserSuperLikeSomeOne);
+app.use('/getLikedUser', getLikedUser);
+app.use('/CommentUser', CommentUser);
+app.use('/getLikeCount', getLikeCount);
+app.use('/getDisLikeCount', getDisLikeCount);
+app.use('/getSuperLikeCount', getSuperLikeCount);
+app.use('/getCommentCount', getCommentCount);
 
 
 // catch 404 and forward to error handler

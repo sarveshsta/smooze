@@ -48,3 +48,172 @@
   message: 'HTTP GET /getUserDetailsWithPhotos',
   timestamp: '2023-11-27T10:12:30.508Z'
 }
+{
+  level: 'info',
+  message: 'HTTP GET /getUserDetailsWithPhotos',
+  metadata: {
+    meta: {
+      req: {
+        url: '/getUserDetailsWithPhotos',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '0924da5e-cd01-4672-aca6-ae44df1dae00',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEwNzE4OTF9.tV2xhlx7aa090C5FdcYjhnbitTCdGqesZ27n6C9Jric'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/getUserDetailsWithPhotos',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 33
+    },
+    timestamp: '2023-11-27T10:19:43.694Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP GET /getUserDetailsWithPhotos',
+  metadata: {
+    meta: {
+      req: {
+        url: '/getUserDetailsWithPhotos',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '9465f986-8084-481e-b694-430d360f1f18',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEwNzE4OTF9.tV2xhlx7aa090C5FdcYjhnbitTCdGqesZ27n6C9Jric'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/getUserDetailsWithPhotos',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 13
+    },
+    timestamp: '2023-11-27T10:47:19.887Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP GET /getUserDetailsWithPhotos',
+  metadata: {
+    meta: {
+      req: {
+        url: '/getUserDetailsWithPhotos',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '6e960758-676b-4aa2-8a95-05508dbd9798',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '14',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEwNzE4OTF9.tV2xhlx7aa090C5FdcYjhnbitTCdGqesZ27n6C9Jric'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/getUserDetailsWithPhotos',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 36
+    },
+    timestamp: '2023-11-27T10:48:10.837Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /update_Min_Max_Age',
+  metadata: {
+    meta: {
+      req: {
+        url: '/update_Min_Max_Age',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '06cc754d-712e-47fc-83a2-3d8224a400ab',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '36',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEwNzE4OTF9.tV2xhlx7aa090C5FdcYjhnbitTCdGqesZ27n6C9Jric'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/update_Min_Max_Age',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 26
+    },
+    timestamp: '2023-11-27T10:50:06.096Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP POST /update_Min_Max_Ag',
+  metadata: {
+    meta: {
+      req: {
+        url: '/update_Min_Max_Ag',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '8f3bb7bf-d612-48f4-8e71-ed8b837a5061',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEwNzE4OTF9.tV2xhlx7aa090C5FdcYjhnbitTCdGqesZ27n6C9Jric',
+          'content-length': '0'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/update_Min_Max_Ag',
+        query: {}
+      },
+      res: { statusCode: 404 },
+      responseTime: 11
+    },
+    timestamp: '2023-11-27T10:51:04.623Z'
+  }
+}
+{
+  level: 'error',
+  message: 'HTTP POST /update_Min_Max_Age',
+  metadata: {
+    meta: {
+      req: {
+        url: '/update_Min_Max_Age',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '1d9aa406-76f1-43e7-a04d-2d0890faa6df',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '58',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEwNzE4OTF9.tV2xhlx7aa090C5FdcYjhnbitTCdGqesZ27n6C9Jric'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/update_Min_Max_Age',
+        query: {}
+      },
+      res: { statusCode: 500 },
+      responseTime: 23
+    },
+    timestamp: '2023-11-27T10:54:14.755Z'
+  }
+}
