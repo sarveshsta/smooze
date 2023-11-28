@@ -217,3 +217,206 @@
     timestamp: '2023-11-27T10:54:14.755Z'
   }
 }
+{
+  level: 'info',
+  message: 'HTTP POST /userPreferences',
+  metadata: {
+    meta: {
+      req: {
+        url: '/userPreferences',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': 'ddc0c9d7-7a80-4039-b632-ecaf041bb8cf',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '69',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEwNzE4OTF9.tV2xhlx7aa090C5FdcYjhnbitTCdGqesZ27n6C9Jric'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/userPreferences',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 31
+    },
+    timestamp: '2023-11-27T11:26:31.272Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /updateLocation',
+  metadata: {
+    meta: {
+      req: {
+        url: '/updateLocation',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '0dfef346-74be-441f-8748-80882dab500c',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '62',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEwODQzOTF9.Cp4Ci_CqXpkyjIIrSEqAcQS6fG1bpeTjgxpeDuUBuq4'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/updateLocation',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 80
+    },
+    timestamp: '2023-11-27T11:28:32.911Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /updateLocation',
+  metadata: {
+    meta: {
+      req: {
+        url: '/updateLocation',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': 'c79095b0-ae60-4839-9e3d-099f565352ea',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '63',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEwODQzOTF9.Cp4Ci_CqXpkyjIIrSEqAcQS6fG1bpeTjgxpeDuUBuq4'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/updateLocation',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 65
+    },
+    timestamp: '2023-11-27T11:28:56.159Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /updateDistanceRadius',
+  metadata: {
+    meta: {
+      req: {
+        url: '/updateDistanceRadius',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '851afa0c-531b-4df7-bf80-7611f9319443',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '54',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEwODQzOTF9.Cp4Ci_CqXpkyjIIrSEqAcQS6fG1bpeTjgxpeDuUBuq4'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/updateDistanceRadius',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 44
+    },
+    timestamp: '2023-11-27T12:26:17.068Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /updateDistanceRadius',
+  metadata: {
+    meta: {
+      req: {
+        url: '/updateDistanceRadius',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '49a00814-7bae-43d0-93b8-5052e0b42073',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '54',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEwODQzOTF9.Cp4Ci_CqXpkyjIIrSEqAcQS6fG1bpeTjgxpeDuUBuq4'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/updateDistanceRadius',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 9
+    },
+    timestamp: '2023-11-27T12:26:26.623Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP DELETE /RetreveDisLike',
+  metadata: {
+    meta: {
+      req: {
+        url: '/RetreveDisLike',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '02ab9f91-1f65-4e0b-8c89-21192475165e',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '72',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEwODQzOTF9.Cp4Ci_CqXpkyjIIrSEqAcQS6fG1bpeTjgxpeDuUBuq4'
+        },
+        method: 'DELETE',
+        httpVersion: '1.1',
+        originalUrl: '/RetreveDisLike',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 10
+    },
+    timestamp: '2023-11-27T12:29:19.333Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /EditProfileStarSign',
+  metadata: {
+    meta: {
+      req: {
+        url: '/EditProfileStarSign',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': 'cc2d2422-1d32-417a-9f2b-ba9457b074c0',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '58',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEwODQzOTF9.Cp4Ci_CqXpkyjIIrSEqAcQS6fG1bpeTjgxpeDuUBuq4'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/EditProfileStarSign',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 16
+    },
+    timestamp: '2023-11-27T12:30:54.340Z'
+  }
+}
