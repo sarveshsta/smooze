@@ -8,6 +8,7 @@ router.post('/', function (req, res, next) {
         // console.log('Result:', result);
         if (result) {
             console.log('Mail sent successfully');
+            res.send('Mail sent successfully');
         } else {
             console.log('Error while sending mail');
         }

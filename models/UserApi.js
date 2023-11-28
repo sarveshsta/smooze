@@ -238,19 +238,22 @@ function indexmodel() {
                     const client = new twilio(SSID, AUth_TOKEN)
 
                     let msgOption = {
-                        from : PhoneNumber,
-                        to : users.phone,
-                        body : `your otp is ${new_otp}`
+                        from: PhoneNumber,
+                        to: `+91${users.phone}`,
+                        body: `your otp is ${new_otp}`
                     }
 
+                    console.log("Before Twilio message sending");
                     client.messages.create(msgOption)
-                    .then((result)=>{
-                        console.log(result);
-                        callback(true, new_otp);
-                    })
-                    .catch((err)=>{
-                        console.log(err);
-                    })
+                        .then((result) => {
+                            console.log("Twilio message sent successfully:", result);
+                            callback(true, new_otp);
+                        })
+                        .catch((err) => {
+                            console.log("Error sending Twilio message:", err);
+                            callback(false, null);
+                        });
+                    console.log("After Twilio message sending");
                     // const options = {
                     //     authorization: 'faN7rOkRV6bzZxUFItYL5Ch9HKQASwj4v0upoTP21slg8MW3De0ymaFAHrVi3fOITZ4K6nkdDxGvR7Pg',
                     //     message: `Your OTP is: ${new_otp}`,
@@ -284,8 +287,6 @@ function indexmodel() {
                 callback([], null);
             });
     };
-
-
 
 
 
@@ -446,7 +447,7 @@ function indexmodel() {
 
     //not working
     // this.resetPassword = (users, newPassword, Token, callback) => {
-    //     db.collection('users').find({ token: users.token }).toArray()
+    //     db.collection('users').find({ email : users.email }).toArray()
     //         .then((result) => {
     //             if (Token == users.token) {
     //                 bcrypt.hash(newPassword, 10).then((hash) => {
@@ -470,6 +471,33 @@ function indexmodel() {
     //             callback(false);
     //         });
     // }
+
+    this.resetPassword = (Token, newPassword, users, callback) => {
+        db.collection('users').find({ email: users.email }).toArray()
+            .then((result) => {
+                if (result.length > 0 && Token == users.token) {
+                    bcrypt.hash(newPassword, 10).then((hash) => {
+                        console.log(hash);
+                        db.collection("users").updateOne({ email: users.email }, { $set: { password: hash } })
+                            .then(() => {
+                                callback(result);
+                            })
+                            .catch((err) => {
+                                console.log(err);
+                                callback(false);
+                            });
+                    });
+                } else {
+                    console.log("Token not found or expired");
+                    callback(false);
+                }
+            })
+            .catch((err) => {
+                console.log("Error:", err);
+                callback(false);
+            });
+    }
+
 
 
 
@@ -898,21 +926,25 @@ function indexmodel() {
 
 
 
-    //not working
+
     //delete profile api
-    this.DeleteProfile = (profilequestions, callback) => {
-        db.collection('profilequestions').deleteOne({ email: profilequestions.email })
+    this.DeleteProfile = (userEmail, callback) => {
+        db.collection('profilequestions').deleteOne({ userEmail: userEmail })
             .then((result) => {
-                if (result.length > 0) {
-                    callback(result);
+                if (result.deletedCount > 0) {
+                    console.log('Profile deleted successfully.');
+                    callback(true);
                 } else {
                     console.log('Profile not found.');
-                    callback([]);
+                    callback(false);
                 }
-            }).catch((err) => {
+            })
+            .catch((err) => {
                 console.log(err);
+                callback(false);
             });
-    }
+    };
+
 
 
 

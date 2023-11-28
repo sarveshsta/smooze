@@ -27,3 +27,98 @@
     timestamp: '2023-11-27T10:54:14.755Z'
   }
 }
+{
+  level: 'error',
+  message: 'HTTP GET /resetPassword?Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDExNjM4MzR9.XOtmKodBT1P3xolbV2kZNUkfuCateLUnZaT0pvjOHv8',
+  metadata: {
+    meta: {
+      req: {
+        url: '/resetPassword?Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDExNjM4MzR9.XOtmKodBT1P3xolbV2kZNUkfuCateLUnZaT0pvjOHv8',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'upgrade-insecure-requests': '1',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+          'sec-fetch-site': 'cross-site',
+          'sec-fetch-mode': 'navigate',
+          'sec-fetch-user': '?1',
+          'sec-fetch-dest': 'document',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Windows"',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/resetPassword?Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDExNjM4MzR9.XOtmKodBT1P3xolbV2kZNUkfuCateLUnZaT0pvjOHv8',
+        query: {
+          Token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDExNjM4MzR9.XOtmKodBT1P3xolbV2kZNUkfuCateLUnZaT0pvjOHv8'
+        }
+      },
+      res: { statusCode: 500 },
+      responseTime: 26
+    },
+    timestamp: '2023-11-28T09:31:26.589Z'
+  }
+}
+{
+  level: 'error',
+  message: 'HTTP DELETE /DeleteProfile',
+  metadata: {
+    meta: {
+      req: {
+        url: '/DeleteProfile',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': 'c19560f9-65f5-4f02-abe6-048f9b2b2296',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '28',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDExNjMyMzh9.bZmYNpkLsEc56KvzrYNv0S0y4VmFnhkB5cgt8KoJnoQ'
+        },
+        method: 'DELETE',
+        httpVersion: '1.1',
+        originalUrl: '/DeleteProfile',
+        query: {}
+      },
+      res: { statusCode: 500 },
+      responseTime: 84
+    },
+    timestamp: '2023-11-28T10:03:46.528Z'
+  }
+}
+{
+  level: 'error',
+  message: 'HTTP DELETE /DeleteProfile',
+  metadata: {
+    meta: {
+      req: {
+        url: '/DeleteProfile',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': 'be7f3c95-fe40-4d54-b80c-6a5259468a3f',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '28',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDExNjMyMzh9.bZmYNpkLsEc56KvzrYNv0S0y4VmFnhkB5cgt8KoJnoQ'
+        },
+        method: 'DELETE',
+        httpVersion: '1.1',
+        originalUrl: '/DeleteProfile',
+        query: {}
+      },
+      res: { statusCode: 500 },
+      responseTime: 38
+    },
+    timestamp: '2023-11-28T10:05:08.499Z'
+  }
+}
