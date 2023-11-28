@@ -5,7 +5,8 @@ const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const fast2sms = require('fast-two-sms');
 const createTokens = require('../utils/JWT');
-const { EMAIL, PASS, authOTPKEY } = require('../constants/constants');
+const { EMAIL, PASS, authOTPKEY, SSID, AUth_TOKEN, PhoneNumber } = require('../constants/constants');
+const twilio = require('twilio');
 const otpGenerator = require('otp-generator');
 const cities = indianCities.cities
 const states = [...new Set(cities.map(city => city.state))];
@@ -219,10 +220,12 @@ function indexmodel() {
 
     //login users with otp api
     this.login_with_otp = (users, callback) => {
-        db.collection('users').find({ phone: users.phone }).toArray()
+        db.collection('users').find({ phone: users.phone, email: users.email }).toArray()
             .then((result) => {
+                console.log(users.phone);
+                console.log(users.email);
                 if (result.length > 0) {
-                    const OTP = otpGenerator.generate(4, {
+                    const OTP = otpGenerator.generate(6, {
                         digits: true,
                         lowerCaseAlphabets: false,
                         upperCaseAlphabets: false,
@@ -232,27 +235,45 @@ function indexmodel() {
                     const new_otp = OTP;
                     console.log("Generated OTP :", new_otp);
 
-                    const options = {
-                        authorization: authOTPKEY,
-                        message: `Your OTP is: ${new_otp}`,
-                        numbers: [users.phone]
-                    };
+                    const client = new twilio(SSID, AUth_TOKEN)
 
-                    fast2sms.sendMessage(options)
-                        .then(() => {
-                            db.collection("users").updateOne({ phone: users.phone }, { $set: { otp: new_otp } })
-                                .then(() => {
-                                    console.log("added otp");
-                                })
-                                .catch((err) => {
-                                    console.log(err);
-                                })
-                            callback(result, OTP);
-                        })
-                        .catch((err) => {
-                            console.log('Error sending OTP:', err);
-                            callback([], null);
-                        });
+                    let msgOption = {
+                        from : PhoneNumber,
+                        to : users.phone,
+                        body : `your otp is ${new_otp}`
+                    }
+
+                    client.messages.create(msgOption)
+                    .then((result)=>{
+                        console.log(result);
+                        callback(true, new_otp);
+                    })
+                    .catch((err)=>{
+                        console.log(err);
+                    })
+                    // const options = {
+                    //     authorization: 'faN7rOkRV6bzZxUFItYL5Ch9HKQASwj4v0upoTP21slg8MW3De0ymaFAHrVi3fOITZ4K6nkdDxGvR7Pg',
+                    //     message: `Your OTP is: ${new_otp}`,
+                    //     numbers: [users.phone]
+                    // };
+
+                    // fast2sms.sendMessage(options)
+                    //     .then((response) => {
+                    //         console.log('Fast2SMS API Response:', response);
+                    //         db.collection("users").updateOne({ phone: users.phone, email: users.email }, { $set: { otp: new_otp } })
+                    //             .then(() => {
+                    //                 console.log("Added OTP to the user in the database");
+                    //                 callback(result, OTP);
+                    //             })
+                    //             .catch((err) => {
+                    //                 console.log("Error updating OTP in the database:", err);
+                    //                 callback([], null);
+                    //             });
+                    //     })
+                    //     .catch((err) => {
+                    //         console.log('Error sending OTP:', err);
+                    //         callback([], null);
+                    //     });
                 } else {
                     console.log('User not found.');
                     callback([], null);
@@ -263,6 +284,7 @@ function indexmodel() {
                 callback([], null);
             });
     };
+
 
 
 
@@ -318,12 +340,12 @@ function indexmodel() {
                             callback([]);
                         } else {
                             db.collection("users").updateOne({ email: users.email }, { $set: { Isactive: false } })
-                            .then((result)=>{
-                                callback(result)
-                            })
-                            .catch((err)=>{
-                                console.log(err)
-                            })
+                                .then((result) => {
+                                    callback(result)
+                                })
+                                .catch((err) => {
+                                    console.log(err)
+                                })
                             // console.log('User deactivated.');
                             // callback(result);
                         }
@@ -1126,7 +1148,7 @@ function indexmodel() {
 
     // user Like Retreve  api
     this.RetreveLike = (userlikesomeones, callback) => {
-        db.collection('userlikesomeones').deleteOne({ UserEmail: userlikesomeones.UserEmail, LikedTo : userlikesomeones.LikedTo })
+        db.collection('userlikesomeones').deleteOne({ UserEmail: userlikesomeones.UserEmail, LikedTo: userlikesomeones.LikedTo })
             .then((result) => {
                 if (result.deletedCount > 0) {
                     db.collection("users").updateOne({ email: userlikesomeones.UserEmail }, { $set: { isLiked: false } })
@@ -1235,7 +1257,7 @@ function indexmodel() {
 
     // user DisLike Retreve  api
     this.RetreveDisLike = (userdislikesomeones, callback) => {
-        db.collection('userdislikesomeones').deleteOne({ UserEmail: userdislikesomeones.UserEmail, DisLikedTo : userdislikesomeones.DisLikedTo })
+        db.collection('userdislikesomeones').deleteOne({ UserEmail: userdislikesomeones.UserEmail, DisLikedTo: userdislikesomeones.DisLikedTo })
             .then((result) => {
                 if (result.deletedCount > 0) {
                     db.collection("users").updateOne({ email: userdislikesomeones.UserEmail }, { $set: { isDisLiked: false } })
