@@ -149,3 +149,133 @@
     timestamp: '2023-11-29T06:12:38.949Z'
   }
 }
+{
+  level: 'error',
+  message: 'HTTP POST /chatting/socket.io/socket.io.js',
+  metadata: {
+    meta: {
+      req: {
+        url: '/chatting/socket.io/socket.io.js',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': 'df649444-005a-4cf4-9c5f-d6f5a78750cb',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '154',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyMzc3MTd9.nekhf3AtVXgEbHWGfhsyJhdQq-7DRXJNrCRxVRIQr2Q'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/chatting/socket.io/socket.io.js',
+        query: {}
+      },
+      res: { statusCode: 500 },
+      responseTime: 51
+    },
+    timestamp: '2023-11-29T07:07:16.716Z'
+  }
+}
+{
+  level: 'error',
+  message: 'HTTP POST /chatting',
+  metadata: {
+    meta: {
+      req: {
+        url: '/chatting',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '3b426bff-abec-4793-8302-6eefe43ef428',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '154',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyNDE2MzZ9.6XRB0Uza485zhAThzskl1Np08cmExTWrOf-dY7GH6bo'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/chatting',
+        query: {}
+      },
+      res: { statusCode: 500 },
+      responseTime: 22
+    },
+    timestamp: '2023-11-29T07:08:29.254Z'
+  }
+}
+{
+  level: 'error',
+  message: 'HTTP GET /',
+  metadata: {
+    meta: {
+      req: {
+        url: '/',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Windows"',
+          'upgrade-insecure-requests': '1',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-purpose': 'prefetch;prerender',
+          purpose: 'prefetch',
+          accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+          'sec-fetch-site': 'none',
+          'sec-fetch-mode': 'navigate',
+          'sec-fetch-user': '?1',
+          'sec-fetch-dest': 'document',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/',
+        query: {}
+      },
+      res: { statusCode: 500 },
+      responseTime: 18
+    },
+    timestamp: '2023-11-29T09:24:53.943Z'
+  }
+}
+{
+  level: 'error',
+  message: 'HTTP GET /',
+  metadata: {
+    meta: {
+      req: {
+        url: '/',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Windows"',
+          'upgrade-insecure-requests': '1',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+          'sec-fetch-site': 'none',
+          'sec-fetch-mode': 'navigate',
+          'sec-fetch-user': '?1',
+          'sec-fetch-dest': 'document',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/',
+        query: {}
+      },
+      res: { statusCode: 500 },
+      responseTime: 5
+    },
+    timestamp: '2023-11-29T09:24:54.645Z'
+  }
+}

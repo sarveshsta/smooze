@@ -8,7 +8,6 @@ require('winston-mongodb');
 const loggerr = require('./logger');
 const { transports, format } = require('winston');
 
-
 //ALL THE ROUTES ARE HERE
 const registerRouter = require('./routes/usersRoute/register');
 const loginRouter = require('./routes/usersRoute/login');
@@ -72,7 +71,7 @@ const getLikeCount = require('./routes/usersRoute/getLikeCount');
 const getDisLikeCount = require('./routes/usersRoute/getDisLikeCount');
 const getSuperLikeCount = require('./routes/usersRoute/getSuperLikeCount');
 const getCommentCount = require('./routes/usersRoute/getCommentCount');
-const chatting  = require('./routes/ChattingRoute/chatting');
+const chatting = require('./routes/ChattingRoute/chatting');
 const allSentMessages = require('./routes/ChattingRoute/allSentMessages');
 
 
@@ -80,13 +79,14 @@ const allSentMessages = require('./routes/ChattingRoute/allSentMessages');
 var app = express();
 
 
+
 app.use(expressWinston.logger({
-  winstonInstance : loggerr,
+  winstonInstance: loggerr,
   statusLevels: true
-}))
+})) 
 
 //error format
-const myFormat = format.printf(({level,meta,timestamp})=>{
+const myFormat = format.printf(({ level, meta, timestamp }) => {
   return `${timestamp}  ${level} : ${meta.message}`
 })
 
@@ -106,7 +106,7 @@ app.use(expressWinston.errorLogger({
 
 
 // // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'FrontEndTest'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
@@ -178,8 +178,8 @@ app.use('/getLikeCount', getLikeCount);
 app.use('/getDisLikeCount', getDisLikeCount);
 app.use('/getSuperLikeCount', getSuperLikeCount);
 app.use('/getCommentCount', getCommentCount);
-app.use('/chatting',chatting);
-app.use('/allSentMessages',allSentMessages);
+app.use('/chatting', chatting);
+app.use('/allSentMessages', allSentMessages);
 
 
 // catch 404 and forward to error handler

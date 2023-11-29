@@ -32,6 +32,7 @@ function ChattingModel() {
                             callback(false);
                         } else {
                             callback(true)
+                            
                         }
                     })
                 } else {

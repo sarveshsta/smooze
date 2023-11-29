@@ -715,3 +715,1412 @@
     timestamp: '2023-11-29T06:12:38.949Z'
   }
 }
+{
+  level: 'warn',
+  message: 'HTTP POST /chatting',
+  metadata: {
+    meta: {
+      req: {
+        url: '/chatting',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '263d6de3-0caf-4881-a015-685e909f09db',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '154',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyMzc3MTd9.nekhf3AtVXgEbHWGfhsyJhdQq-7DRXJNrCRxVRIQr2Q'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/chatting',
+        query: {}
+      },
+      res: { statusCode: 404 },
+      responseTime: 41
+    },
+    timestamp: '2023-11-29T07:06:32.199Z'
+  }
+}
+{
+  level: 'error',
+  message: 'HTTP POST /chatting/socket.io/socket.io.js',
+  metadata: {
+    meta: {
+      req: {
+        url: '/chatting/socket.io/socket.io.js',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': 'df649444-005a-4cf4-9c5f-d6f5a78750cb',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '154',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyMzc3MTd9.nekhf3AtVXgEbHWGfhsyJhdQq-7DRXJNrCRxVRIQr2Q'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/chatting/socket.io/socket.io.js',
+        query: {}
+      },
+      res: { statusCode: 500 },
+      responseTime: 51
+    },
+    timestamp: '2023-11-29T07:07:16.716Z'
+  }
+}
+{
+  level: 'error',
+  message: 'HTTP POST /chatting',
+  metadata: {
+    meta: {
+      req: {
+        url: '/chatting',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '3b426bff-abec-4793-8302-6eefe43ef428',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '154',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyNDE2MzZ9.6XRB0Uza485zhAThzskl1Np08cmExTWrOf-dY7GH6bo'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/chatting',
+        query: {}
+      },
+      res: { statusCode: 500 },
+      responseTime: 22
+    },
+    timestamp: '2023-11-29T07:08:29.254Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /',
+  metadata: {
+    meta: {
+      req: {
+        url: '/',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Windows"',
+          'upgrade-insecure-requests': '1',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-purpose': 'prefetch;prerender',
+          purpose: 'prefetch',
+          accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+          'sec-fetch-site': 'none',
+          'sec-fetch-mode': 'navigate',
+          'sec-fetch-user': '?1',
+          'sec-fetch-dest': 'document',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/',
+        query: {}
+      },
+      res: { statusCode: 404 },
+      responseTime: 18
+    },
+    timestamp: '2023-11-29T09:16:44.607Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /register',
+  metadata: {
+    meta: {
+      req: {
+        url: '/register',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Windows"',
+          'upgrade-insecure-requests': '1',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+          'sec-fetch-site': 'none',
+          'sec-fetch-mode': 'navigate',
+          'sec-fetch-user': '?1',
+          'sec-fetch-dest': 'document',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/register',
+        query: {}
+      },
+      res: { statusCode: 404 },
+      responseTime: 6
+    },
+    timestamp: '2023-11-29T09:16:48.608Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /favicon.ico',
+  metadata: {
+    meta: {
+      req: {
+        url: '/favicon.ico',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Windows"',
+          accept: 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'no-cors',
+          'sec-fetch-dest': 'image',
+          referer: 'http://localhost:3000/register',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/favicon.ico',
+        query: {}
+      },
+      res: { statusCode: 404 },
+      responseTime: 3
+    },
+    timestamp: '2023-11-29T09:16:48.789Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /',
+  metadata: {
+    meta: {
+      req: {
+        url: '/',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Windows"',
+          'upgrade-insecure-requests': '1',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-purpose': 'prefetch;prerender',
+          purpose: 'prefetch',
+          accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+          'sec-fetch-site': 'none',
+          'sec-fetch-mode': 'navigate',
+          'sec-fetch-user': '?1',
+          'sec-fetch-dest': 'document',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/',
+        query: {}
+      },
+      res: { statusCode: 404 },
+      responseTime: 1
+    },
+    timestamp: '2023-11-29T09:16:54.511Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /',
+  metadata: {
+    meta: {
+      req: {
+        url: '/',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Windows"',
+          'upgrade-insecure-requests': '1',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+          'sec-fetch-site': 'none',
+          'sec-fetch-mode': 'navigate',
+          'sec-fetch-user': '?1',
+          'sec-fetch-dest': 'document',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/',
+        query: {}
+      },
+      res: { statusCode: 404 },
+      responseTime: 2
+    },
+    timestamp: '2023-11-29T09:16:55.858Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /index',
+  metadata: {
+    meta: {
+      req: {
+        url: '/index',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'cache-control': 'max-age=0',
+          'upgrade-insecure-requests': '1',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+          'sec-fetch-site': 'none',
+          'sec-fetch-mode': 'navigate',
+          'sec-fetch-user': '?1',
+          'sec-fetch-dest': 'document',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Windows"',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/index',
+        query: {}
+      },
+      res: { statusCode: 404 },
+      responseTime: 15
+    },
+    timestamp: '2023-11-29T09:22:22.667Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /index',
+  metadata: {
+    meta: {
+      req: {
+        url: '/index',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'cache-control': 'max-age=0',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Windows"',
+          'upgrade-insecure-requests': '1',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+          'sec-fetch-site': 'none',
+          'sec-fetch-mode': 'navigate',
+          'sec-fetch-user': '?1',
+          'sec-fetch-dest': 'document',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/index',
+        query: {}
+      },
+      res: { statusCode: 404 },
+      responseTime: 9
+    },
+    timestamp: '2023-11-29T09:22:47.414Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /index',
+  metadata: {
+    meta: {
+      req: {
+        url: '/index',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'cache-control': 'max-age=0',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Windows"',
+          'upgrade-insecure-requests': '1',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+          'sec-fetch-site': 'none',
+          'sec-fetch-mode': 'navigate',
+          'sec-fetch-user': '?1',
+          'sec-fetch-dest': 'document',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/index',
+        query: {}
+      },
+      res: { statusCode: 404 },
+      responseTime: 8
+    },
+    timestamp: '2023-11-29T09:23:21.000Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /FrontEndTest/index',
+  metadata: {
+    meta: {
+      req: {
+        url: '/FrontEndTest/index',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'upgrade-insecure-requests': '1',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-purpose': 'prefetch;prerender',
+          purpose: 'prefetch',
+          accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+          'sec-fetch-site': 'none',
+          'sec-fetch-mode': 'navigate',
+          'sec-fetch-user': '?1',
+          'sec-fetch-dest': 'document',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Windows"',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/FrontEndTest/index',
+        query: {}
+      },
+      res: { statusCode: 404 },
+      responseTime: 6
+    },
+    timestamp: '2023-11-29T09:23:26.150Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /FrontEndTest/index',
+  metadata: {
+    meta: {
+      req: {
+        url: '/FrontEndTest/index',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'upgrade-insecure-requests': '1',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+          'sec-fetch-site': 'none',
+          'sec-fetch-mode': 'navigate',
+          'sec-fetch-user': '?1',
+          'sec-fetch-dest': 'document',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Windows"',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/FrontEndTest/index',
+        query: {}
+      },
+      res: { statusCode: 404 },
+      responseTime: 2
+    },
+    timestamp: '2023-11-29T09:23:27.108Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /index',
+  metadata: {
+    meta: {
+      req: {
+        url: '/index',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'upgrade-insecure-requests': '1',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-purpose': 'prefetch;prerender',
+          purpose: 'prefetch',
+          accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+          'sec-fetch-site': 'none',
+          'sec-fetch-mode': 'navigate',
+          'sec-fetch-user': '?1',
+          'sec-fetch-dest': 'document',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Windows"',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/index',
+        query: {}
+      },
+      res: { statusCode: 404 },
+      responseTime: 16
+    },
+    timestamp: '2023-11-29T09:23:37.078Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /index',
+  metadata: {
+    meta: {
+      req: {
+        url: '/index',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'upgrade-insecure-requests': '1',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+          'sec-fetch-site': 'none',
+          'sec-fetch-mode': 'navigate',
+          'sec-fetch-user': '?1',
+          'sec-fetch-dest': 'document',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Windows"',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/index',
+        query: {}
+      },
+      res: { statusCode: 404 },
+      responseTime: 6
+    },
+    timestamp: '2023-11-29T09:23:37.817Z'
+  }
+}
+{
+  level: 'error',
+  message: 'HTTP GET /',
+  metadata: {
+    meta: {
+      req: {
+        url: '/',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Windows"',
+          'upgrade-insecure-requests': '1',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-purpose': 'prefetch;prerender',
+          purpose: 'prefetch',
+          accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+          'sec-fetch-site': 'none',
+          'sec-fetch-mode': 'navigate',
+          'sec-fetch-user': '?1',
+          'sec-fetch-dest': 'document',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/',
+        query: {}
+      },
+      res: { statusCode: 500 },
+      responseTime: 18
+    },
+    timestamp: '2023-11-29T09:24:53.943Z'
+  }
+}
+{
+  level: 'error',
+  message: 'HTTP GET /',
+  metadata: {
+    meta: {
+      req: {
+        url: '/',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Windows"',
+          'upgrade-insecure-requests': '1',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+          'sec-fetch-site': 'none',
+          'sec-fetch-mode': 'navigate',
+          'sec-fetch-user': '?1',
+          'sec-fetch-dest': 'document',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/',
+        query: {}
+      },
+      res: { statusCode: 500 },
+      responseTime: 5
+    },
+    timestamp: '2023-11-29T09:24:54.645Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /socket.io/?EIO=4&transport=polling&t=OmQS8Xl',
+  metadata: {
+    meta: {
+      req: {
+        url: '/socket.io/?EIO=4&transport=polling&t=OmQS8Xl',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          accept: '*/*',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-dest': 'empty',
+          referer: 'http://localhost:3000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/socket.io/?EIO=4&transport=polling&t=OmQS8Xl',
+        query: { EIO: '4', transport: 'polling', t: 'OmQS8Xl' }
+      },
+      res: { statusCode: 404 },
+      responseTime: 6
+    },
+    timestamp: '2023-11-29T09:37:11.800Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /socket.io/?EIO=4&transport=polling&t=OmQS8s9',
+  metadata: {
+    meta: {
+      req: {
+        url: '/socket.io/?EIO=4&transport=polling&t=OmQS8s9',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          accept: '*/*',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-dest': 'empty',
+          referer: 'http://localhost:3000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/socket.io/?EIO=4&transport=polling&t=OmQS8s9',
+        query: { EIO: '4', transport: 'polling', t: 'OmQS8s9' }
+      },
+      res: { statusCode: 404 },
+      responseTime: 4
+    },
+    timestamp: '2023-11-29T09:37:13.102Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /socket.io/?EIO=4&transport=polling&t=OmQS9LG',
+  metadata: {
+    meta: {
+      req: {
+        url: '/socket.io/?EIO=4&transport=polling&t=OmQS9LG',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          accept: '*/*',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-dest': 'empty',
+          referer: 'http://localhost:3000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/socket.io/?EIO=4&transport=polling&t=OmQS9LG',
+        query: { EIO: '4', transport: 'polling', t: 'OmQS9LG' }
+      },
+      res: { statusCode: 404 },
+      responseTime: 1
+    },
+    timestamp: '2023-11-29T09:37:15.093Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /socket.io/?EIO=4&transport=polling&t=OmQSAp7',
+  metadata: {
+    meta: {
+      req: {
+        url: '/socket.io/?EIO=4&transport=polling&t=OmQSAp7',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          accept: '*/*',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-dest': 'empty',
+          referer: 'http://localhost:3000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/socket.io/?EIO=4&transport=polling&t=OmQSAp7',
+        query: { EIO: '4', transport: 'polling', t: 'OmQSAp7' }
+      },
+      res: { statusCode: 404 },
+      responseTime: 2
+    },
+    timestamp: '2023-11-29T09:37:21.100Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /socket.io/?EIO=4&transport=polling&t=OmQSCGv',
+  metadata: {
+    meta: {
+      req: {
+        url: '/socket.io/?EIO=4&transport=polling&t=OmQSCGv',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          accept: '*/*',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-dest': 'empty',
+          referer: 'http://localhost:3000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/socket.io/?EIO=4&transport=polling&t=OmQSCGv',
+        query: { EIO: '4', transport: 'polling', t: 'OmQSCGv' }
+      },
+      res: { statusCode: 404 },
+      responseTime: 3
+    },
+    timestamp: '2023-11-29T09:37:27.105Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /socket.io/?EIO=4&transport=polling&t=OmQSDkf',
+  metadata: {
+    meta: {
+      req: {
+        url: '/socket.io/?EIO=4&transport=polling&t=OmQSDkf',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          accept: '*/*',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-dest': 'empty',
+          referer: 'http://localhost:3000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/socket.io/?EIO=4&transport=polling&t=OmQSDkf',
+        query: { EIO: '4', transport: 'polling', t: 'OmQSDkf' }
+      },
+      res: { statusCode: 404 },
+      responseTime: 1
+    },
+    timestamp: '2023-11-29T09:37:33.103Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /socket.io/?EIO=4&transport=polling&t=OmQT3hh',
+  metadata: {
+    meta: {
+      req: {
+        url: '/socket.io/?EIO=4&transport=polling&t=OmQT3hh',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          accept: '*/*',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-dest': 'empty',
+          referer: 'http://localhost:3000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/socket.io/?EIO=4&transport=polling&t=OmQT3hh',
+        query: { EIO: '4', transport: 'polling', t: 'OmQT3hh' }
+      },
+      res: { statusCode: 404 },
+      responseTime: 10
+    },
+    timestamp: '2023-11-29T09:41:14.687Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /socket.io/?EIO=4&transport=polling&t=OmQT4sl',
+  metadata: {
+    meta: {
+      req: {
+        url: '/socket.io/?EIO=4&transport=polling&t=OmQT4sl',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          accept: '*/*',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-dest': 'empty',
+          referer: 'http://localhost:3000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/socket.io/?EIO=4&transport=polling&t=OmQT4sl',
+        query: { EIO: '4', transport: 'polling', t: 'OmQT4sl' }
+      },
+      res: { statusCode: 404 },
+      responseTime: 7
+    },
+    timestamp: '2023-11-29T09:41:18.909Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /socket.io/?EIO=4&transport=polling&t=OmQT57g',
+  metadata: {
+    meta: {
+      req: {
+        url: '/socket.io/?EIO=4&transport=polling&t=OmQT57g',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          accept: '*/*',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-dest': 'empty',
+          referer: 'http://localhost:3000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/socket.io/?EIO=4&transport=polling&t=OmQT57g',
+        query: { EIO: '4', transport: 'polling', t: 'OmQT57g' }
+      },
+      res: { statusCode: 404 },
+      responseTime: 1
+    },
+    timestamp: '2023-11-29T09:41:19.981Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /socket.io/?EIO=4&transport=polling&t=OmQT5uT',
+  metadata: {
+    meta: {
+      req: {
+        url: '/socket.io/?EIO=4&transport=polling&t=OmQT5uT',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          accept: '*/*',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-dest': 'empty',
+          referer: 'http://localhost:3000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/socket.io/?EIO=4&transport=polling&t=OmQT5uT',
+        query: { EIO: '4', transport: 'polling', t: 'OmQT5uT' }
+      },
+      res: { statusCode: 404 },
+      responseTime: 1
+    },
+    timestamp: '2023-11-29T09:41:23.106Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /socket.io/?EIO=4&transport=polling&t=OmQT6dF',
+  metadata: {
+    meta: {
+      req: {
+        url: '/socket.io/?EIO=4&transport=polling&t=OmQT6dF',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          accept: '*/*',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-dest': 'empty',
+          referer: 'http://localhost:3000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/socket.io/?EIO=4&transport=polling&t=OmQT6dF',
+        query: { EIO: '4', transport: 'polling', t: 'OmQT6dF' }
+      },
+      res: { statusCode: 404 },
+      responseTime: 2
+    },
+    timestamp: '2023-11-29T09:41:26.100Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /socket.io/?EIO=4&transport=polling&t=OmQT84-',
+  metadata: {
+    meta: {
+      req: {
+        url: '/socket.io/?EIO=4&transport=polling&t=OmQT84-',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          accept: '*/*',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-dest': 'empty',
+          referer: 'http://localhost:3000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/socket.io/?EIO=4&transport=polling&t=OmQT84-',
+        query: { EIO: '4', transport: 'polling', t: 'OmQT84-' }
+      },
+      res: { statusCode: 404 },
+      responseTime: 1
+    },
+    timestamp: '2023-11-29T09:41:32.099Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /socket.io/?EIO=4&transport=polling&t=OmQT9Ye',
+  metadata: {
+    meta: {
+      req: {
+        url: '/socket.io/?EIO=4&transport=polling&t=OmQT9Ye',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          accept: '*/*',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-dest': 'empty',
+          referer: 'http://localhost:3000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/socket.io/?EIO=4&transport=polling&t=OmQT9Ye',
+        query: { EIO: '4', transport: 'polling', t: 'OmQT9Ye' }
+      },
+      res: { statusCode: 404 },
+      responseTime: 1
+    },
+    timestamp: '2023-11-29T09:41:38.093Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /socket.io/?EIO=4&transport=polling&t=OmQTB0Y',
+  metadata: {
+    meta: {
+      req: {
+        url: '/socket.io/?EIO=4&transport=polling&t=OmQTB0Y',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          accept: '*/*',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-dest': 'empty',
+          referer: 'http://localhost:3000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/socket.io/?EIO=4&transport=polling&t=OmQTB0Y',
+        query: { EIO: '4', transport: 'polling', t: 'OmQTB0Y' }
+      },
+      res: { statusCode: 404 },
+      responseTime: 1
+    },
+    timestamp: '2023-11-29T09:41:44.104Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /socket.io/?EIO=4&transport=polling&t=OmQTCUG',
+  metadata: {
+    meta: {
+      req: {
+        url: '/socket.io/?EIO=4&transport=polling&t=OmQTCUG',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          accept: '*/*',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-dest': 'empty',
+          referer: 'http://localhost:3000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/socket.io/?EIO=4&transport=polling&t=OmQTCUG',
+        query: { EIO: '4', transport: 'polling', t: 'OmQTCUG' }
+      },
+      res: { statusCode: 404 },
+      responseTime: 1
+    },
+    timestamp: '2023-11-29T09:41:50.101Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /socket.io/?EIO=4&transport=polling&t=OmQTDxx',
+  metadata: {
+    meta: {
+      req: {
+        url: '/socket.io/?EIO=4&transport=polling&t=OmQTDxx',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          accept: '*/*',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-dest': 'empty',
+          referer: 'http://localhost:3000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/socket.io/?EIO=4&transport=polling&t=OmQTDxx',
+        query: { EIO: '4', transport: 'polling', t: 'OmQTDxx' }
+      },
+      res: { statusCode: 404 },
+      responseTime: 1
+    },
+    timestamp: '2023-11-29T09:41:56.095Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /socket.io/?EIO=4&transport=polling&t=OmQTFPq',
+  metadata: {
+    meta: {
+      req: {
+        url: '/socket.io/?EIO=4&transport=polling&t=OmQTFPq',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          accept: '*/*',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-dest': 'empty',
+          referer: 'http://localhost:3000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/socket.io/?EIO=4&transport=polling&t=OmQTFPq',
+        query: { EIO: '4', transport: 'polling', t: 'OmQTFPq' }
+      },
+      res: { statusCode: 404 },
+      responseTime: 1
+    },
+    timestamp: '2023-11-29T09:42:02.103Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /socket.io/?EIO=4&transport=polling&t=OmQTGtV',
+  metadata: {
+    meta: {
+      req: {
+        url: '/socket.io/?EIO=4&transport=polling&t=OmQTGtV',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          accept: '*/*',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-dest': 'empty',
+          referer: 'http://localhost:3000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/socket.io/?EIO=4&transport=polling&t=OmQTGtV',
+        query: { EIO: '4', transport: 'polling', t: 'OmQTGtV' }
+      },
+      res: { statusCode: 404 },
+      responseTime: 1
+    },
+    timestamp: '2023-11-29T09:42:08.099Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /socket.io/?EIO=4&transport=polling&t=OmQTILC',
+  metadata: {
+    meta: {
+      req: {
+        url: '/socket.io/?EIO=4&transport=polling&t=OmQTILC',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          accept: '*/*',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-dest': 'empty',
+          referer: 'http://localhost:3000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/socket.io/?EIO=4&transport=polling&t=OmQTILC',
+        query: { EIO: '4', transport: 'polling', t: 'OmQTILC' }
+      },
+      res: { statusCode: 404 },
+      responseTime: 3
+    },
+    timestamp: '2023-11-29T09:42:14.098Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /socket.io/?EIO=4&transport=polling&t=OmQWxkh',
+  metadata: {
+    meta: {
+      req: {
+        url: '/socket.io/?EIO=4&transport=polling&t=OmQWxkh',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          accept: '*/*',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-dest': 'empty',
+          referer: 'http://localhost:3000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/socket.io/?EIO=4&transport=polling&t=OmQWxkh',
+        query: { EIO: '4', transport: 'polling', t: 'OmQWxkh' }
+      },
+      res: { statusCode: 404 },
+      responseTime: 9
+    },
+    timestamp: '2023-11-29T09:58:10.875Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /socket.io/?EIO=4&transport=polling&t=OmQWy25',
+  metadata: {
+    meta: {
+      req: {
+        url: '/socket.io/?EIO=4&transport=polling&t=OmQWy25',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          accept: '*/*',
+          'sec-purpose': 'prefetch;prerender',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Windows"',
+          purpose: 'prefetch',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-dest': 'empty',
+          referer: 'http://localhost:3000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/socket.io/?EIO=4&transport=polling&t=OmQWy25',
+        query: { EIO: '4', transport: 'polling', t: 'OmQWy25' }
+      },
+      res: { statusCode: 404 },
+      responseTime: 5
+    },
+    timestamp: '2023-11-29T09:58:11.342Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /socket.io/?EIO=4&transport=polling&t=OmQWyQg',
+  metadata: {
+    meta: {
+      req: {
+        url: '/socket.io/?EIO=4&transport=polling&t=OmQWyQg',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          accept: '*/*',
+          'sec-purpose': 'prefetch;prerender',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Windows"',
+          purpose: 'prefetch',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-dest': 'empty',
+          referer: 'http://localhost:3000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/socket.io/?EIO=4&transport=polling&t=OmQWyQg',
+        query: { EIO: '4', transport: 'polling', t: 'OmQWyQg' }
+      },
+      res: { statusCode: 404 },
+      responseTime: 2
+    },
+    timestamp: '2023-11-29T09:58:12.929Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /socket.io/?EIO=4&transport=polling&t=OmQWywk',
+  metadata: {
+    meta: {
+      req: {
+        url: '/socket.io/?EIO=4&transport=polling&t=OmQWywk',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          accept: '*/*',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-dest': 'empty',
+          referer: 'http://localhost:3000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/socket.io/?EIO=4&transport=polling&t=OmQWywk',
+        query: { EIO: '4', transport: 'polling', t: 'OmQWywk' }
+      },
+      res: { statusCode: 404 },
+      responseTime: 1
+    },
+    timestamp: '2023-11-29T09:58:14.961Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /socket.io/?EIO=4&transport=polling&t=OmQWzCV',
+  metadata: {
+    meta: {
+      req: {
+        url: '/socket.io/?EIO=4&transport=polling&t=OmQWzCV',
+        headers: {
+          host: 'localhost:3000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+          accept: '*/*',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-dest': 'empty',
+          referer: 'http://localhost:3000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: '_ga=GA1.1.1886291254.1682057682; _ga_3NEVJSRSKR=GS1.1.1700828023.3.1.1700828066.0.0.0; _fbp=fb.0.1700828178904.1226289649; _ga_20G8W6MJ0V=GS1.1.1700828178.1.1.1700828290.0.0.0'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/socket.io/?EIO=4&transport=polling&t=OmQWzCV',
+        query: { EIO: '4', transport: 'polling', t: 'OmQWzCV' }
+      },
+      res: { statusCode: 404 },
+      responseTime: 1
+    },
+    timestamp: '2023-11-29T09:58:16.099Z'
+  }
+}
