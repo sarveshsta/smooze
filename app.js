@@ -200,3 +200,31 @@ app.use(function (err, req, res, next) {
 
 
 module.exports = app;
+
+
+
+// const OneSignal = require('onesignal-node');
+
+// const appId = 'your_one_signal_app_id';
+// const apiKey = 'your_one_signal_api_key';
+
+// const oneSignalClient = new OneSignal.Client({ appId, apiKey });
+
+// // Function to send a push notification
+// async function sendPushNotification(userId, message) {
+//   const playerIds = await getPlayerIdsForUser(userId);
+
+//   const notification = new OneSignal.Notification({
+//     contents: {
+//       en: message,
+//     },
+//     include_player_ids: playerIds,
+//   });
+
+//   try {
+//     const response = await oneSignalClient.sendNotification(notification);
+//     console.log('Push notification sent:', response.body);
+//   } catch (error) {
+//     console.error('Error sending push notification:', error);
+//   }
+// }
