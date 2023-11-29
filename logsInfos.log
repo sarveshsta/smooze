@@ -1546,3 +1546,229 @@
     timestamp: '2023-11-28T10:06:12.284Z'
   }
 }
+{
+  level: 'info',
+  message: 'HTTP POST /chatting',
+  metadata: {
+    meta: {
+      req: {
+        url: '/chatting',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '81cd7ea7-b65d-4ff9-af85-db2ac9222e6d',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '124',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDExNjMyMzh9.bZmYNpkLsEc56KvzrYNv0S0y4VmFnhkB5cgt8KoJnoQ'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/chatting',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 53
+    },
+    timestamp: '2023-11-29T05:58:18.980Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /chatting',
+  metadata: {
+    meta: {
+      req: {
+        url: '/chatting',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': 'f112fc2a-fb5f-4686-80d2-396a815b6ea8',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '124',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyMzc0OTh9.KQuA1akDS5Ip_Eo7rZrgjy02kX2xqzbBTzoXuyi3syk'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/chatting',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 23
+    },
+    timestamp: '2023-11-29T05:59:41.467Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /chatting',
+  metadata: {
+    meta: {
+      req: {
+        url: '/chatting',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '0080381d-b05c-409b-a3d7-5aa9f17c8544',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '124',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyMzc1ODF9.wILtf2DFFcWfm5V1SXN_EzDxgH_Z4ZV2JiBiHGQIPIo'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/chatting',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 45
+    },
+    timestamp: '2023-11-29T06:00:29.210Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /chatting',
+  metadata: {
+    meta: {
+      req: {
+        url: '/chatting',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': 'ac3e1bcd-5a1d-4a63-9f50-41ede2e2e82e',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '124',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyMzc2Mjl9.vhDOb3SDpCAMMiH4psIP4v6lwCPmpOG-pqb9OX_Y3gY'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/chatting',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 19
+    },
+    timestamp: '2023-11-29T06:01:12.698Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /chatting',
+  metadata: {
+    meta: {
+      req: {
+        url: '/chatting',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '812ce051-a355-413a-96f2-3c80f86838a6',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '154',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyMzc2NzJ9.dIqcWJC3B1S54wN8oDwgyQ7xKJ8zQBCD5LAcwCHJg7E'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/chatting',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 13
+    },
+    timestamp: '2023-11-29T06:01:57.588Z'
+  }
+}
+{
+  level: 'error',
+  message: 'HTTP GET /allSentMessages',
+  metadata: {
+    meta: {
+      req: {
+        url: '/allSentMessages',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': 'c26867e1-d908-4aa3-b3ca-e4e6982d1cbd',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyMzc3MTd9.nekhf3AtVXgEbHWGfhsyJhdQq-7DRXJNrCRxVRIQr2Q'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/allSentMessages',
+        query: {}
+      },
+      res: { statusCode: 500 },
+      responseTime: 19
+    },
+    timestamp: '2023-11-29T06:12:38.949Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP GET /allSentMessages',
+  metadata: {
+    meta: {
+      req: {
+        url: '/allSentMessages',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '4a7560b4-5cca-420d-9c8b-b9a171c4576e',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyMzc3MTd9.nekhf3AtVXgEbHWGfhsyJhdQq-7DRXJNrCRxVRIQr2Q'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/allSentMessages',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 37
+    },
+    timestamp: '2023-11-29T06:13:24.690Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP GET /allSentMessages',
+  metadata: {
+    meta: {
+      req: {
+        url: '/allSentMessages',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '45548aa6-387e-4dfa-8178-bd2ace4ab06c',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyMzc3MTd9.nekhf3AtVXgEbHWGfhsyJhdQq-7DRXJNrCRxVRIQr2Q'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/allSentMessages',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 43
+    },
+    timestamp: '2023-11-29T06:15:47.956Z'
+  }
+}

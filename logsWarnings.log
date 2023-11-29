@@ -688,3 +688,30 @@
     timestamp: '2023-11-28T10:05:08.499Z'
   }
 }
+{
+  level: 'error',
+  message: 'HTTP GET /allSentMessages',
+  metadata: {
+    meta: {
+      req: {
+        url: '/allSentMessages',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': 'c26867e1-d908-4aa3-b3ca-e4e6982d1cbd',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyMzc3MTd9.nekhf3AtVXgEbHWGfhsyJhdQq-7DRXJNrCRxVRIQr2Q'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/allSentMessages',
+        query: {}
+      },
+      res: { statusCode: 500 },
+      responseTime: 19
+    },
+    timestamp: '2023-11-29T06:12:38.949Z'
+  }
+}

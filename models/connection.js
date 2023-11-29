@@ -307,96 +307,131 @@ const OfferSmooz = mongoose.Schema({
         type: String,
         required: true
     },
-    itemOffered : [
+    itemOffered: [
         {
-            name : {
-                type : String,
-                required : true
+            name: {
+                type: String,
+                required: true
             },
-            price : {
-                type : String,
-                requried : true
+            price: {
+                type: String,
+                requried: true
             }
         }
     ],
-    option : {
-        type : String,
-        required : true
+    option: {
+        type: String,
+        required: true
     }
 })
-const offersmoozs = mongoose.model('OfferSmooz',OfferSmooz);
+const offersmoozs = mongoose.model('OfferSmooz', OfferSmooz);
 
 //Schema of user like someone
 const UserLikeSomeOne = mongoose.Schema({
-    UserEmail : {
-        type : String,
-        required : true
+    UserEmail: {
+        type: String,
+        required: true
     },
-    isLiked : {
-        type : Boolean,
-        requried : true,
-        default : false
+    isLiked: {
+        type: Boolean,
+        requried: true,
+        default: false
     },
-    LikedTo : {
-        type : String,
-        required : true
+    LikedTo: {
+        type: String,
+        required: true
     }
 })
-const userlikesomeones = mongoose.model('UserLikeSomeOne',UserLikeSomeOne);
+const userlikesomeones = mongoose.model('UserLikeSomeOne', UserLikeSomeOne);
 
 //Schema of user  Dislike someone
 const UserDisLikeSomeOne = mongoose.Schema({
-    UserEmail : {
-        type : String,
-        required : true
+    UserEmail: {
+        type: String,
+        required: true
     },
-    isLiked : {
-        type : Boolean,
-        requried : true,
-        default : false
+    isLiked: {
+        type: Boolean,
+        requried: true,
+        default: false
     },
-    DisLikedTo : {
-        type : String,
-        required : true
+    DisLikedTo: {
+        type: String,
+        required: true
     }
 })
-const userdislikesomeones = mongoose.model('UserDisLikeSomeOne',UserDisLikeSomeOne);
+const userdislikesomeones = mongoose.model('UserDisLikeSomeOne', UserDisLikeSomeOne);
 
 //Schema of user super like someone 
 const UserSuperLikeSomeOne = mongoose.Schema({
-    UserEmail : {
-        type : String,
-        required : true
+    UserEmail: {
+        type: String,
+        required: true
     },
-    isLiked : {
-        type : Boolean,
-        requried : true,
-        default : false
+    isLiked: {
+        type: Boolean,
+        requried: true,
+        default: false
     },
-    SuperLikedTo : {
-        type : String,
-        required : true
+    SuperLikedTo: {
+        type: String,
+        required: true
     }
 })
-const usersuperlikesomeones = mongoose.model('UserSuperLikeSomeOne',UserSuperLikeSomeOne);
+const usersuperlikesomeones = mongoose.model('UserSuperLikeSomeOne', UserSuperLikeSomeOne);
 
 
 //Schema of Comment user
 const CommentSomeone = mongoose.Schema({
-    UserEmail : {
-        type : String,
-        required : true
+    UserEmail: {
+        type: String,
+        required: true
     },
-    CommentTo : {
-        type : String,
-        required : true
+    CommentTo: {
+        type: String,
+        required: true
     },
-    Comment : {
-        type : String,
-        required : true
+    Comment: {
+        type: String,
+        required: true
     }
 })
-const commentsomeones = mongoose.model('CommentSomeone',CommentSomeone);
+const commentsomeones = mongoose.model('CommentSomeone', CommentSomeone);
+
+
+//Schema for message
+const Message = mongoose.Schema({
+    userEmail: {
+        type: String,
+        required: true
+    },
+    recipientEmail: {
+        type: String,
+        required: true
+    },
+    content: {
+        type: String,
+        required: true
+    }
+})
+const messages = mongoose.model('Message', Message);
 
 console.log("Successfully connected to mongodb database...");
-module.exports = { db, users, userphotos, onboardings, clubs, menu, events, profilequestion, preferences , offersmoozs, userlikesomeones, userdislikesomeones, usersuperlikesomeones, commentsomeones};
+
+module.exports = {
+    db,
+    users,
+    userphotos,
+    onboardings,
+    clubs,
+    menu,
+    events,
+    profilequestion,
+    preferences,
+    offersmoozs,
+    userlikesomeones,
+    userdislikesomeones,
+    usersuperlikesomeones,
+    commentsomeones,
+    messages
+};
