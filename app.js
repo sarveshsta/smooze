@@ -74,6 +74,7 @@ const getCommentCount = require('./routes/usersRoute/getCommentCount');
 const chatting = require('./routes/ChattingRoute/chatting');
 const allSentMessages = require('./routes/ChattingRoute/allSentMessages');
 const order = require('./routes/CreateOrder/order');
+const sendNotification = require('./routes/CreateNotification/sendNotification');
 
 
 
@@ -182,6 +183,7 @@ app.use('/getCommentCount', getCommentCount);
 app.use('/chatting', chatting);
 app.use('/allSentMessages', allSentMessages);
 app.use('/order',order);
+app.use('/sendNotification',sendNotification);
 
 
 // catch 404 and forward to error handler

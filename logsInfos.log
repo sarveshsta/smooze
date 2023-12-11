@@ -3768,3 +3768,438 @@
     timestamp: '2023-12-11T07:49:47.912Z'
   }
 }
+{
+  level: 'info',
+  message: 'HTTP POST /sendNotification',
+  metadata: {
+    meta: {
+      req: {
+        url: '/sendNotification',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': 'cf253d47-c232-43c8-aaa1-6ebaf613ba55',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '83',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyNDQ5NDZ9.cGMu4vOW2aN6zTXYw9pF7Mjm5CAkUn6haHkGe0MX5M4'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/sendNotification',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 27
+    },
+    timestamp: '2023-12-11T10:41:40.616Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /sendNotification',
+  metadata: {
+    meta: {
+      req: {
+        url: '/sendNotification',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': 'f350bdc9-5d2f-4f51-bfac-6e33b5ca2a4b',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '83',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyNDQ5NDZ9.cGMu4vOW2aN6zTXYw9pF7Mjm5CAkUn6haHkGe0MX5M4'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/sendNotification',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 560
+    },
+    timestamp: '2023-12-11T10:42:39.791Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /sendNotification',
+  metadata: {
+    meta: {
+      req: {
+        url: '/sendNotification',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '071c3608-719c-47c3-b397-7fc3f7026b88',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '83',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyNDQ5NDZ9.cGMu4vOW2aN6zTXYw9pF7Mjm5CAkUn6haHkGe0MX5M4'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/sendNotification',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 562
+    },
+    timestamp: '2023-12-11T10:43:41.601Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /sendNotification',
+  metadata: {
+    meta: {
+      req: {
+        url: '/sendNotification',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '4216eed4-01c8-48a2-ad15-b4304f9d412b',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '83',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyNDQ5NDZ9.cGMu4vOW2aN6zTXYw9pF7Mjm5CAkUn6haHkGe0MX5M4'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/sendNotification',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 559
+    },
+    timestamp: '2023-12-11T10:44:58.309Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /sendNotification',
+  metadata: {
+    meta: {
+      req: {
+        url: '/sendNotification',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': 'bd25f54f-e933-4f1e-88fc-58d5cff6c498',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '92',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyNDQ5NDZ9.cGMu4vOW2aN6zTXYw9pF7Mjm5CAkUn6haHkGe0MX5M4'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/sendNotification',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 582
+    },
+    timestamp: '2023-12-11T11:40:34.572Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /sendNotification',
+  metadata: {
+    meta: {
+      req: {
+        url: '/sendNotification',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': 'f16ad1a0-c1b5-4008-9d6b-ccf19a098037',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '92',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyNDQ5NDZ9.cGMu4vOW2aN6zTXYw9pF7Mjm5CAkUn6haHkGe0MX5M4'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/sendNotification',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 540
+    },
+    timestamp: '2023-12-11T11:41:22.909Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /sendNotification',
+  metadata: {
+    meta: {
+      req: {
+        url: '/sendNotification',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '518e67bc-9eed-43d4-b946-1e11287fcec1',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '92',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyNDQ5NDZ9.cGMu4vOW2aN6zTXYw9pF7Mjm5CAkUn6haHkGe0MX5M4'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/sendNotification',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 564
+    },
+    timestamp: '2023-12-11T11:44:01.996Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /sendNotification',
+  metadata: {
+    meta: {
+      req: {
+        url: '/sendNotification',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '2f882c4d-42d2-49f1-b1da-8d26bdb0e355',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '92',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyNDQ5NDZ9.cGMu4vOW2aN6zTXYw9pF7Mjm5CAkUn6haHkGe0MX5M4'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/sendNotification',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 604
+    },
+    timestamp: '2023-12-11T12:15:39.022Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /sendNotification',
+  metadata: {
+    meta: {
+      req: {
+        url: '/sendNotification',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '17a34b0f-b500-4ef4-9766-9c4d869d21a4',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '92',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyNDQ5NDZ9.cGMu4vOW2aN6zTXYw9pF7Mjm5CAkUn6haHkGe0MX5M4'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/sendNotification',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 584
+    },
+    timestamp: '2023-12-11T12:28:51.795Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /sendNotification',
+  metadata: {
+    meta: {
+      req: {
+        url: '/sendNotification',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '104a8c69-f17b-45f0-a8b4-d678485eac68',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '92',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyNDQ5NDZ9.cGMu4vOW2aN6zTXYw9pF7Mjm5CAkUn6haHkGe0MX5M4'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/sendNotification',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 565
+    },
+    timestamp: '2023-12-11T12:32:44.844Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /sendNotification',
+  metadata: {
+    meta: {
+      req: {
+        url: '/sendNotification',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': 'd1a5f870-42b9-4f8c-b506-701d39a392cd',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '92',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyNDQ5NDZ9.cGMu4vOW2aN6zTXYw9pF7Mjm5CAkUn6haHkGe0MX5M4'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/sendNotification',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 529
+    },
+    timestamp: '2023-12-11T12:40:22.656Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /sendNotification',
+  metadata: {
+    meta: {
+      req: {
+        url: '/sendNotification',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '2b18a23b-c3c5-4dd1-936e-aaa7bcb69975',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '92',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyNDQ5NDZ9.cGMu4vOW2aN6zTXYw9pF7Mjm5CAkUn6haHkGe0MX5M4'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/sendNotification',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 684
+    },
+    timestamp: '2023-12-11T12:55:29.820Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /sendNotification',
+  metadata: {
+    meta: {
+      req: {
+        url: '/sendNotification',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '00b8a8cf-e733-4f22-9621-01f272216581',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '92',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyNDQ5NDZ9.cGMu4vOW2aN6zTXYw9pF7Mjm5CAkUn6haHkGe0MX5M4'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/sendNotification',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 737
+    },
+    timestamp: '2023-12-11T12:59:08.162Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /sendNotification',
+  metadata: {
+    meta: {
+      req: {
+        url: '/sendNotification',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': '9c34f2c3-b446-45ab-81e2-9698340c831d',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '92',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyNDQ5NDZ9.cGMu4vOW2aN6zTXYw9pF7Mjm5CAkUn6haHkGe0MX5M4'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/sendNotification',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 574
+    },
+    timestamp: '2023-12-11T13:03:33.708Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /sendNotification',
+  metadata: {
+    meta: {
+      req: {
+        url: '/sendNotification',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': 'e4616de2-b788-46f4-be4a-f05b00c4fed0',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '92',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyNDQ5NDZ9.cGMu4vOW2aN6zTXYw9pF7Mjm5CAkUn6haHkGe0MX5M4'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/sendNotification',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 573
+    },
+    timestamp: '2023-12-11T13:12:43.248Z'
+  }
+}
