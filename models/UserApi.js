@@ -58,7 +58,7 @@ function indexmodel() {
                 var flag = 1;
                 if (result.length > 0) {
                     for (let row of result) {
-                        if (users.email == row.email) {
+                        if (users.email == row.email || users.phone == row.phone) {
                             flag = 0;
                             break;
                         }
