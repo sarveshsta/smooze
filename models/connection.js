@@ -416,6 +416,16 @@ const Message = mongoose.Schema({
 })
 const messages = mongoose.model('Message', Message);
 
+//Schema for order
+const Order = mongoose.Schema({
+    amount : {
+        type : Number,
+        required : true
+    }
+})
+const orders = mongoose.model('Order',Order);
+
+
 console.log("Successfully connected to mongodb database...");
 
 module.exports = {
@@ -433,5 +443,6 @@ module.exports = {
     userdislikesomeones,
     usersuperlikesomeones,
     commentsomeones,
-    messages
+    messages,
+    orders
 };

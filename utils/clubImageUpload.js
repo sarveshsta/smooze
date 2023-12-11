@@ -16,25 +16,25 @@ const storage = multer.diskStorage({
     },
 });
 
-const storage1 = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, path.join(__dirname, '../public/UserImages'));
-    },
-    filename: (req, file, cb) => {
-        const name = Date.now() + '-' + file.originalname;
-        cb(null, name);
-    },
-});
+// const storage1 = multer.diskStorage({
+//     destination: (req, file, cb) => {
+//         cb(null, path.join(__dirname, '../public/UserImages'));
+//     },
+//     filename: (req, file, cb) => {
+//         const name = Date.now() + '-' + file.originalname;
+//         cb(null, name);
+//     },
+// });
 
-const storage2 = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, path.join(__dirname, '../public/EventImages'));
-    },
-    filename: (req, file, cb) => {
-        const name = Date.now() + '-' + file.originalname;
-        cb(null, name);
-    },
-});
+// const storage2 = multer.diskStorage({
+//     destination: (req, file, cb) => {
+//         cb(null, path.join(__dirname, '../public/EventImages'));
+//     },
+//     filename: (req, file, cb) => {
+//         const name = Date.now() + '-' + file.originalname;
+//         cb(null, name);
+//     },
+// });
 
 
 const upload = multer({ storage: storage }).fields([{ name: 'Club_Banner', maxCount: 1 }, { name: 'Club_Docs', maxCount: 1 }, { name: 'Owner_Aadhar', maxCount: 1 }, { name: 'Owner_DP', maxCount: 1 }]);

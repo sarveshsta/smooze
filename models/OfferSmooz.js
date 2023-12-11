@@ -1,11 +1,4 @@
 const { db, offersmoozs } = require('./connection');
-// const OneSignal = require('onesignal-node');
-// const oneSignalClient = new OneSignal.Client({
-//     app: {
-//         appId: '9a9b763d-d0ca-44c9-ac39-011569b6c8a6',
-//         appKey: 'OGM4ZDI4ZDQtYzA1Ny00MDA3LTg1MDYtYTllYmYwMzU2YzY0'
-//     },
-// });
 
 
 function OfferModel() {
@@ -119,41 +112,6 @@ function OfferModel() {
                     });
             })
     }
-
-
-    // // Function to handle accepting or rejecting offers
-    // this.itemOfferedMe = (offersmoozs, option, callback) => {
-    //     db.collection("offersmoozs").find({ OfferSmoozEmail: offersmoozs.OfferSmoozEmail }).toArray()
-    //         .then((result) => {
-    //             db.collection("offersmoozs").updateOne({ OfferSmoozEmail: offersmoozs.OfferSmoozEmail }, { $set: { option: option } })
-    //                 .then(() => {
-    //                     console.log("User Answered");
-
-    //                     // Send OneSignal notification when user answers an offer
-    //                     const notification = {
-    //                         contents: {
-    //                             en: `You have a new offer response: ${option === 'accept' ? 'Accepted' : 'Rejected'}`,
-    //                         },
-    //                         include_player_ids: [result[0].uuid], // Assuming you store the OneSignal player ID in your 'offersmoozs' collection
-    //                     };
-
-    //                     oneSignalClient.createNotification(notification)
-    //                         .then(response => {
-    //                             console.log("OneSignal notification sent:", response);
-    //                             callback(result);
-    //                         })
-    //                         .catch(error => {
-    //                             console.error("Error sending OneSignal notification:", error);
-    //                             callback(result);
-    //                         });
-    //                 })
-    //                 .catch((updateErr) => {
-    //                     console.log('Error while answering the Offer:', updateErr);
-    //                 });
-    //         })
-    // }
-
-
 
 
 }

@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var OfferModel = require('../../models/OfferSmooz');
-var dem = require('../../utils/visitedClub');
 
 //Get CLUB VISITED ROUTE
 router.post('/', (req, res) => {

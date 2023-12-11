@@ -71,8 +71,9 @@ const getLikeCount = require('./routes/usersRoute/getLikeCount');
 const getDisLikeCount = require('./routes/usersRoute/getDisLikeCount');
 const getSuperLikeCount = require('./routes/usersRoute/getSuperLikeCount');
 const getCommentCount = require('./routes/usersRoute/getCommentCount');
-const chatting = require('./routes/ChattingRoute/chatting');
+// const chatting = require('./routes/ChattingRoute/chatting');
 const allSentMessages = require('./routes/ChattingRoute/allSentMessages');
+const order = require('./routes/CreateOrder/order');
 
 
 
@@ -178,8 +179,9 @@ app.use('/getLikeCount', getLikeCount);
 app.use('/getDisLikeCount', getDisLikeCount);
 app.use('/getSuperLikeCount', getSuperLikeCount);
 app.use('/getCommentCount', getCommentCount);
-app.use('/chatting', chatting);
+// app.use('/chatting', chatting);
 app.use('/allSentMessages', allSentMessages);
+app.use('/order',order);
 
 
 // catch 404 and forward to error handler
