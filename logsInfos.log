@@ -3741,3 +3741,30 @@
     timestamp: '2023-11-29T12:31:36.417Z'
   }
 }
+{
+  level: 'info',
+  message: 'HTTP GET /allSentMessages',
+  metadata: {
+    meta: {
+      req: {
+        url: '/allSentMessages',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.35.0',
+          accept: '*/*',
+          'postman-token': 'f166a04c-fcf0-40c8-ada7-4b4eac979cc9',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEyNDQ5NDZ9.cGMu4vOW2aN6zTXYw9pF7Mjm5CAkUn6haHkGe0MX5M4'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/allSentMessages',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 84
+    },
+    timestamp: '2023-12-11T07:49:47.912Z'
+  }
+}

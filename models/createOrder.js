@@ -1,4 +1,5 @@
 const { db, users, orders } = require('./connection');
+const {key_id,key_secret} = require('../constants/constants')
 const crypto = require('crypto');
 const Razorpay = require('razorpay');
 
@@ -33,8 +34,8 @@ function OrderModel() {
                         } else {
                             var instance = new Razorpay(
                                 {
-                                    key_id: 'rzp_test_poUdDfm2SkEGWW',
-                                    key_secret: '7mBGLRFmXWeCq3mV3K5kNTih'
+                                    key_id: key_id,
+                                    key_secret: key_secret
                                 }
                             )
 
@@ -47,8 +48,8 @@ function OrderModel() {
                             instance.orders.create(options, function (err, order) {
                                 console.log(order);
                             });
-
                             callback(true)
+                            
 
                         }
                     })
