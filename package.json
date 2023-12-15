@@ -31,7 +31,7 @@
     "passport": "^0.6.0",
     "passport-google-oauth2": "^0.2.0",
     "razorpay": "^2.9.2",
-    "twilio": "^4.19.0",
+    "twilio": "^4.20.0",
     "winston": "^3.11.0",
     "winston-mongodb": "^5.1.1"
   }

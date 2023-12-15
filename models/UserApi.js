@@ -220,10 +220,10 @@ function indexmodel() {
 
     //login users with otp api
     this.login_with_otp = (users, callback) => {
-        db.collection('users').find({ phone: users.phone, email: users.email }).toArray()
+        db.collection('users').find({ uuid : users.uuid ,phone: users.phone }).toArray()
             .then((result) => {
                 console.log(users.phone);
-                console.log(users.email);
+                // console.log(users.email);
                 if (result.length > 0) {
                     const OTP = otpGenerator.generate(6, {
                         digits: true,

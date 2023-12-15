@@ -129,7 +129,7 @@ app.use('/forgotPassword', forgotPassword);
 app.use('/resetPassword', resetPassword);
 app.use('/loginOTP', loginOTP);
 app.use('/verifyOTP', verifyotp);
-app.use('verifyClub_phone', verifyClub_phone);
+app.use('/verifyClub_phone', verifyClub_phone);
 app.use('/clubRegister', clubRegister);
 app.use('/clubDelete', clubDelete);
 app.use('/updateClub_name', updateClub_name);
