@@ -101,16 +101,15 @@ const createTokens10 = (commentsomeones) => {
 
 
 
-module.exports = {
-    createTokens,
-    createTokens1,
-    createTokens2,
-    createTokens3,
-    createTokens4,
-    createTokens5,
-    createTokens6,
-    createTokens7,
-    createTokens8,
-    createTokens9,
-    createTokens10,
-};
+module.exports = createTokens;
+module.exports = createTokens1;
+module.exports = createTokens2;
+module.exports = createTokens3;
+module.exports = createTokens4;
+module.exports = createTokens5;
+module.exports = createTokens6;
+module.exports = createTokens7;
+module.exports = createTokens8;
+module.exports = createTokens9;
+module.exports = createTokens10;
+    
