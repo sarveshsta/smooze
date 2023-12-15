@@ -26,7 +26,7 @@ function calculateCompatibilityForAllUsers(users) {
                 }
             }
 
-            const compatibilityPercentage = compatibilityScore * 100;
+            const compatibilityPercentage = (compatibilityScore * 100)+40;
 
             // Add the entry to the matrix only if compatibilityPercentage is greater than 60%
             if (compatibilityPercentage > 60) {

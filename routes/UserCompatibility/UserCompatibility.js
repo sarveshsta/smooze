@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
             compatibilityMatrix.forEach((entry) => {
                 console.log(`${entry.user1} and ${entry.user2}: ${entry.compatibilityPercentage}%`);
             });
-            
+
         } else {
             res.status(500).render('error');
         }

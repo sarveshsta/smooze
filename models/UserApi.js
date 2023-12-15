@@ -367,7 +367,7 @@ function indexmodel() {
 
 
 
-
+    //logout api
     this.logout = (users, callback) => {
         db.collection('users').find({ email: users.email }).toArray()
             .then((result) => {

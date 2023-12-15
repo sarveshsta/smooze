@@ -16,7 +16,7 @@ function CompatibleModle() {
         ]).toArray()
             .then((data) => {
                 callback(data);
-                console.log(data)
+                // console.log(data)
             })
             .catch((err) => {
                 console.log(err);

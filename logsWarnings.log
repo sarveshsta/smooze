@@ -2588,3 +2588,61 @@
     timestamp: '2023-12-15T01:24:38.502Z'
   }
 }
+{
+  level: 'warn',
+  message: 'HTTP POST /onboarding',
+  metadata: {
+    meta: {
+      req: {
+        url: '/onboarding',
+        headers: {
+          'content-type': 'application/json',
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': '08903510-a9e8-40e6-b709-7d0c128100a2',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-length': '216',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDI2Mjc2NDZ9.Qc7TKrjmIbu3MxDYktNEfJQVdBOlCinBrhRhguzsnU4'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/onboarding',
+        query: {}
+      },
+      res: { statusCode: 400 },
+      responseTime: 27
+    },
+    timestamp: '2023-12-15T09:10:38.113Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP POST /onboarding',
+  metadata: {
+    meta: {
+      req: {
+        url: '/onboarding',
+        headers: {
+          'content-type': 'application/json',
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': 'a27cbeab-0029-494c-b02e-56804a6e255d',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-length': '212',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDI2Mjc2NDZ9.Qc7TKrjmIbu3MxDYktNEfJQVdBOlCinBrhRhguzsnU4'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/onboarding',
+        query: {}
+      },
+      res: { statusCode: 400 },
+      responseTime: 37
+    },
+    timestamp: '2023-12-15T09:15:53.673Z'
+  }
+}
