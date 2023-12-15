@@ -368,6 +368,44 @@ function indexmodel() {
 
 
 
+    this.logout = (users, callback) => {
+        db.collection('users').find({ email: users.email }).toArray()
+            .then((result) => {
+                if (result.length > 0) {
+                    const user = result[0];
+                    const dbPassword = user.password;
+                    bcrypt.compare(users.password, dbPassword).then((match) => {
+                        if (!match) {
+                            console.log("user credentials not matched");
+                            callback([]);
+                        } else {
+                            db.collection("users").updateOne({ email: users.email }, { $set: { Isactive: false } })
+                                .then((result) => {
+                                    callback(result)
+                                })
+                                .catch((err) => {
+                                    console.log(err)
+                                })
+                        }
+                    });
+                } else {
+                    console.log('User not found.');
+                    callback([]);
+                }
+            })
+            .catch((updateErr) => {
+                console.log('Error while logout:', updateErr);
+                callback(false);
+            });
+    }
+
+
+
+
+
+
+
+
 
     //delete user api
     this.deleteuser = (users, callback) => {
