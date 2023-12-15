@@ -3,7 +3,6 @@ const indianCities = require('indian-cities-database');
 const nodemailer = require('nodemailer');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
-const fast2sms = require('fast-two-sms');
 const createTokens = require('../utils/JWT');
 const { EMAIL, PASS, authOTPKEY, SSID, AUth_TOKEN, PhoneNumber } = require('../constants/constants');
 const twilio = require('twilio');

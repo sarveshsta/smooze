@@ -1,10 +1,10 @@
 const { db, clubs } = require('./connection');
 const nodemailer = require('nodemailer');
 const bcrypt = require('bcrypt');
+const twilio = require('twilio');
 const crypto = require('crypto');
-const fast2sms = require('fast-two-sms');
 const createTokens = require('../utils/JWT');
-const { EMAIL, PASS, authOTPKEY } = require('../constants/constants');
+const { EMAIL, PASS, authOTPKEY , SSID, AUth_TOKEN, PhoneNumber} = require('../constants/constants');
 const otpGenerator = require('otp-generator');
 
 
@@ -170,68 +170,52 @@ function clubmodel() {
 
 
     //UPDATE Club PHONE API
-    this.update_Club_Phone = (clubs, phone, callback) => {
-        db.collection('clubs').find({ email: clubs.email }).toArray()
+    this.login_with_otp = (clubs, callback) => {
+        db.collection('users').find({ uuid : clubs.uuid ,phone: clubs.phone }).toArray()
             .then((result) => {
+                console.log(clubs.phone);
+                // console.log(users.email);
                 if (result.length > 0) {
-                    const club = result[0];
-                    const dbPassword = club.password;
-                    bcrypt.compare(clubs.password, dbPassword).then((match) => {
-                        if (!match) {
-                            console.log("clubs credentials not matched");
-                            callback([]);
-                        } else {
-                            db.collection('clubs').updateOne({ email: clubs.email }, { $set: { Phone: phone } })
-                                .then(() => {
-                                    const OTP = otpGenerator.generate(4, {
-                                        digits: true,
-                                        lowerCaseAlphabets: false,
-                                        upperCaseAlphabets: false,
-                                        specialChars: false
-                                    });
-
-                                    const new_otp = OTP;
-                                    console.log("Generated OTP :", new_otp);
-
-                                    const options = {
-                                        authorization: authOTPKEY,
-                                        message: `Your OTP is: ${new_otp}`,
-                                        numbers: [clubs.Phone]
-                                    };
-
-                                    fast2sms.sendMessage(options)
-                                        .then(() => {
-                                            db.collection("clubs").updateOne({ Phone: clubs.Phone }, { $set: { otp: new_otp } })
-                                                .then(() => {
-                                                    console.log("added otp");
-                                                })
-                                                .catch((err) => {
-                                                    console.log(err);
-                                                })
-                                            callback(result, OTP);
-                                        })
-                                        .catch((err) => {
-                                            console.log('Error sending OTP:', err);
-                                            callback([], null);
-                                        });
-                                    // callback(result);
-                                })
-                                .catch((updateErr) => {
-                                    console.log('Error updating users phone:', updateErr);
-                                });
-                        }
+                    const OTP = otpGenerator.generate(6, {
+                        digits: true,
+                        lowerCaseAlphabets: false,
+                        upperCaseAlphabets: false,
+                        specialChars: false
                     });
+
+                    const new_otp = OTP;
+                    console.log("Generated OTP :", new_otp);
+
+                    const client = new twilio(SSID, AUth_TOKEN)
+
+                    let msgOption = {
+                        from: PhoneNumber,
+                        to: `+91${clubs.phone}`,
+                        body: `your otp is ${new_otp}`
+                    }
+
+                    console.log("Before Twilio message sending");
+                    client.messages.create(msgOption)
+                        .then((result) => {
+                            console.log("Twilio message sent successfully:", result);
+                            callback(true, new_otp);
+                        })
+                        .catch((err) => {
+                            console.log("Error sending Twilio message:", err);
+                            callback(false, null);
+                        });
+                    console.log("After Twilio message sending");
+                   
                 } else {
-                    console.log('clubs not found.');
-                    callback([]);
+                    console.log('club not found.');
+                    callback([], null);
                 }
             })
             .catch((err) => {
                 console.log('Error:', err);
-                callback([]);
+                callback([], null);
             });
-    }
-
+    };
 
 
 
