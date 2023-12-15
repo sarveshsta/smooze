@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var indexmodel = require('../../models/UserApi');
-const createTokens = require('../../utils/JWT');
+const createTokens8 = require('../../utils/JWT');
 
 
 //REGISTER ROUTE
 router.post('/', function (req, res, next) {
-    const accessToken = createTokens("users");
+    const accessToken = createTokens8("userdislikesomeones");
     res.cookie("access-Token", accessToken, {
         maxAge: 60 * 60 * 24 * 30 * 1000,
     });

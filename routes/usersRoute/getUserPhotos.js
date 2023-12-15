@@ -1,13 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var indexmodel = require('../../models/UserApi');
-const createTokens = require('../../utils/JWT');
+const createTokens2 = require('../../utils/JWT');
 const upload1 = require('../../utils/UserImageUpload');
 
 //user photo ROUTE
 router.post('/', upload1,function (req, res, next) {
     // console.log(req.body)
-    const accessToken = createTokens("users");
+    const accessToken = createTokens2("userphotos");
     res.cookie("access-Token", accessToken, {
         maxAge: 60 * 60 * 24 * 30 * 1000,
     });

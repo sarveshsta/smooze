@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var ChattingModel = require('../../models/chattingApi');
-const createTokens = require('../../utils/JWT');
+const createTokens1 = require('../../utils/JWT');
 
 
 //Message ROUTE
 router.post('/', function (req, res, next) {
-    const accessToken = createTokens("users");
+    const accessToken = createTokens1("messages");
     res.cookie("access-Token", accessToken, {
         maxAge: 60 * 60 * 24 * 30 * 1000,
     });

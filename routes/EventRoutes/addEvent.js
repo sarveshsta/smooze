@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const eventmodel = require('../../models/EventApi');
-const createTokens = require('../../utils/JWT');
+const createTokens4 = require('../../utils/JWT');
 const upload2 = require('../../utils/EventPhotosUpload');
 const validateFiles = require('../../utils/validateFiles');
 
 //AddEvent ROUTE
 router.post('/', upload2, validateFiles, function (req, res, next) {
-    const accessToken = createTokens("clubs");
+    const accessToken = createTokens4("events");
     res.cookie("access-Token", accessToken, {
         maxAge: 60 * 60 * 24 * 30 * 1000,
     });
