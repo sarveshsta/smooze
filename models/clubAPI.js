@@ -91,6 +91,8 @@ function clubmodel() {
 
 
 
+
+
     // UPDATE CLUB_NAME API
     this.update_Club_name = (clubs, Clubnewname, callback) => {
         db.collection('clubs').find({ email: clubs.email }).toArray()
@@ -235,34 +237,34 @@ function clubmodel() {
 
 
 
-    //not  working
-    //verify Club Phone api
-    // this.verifyClub_phone = (clubs, OTP, callback) => {
-    //     db.collection('clubs').find({ Phone: clubs.Phone }).toArray()
-    //         .then((result) => {
-    //             if (result.length > 0) {
-    //                 if (OTP == clubs.otp) {
-    //                     callback(result);
-    //                     db.collection("clubs").updateOne({ Phone: clubs.Phone }, { $set: { otp: '' } })
-    //                         .then(() => {
-    //                             console.log("otp used");
-    //                         })
-    //                         .catch((err) => {
-    //                             console.log(err);
-    //                         })
-    //                 } else {
-    //                     console.log("otp not matched");
-    //                 }
-    //             }
-    //             else {
-    //                 console.log('clubs not found.');
-    //                 callback([], null);
-    //             }
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //         })
-    // };
+
+    //verify club owner phone
+    this.verifyClub_phone = (clubs , otp, callback) => {
+        db.collection('clubs').find({ phone: clubs.phone }).toArray()
+            .then((result) => {
+                if (result.length > 0) {
+                    if (otp == users.otp) {
+                        callback(result);
+                        db.collection("users").updateOne({ phone: clubs.phone }, { $set: { otp: '' } })
+                            .then(() => {
+                                console.log("otp used");
+                            })
+                            .catch((err) => {
+                                console.log(err);
+                            })
+                    } else {
+                        console.log("otp not matched");
+                    }
+                }
+                else {
+                    console.log('User not found.');
+                    callback([], null);
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
 
 
 
