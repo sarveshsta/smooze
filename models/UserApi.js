@@ -813,8 +813,8 @@ function indexmodel() {
             {
                 $lookup: {
                     from: "profilequestions",
-                    localField: "userEmail",
-                    foreignField: "email",
+                    localField: "email",
+                    foreignField: "userEmail",
                     as: "Details",
                 },
             },
