@@ -806,6 +806,37 @@ function indexmodel() {
 
 
 
+
+    //getUserDetailsWithProfileQuestions
+    this.getUserProfileQuestions = (callback) => {
+        db.collection("users").aggregate([
+            {
+                $lookup: {
+                    from: "profilequestions",
+                    localField: "userEmail",
+                    foreignField: "email",
+                    as: "Details",
+                },
+            },
+        ])
+            .toArray()
+            .then((data) => {
+                callback(data);
+                console.log(data)
+            })
+            .catch((err) => {
+                console.log(err);
+                callback([]);
+            })
+    }
+
+
+
+
+
+
+
+
     //edit Bio in user Profile
     this.EditProfileBio = (profilequestions, Bio, callback) => {
         db.collection("profilequestions").find({ userEmail: profilequestions.userEmail }).toArray()

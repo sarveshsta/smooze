@@ -75,6 +75,7 @@ const chatting = require('./routes/ChattingRoute/chatting');
 const allSentMessages = require('./routes/ChattingRoute/allSentMessages');
 const order = require('./routes/CreateOrder/order');
 const sendNotification = require('./routes/CreateNotification/sendNotification');
+const getUserProfileQuestions = require('./routes/usersRoute/getUserProfileQuestions');
 
 
 
@@ -152,6 +153,7 @@ app.use('/updateEventTime', updateEventTime);
 app.use('/getClubEvents', getClubEvents);
 app.use('/updateEventDescription', updateEventDescription);
 app.use('/UserProfile', UserProfile);
+app.use('/getUserProfileQuestions', getUserProfileQuestions);
 app.use('/EditProfileBio', EditProfileBio);
 app.use('/EditProfileIntrest', EditProfileIntrest);
 app.use('/EditProfileLanguage', EditProfileLanguage);
