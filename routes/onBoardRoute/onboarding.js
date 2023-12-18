@@ -67,22 +67,52 @@ const questions = [
 
 // ONBOARDING ROUTE
 
+// router.post('/', (req, res, next) => {
+//     const currentQuestion = questions[currentQuestionIndex];
+//     const selectedOptions = req.body.options;
+//     const userEmail = req.body.userEmail
+//     onboardModel.onboardingQuestion(currentQuestion, userEmail,selectedOptions, (result) => {
+//         console.log("Result :", result);
+//         if (result) {
+//             console.log("Onboarding question submitted");
+//             console.log("User Opted Options:-", selectedOptions);
+//             // Move to the next question
+//             currentQuestionIndex++;
+//             if (currentQuestionIndex < questions.length) {
+//                 console.log("Moving to the next question...");
+//                 console.log(questions[currentQuestionIndex]);
+//                 res.status(200).json({ message: "Moving to the next question..." });
+//             } else {
+//                 console.log("All questions submitted.");
+//                 res.status(200).json({ message: "All questions submitted." });
+//             }
+//         } else {
+//             console.log('Failed in submitting onboarding question');
+//             res.status(400).json({ message: "Failed to submit the question." });
+//         }
+//     });
+// });
+
 router.post('/', (req, res, next) => {
     const currentQuestion = questions[currentQuestionIndex];
     const selectedOptions = req.body.options;
     const userEmail = req.body.userEmail
-    onboardModel.onboardingQuestion(currentQuestion, userEmail,selectedOptions, (result) => {
+
+    onboardModel.onboardingQuestion(currentQuestion, userEmail, selectedOptions, (result) => {
         console.log("Result :", result);
         if (result) {
             console.log("Onboarding question submitted");
             console.log("User Opted Options:-", selectedOptions);
             // Move to the next question
             currentQuestionIndex++;
+
             if (currentQuestionIndex < questions.length) {
                 console.log("Moving to the next question...");
                 console.log(questions[currentQuestionIndex]);
                 res.status(200).json({ message: "Moving to the next question..." });
             } else {
+                // All questions submitted, reset the index
+                currentQuestionIndex = 0;
                 console.log("All questions submitted.");
                 res.status(200).json({ message: "All questions submitted." });
             }
@@ -92,7 +122,6 @@ router.post('/', (req, res, next) => {
         }
     });
 });
-
 
 module.exports = router,questions;
 
