@@ -9,8 +9,8 @@ router.post('/', function (req, res) {
     Notifymodel.sendNotification(uuid, message, (result) => {
         console.log("Result :", result);
         if (result) {
-            res.send("Message successfully sent");
-            console.log("Message successfully sent");
+            res.send("Notification sent successfully ");
+            console.log("Notification sent successfully");
         } else {
             res.send("Failed while sending notification");
             console.log("Failed while sending notification");

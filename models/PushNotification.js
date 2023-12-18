@@ -45,5 +45,3 @@ function Notifymodel() {
 }
 
 module.exports = new Notifymodel();
-
-
