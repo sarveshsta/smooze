@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const createTokens = require('../utils/JWT');
-const { EMAIL, PASS, authOTPKEY, SSID, AUth_TOKEN, PhoneNumber , WhatsappNumber} = require('../constants/constants');
+const { EMAIL, PASS, authOTPKEY, SSID, AUth_TOKEN, PhoneNumber, WhatsappNumber } = require('../constants/constants');
 const twilio = require('twilio');
 const otpGenerator = require('otp-generator');
 const cities = indianCities.cities
@@ -246,7 +246,7 @@ function indexmodel() {
     // }
 
     // get user Photos
-    this.getUserPhotos = async (userphotos, image1, image2, image3, image4, accessToken) => {
+    this.getUserPhotos = async (userphotos, image1, image2, image3, image4, accessToken, callback) => {
         try {
             const result = await db.collection("userphotos").find().toArray();
 
@@ -270,7 +270,7 @@ function indexmodel() {
                 userphotos.token = accessToken;
 
                 await db.collection("userphotos").insertOne(userphotos);
-
+                callback(true);
                 return true;
             } else {
                 return false;
@@ -323,7 +323,7 @@ function indexmodel() {
     //         });
     // };
     // User login API
-    this.userlogin = async (users) => {
+    this.userlogin = async (users, callback) => {
         try {
             const result = await db.collection('users').find({ email: users.email }).toArray();
 
@@ -342,6 +342,7 @@ function indexmodel() {
                         await db.collection('users').updateOne({ email: users.email }, { $set: { Isactive: true } });
                         console.log('User activated.');
                     }
+                    callback(result)
                     return result;
                 }
             } else {
@@ -445,7 +446,7 @@ function indexmodel() {
 
                 const new_otp = OTP;
                 console.log("Generated OTP :", new_otp);
-                
+
                 const client = new twilio(SSID, AUth_TOKEN);
 
                 let msgOption = {
@@ -455,9 +456,9 @@ function indexmodel() {
                 };
 
                 let messagesOption = {
-                    from : `whatsapp:${WhatsappNumber}`,
-                    to : `whatsapp:+91${users.phone}`,
-                    body : `Hey! Welcome to Smooz, your otp is: ${new_otp}`
+                    from: `whatsapp:${WhatsappNumber}`,
+                    to: `whatsapp:+91${users.phone}`,
+                    body: `Hey! Welcome to Smooz, your otp is: ${new_otp}`
                 };
 
                 console.log("Before Twilio message sending");
@@ -580,7 +581,7 @@ function indexmodel() {
     //         });
     // }
     // deactivate users api
-    deactivateUser = async (users) => {
+    deactivateUser = async (users, callback) => {
         try {
             const result = await db.collection('users').find({ email: users.email }).toArray();
 
@@ -595,6 +596,7 @@ function indexmodel() {
                 } else {
                     const updateResult = await db.collection("users").updateOne({ email: users.email }, { $set: { Isactive: false } });
                     console.log('User deactivated.');
+                    callback(updateResult)
                     return updateResult;
                 }
             } else {
@@ -701,7 +703,7 @@ function indexmodel() {
     //         });
     // }
     // delete user api
-    this.deleteuser = async (users) => {
+    this.deleteuser = async (users, callback) => {
         try {
             const result = await db.collection('users').deleteOne({ email: users.email });
 
@@ -715,6 +717,7 @@ function indexmodel() {
                     console.log("user credentials not matched");
                     return [];
                 } else {
+                    callback(result);
                     return result;
                 }
             } else {
@@ -921,7 +924,7 @@ function indexmodel() {
     //         });
     // }
     // UPDATE NAME API
-    this.updateName = async (users, name) => {
+    this.updateName = async (users, name, callback) => {
         try {
             const result = await db.collection('users').find({ email: users.email }).toArray();
             if (result.length > 0) {
@@ -933,6 +936,7 @@ function indexmodel() {
                     return [];
                 } else {
                     await db.collection('users').updateOne({ email: users.email }, { $set: { name: name } });
+                    callback(result)
                     return result;
                 }
             } else {
@@ -1098,7 +1102,7 @@ function indexmodel() {
     //         });
     // }
     // UPDATE EMAIL API
-    this.updateEmail = async (users, newemail) => {
+    this.updateEmail = async (users, newemail, callback) => {
         try {
             const result = await db.collection('users').find({ email: users.email }).toArray();
             if (result.length > 0) {
@@ -1110,6 +1114,7 @@ function indexmodel() {
                     return [];
                 } else {
                     await db.collection('users').updateOne({ email: users.email }, { $set: { email: newemail } });
+                    callback(result)
                     return result;
                 }
             } else {
@@ -1213,7 +1218,7 @@ function indexmodel() {
     //         })
     // }
     // get User Details With Photos
-    this.getUserDetailsWithPhotos = async () => {
+    this.getUserDetailsWithPhotos = async (callback) => {
         try {
             const data = await db.collection("users").aggregate([
                 {
@@ -1226,6 +1231,7 @@ function indexmodel() {
                 },
             ]).toArray();
             console.log(data);
+            callback(data);
             return data;
         } catch (err) {
             console.error(err);
@@ -1353,7 +1359,7 @@ function indexmodel() {
     //         })
     // }
     // getUserDetailsWithProfileQuestions
-    this.getUserProfileQuestions = async () => {
+    this.getUserProfileQuestions = async (callback) => {
         try {
             const data = await db.collection("users").aggregate([
                 {
@@ -1366,6 +1372,7 @@ function indexmodel() {
                 },
             ]).toArray();
             console.log(data);
+            callback(data)
             return data;
         } catch (err) {
             console.log(err);
@@ -1455,13 +1462,14 @@ function indexmodel() {
     //         });
     // }
     // Edit Interest in user Profile
-    this.EditProfileInterest = async (profilequestions, Intrest) => {
+    this.EditProfileInterest = async (profilequestions, Intrest, callback) => {
         try {
             const result = await db.collection("profilequestions").find({ userEmail: profilequestions.userEmail }).toArray();
 
             if (result.length > 0) {
                 await db.collection('profilequestions').updateOne({ userEmail: profilequestions.userEmail }, { $set: { Intrest: Intrest } });
                 console.log('User Interest updated successfully');
+                callback(result)
                 return result;
             } else {
                 console.log('User profile not found.');
@@ -1553,13 +1561,14 @@ function indexmodel() {
     //         });
     // }
     // edit Height in user Profile
-    this.EditProfileHeight = async (profilequestions, Height) => {
+    this.EditProfileHeight = async (profilequestions, Height, callback) => {
         try {
             const result = await db.collection("profilequestions").find({ userEmail: profilequestions.userEmail }).toArray();
 
             if (result.length > 0) {
                 await db.collection('profilequestions').updateOne({ userEmail: profilequestions.userEmail }, { $set: { Height: Height } });
                 console.log('user Height updated successfully');
+                callback(result)
                 return result;
             } else {
                 console.log('user profile not found.');
@@ -1602,13 +1611,14 @@ function indexmodel() {
     //         });
     // }
     // edit Work in user Profile
-    this.EditProfileWork = async (profilequestions, Work) => {
+    this.EditProfileWork = async (profilequestions, Work, callback) => {
         try {
             const result = await db.collection("profilequestions").find({ userEmail: profilequestions.userEmail }).toArray();
             console.log(result)
             if (result.length > 0) {
                 await db.collection('profilequestions').updateOne({ userEmail: profilequestions.userEmail }, { $set: { Work: Work } });
                 console.log('user work updated successfully');
+                callback(result)
                 return result;
             } else {
                 console.log('user profile not found.');
@@ -1693,7 +1703,7 @@ function indexmodel() {
     //             callback([]);
     //         });
     // }
-    this.EditProfileStarSign = async (profilequestions, newStarSign) => {
+    this.EditProfileStarSign = async (profilequestions, newStarSign, callback) => {
         try {
             const result = await db.collection("profilequestions").find({ userEmail: profilequestions.userEmail }).toArray();
 
@@ -1702,6 +1712,7 @@ function indexmodel() {
             if (result.length > 0) {
                 await db.collection('profilequestions').updateOne({ userEmail: profilequestions.userEmail }, { $set: { StarSign: newStarSign } });
                 console.log('user newStarSign updated successfully');
+                callback(result)
                 return result;
             } else {
                 console.log('user profile not found.');
@@ -1841,7 +1852,7 @@ function indexmodel() {
     //         });
     // }
     //update min and max age 
-    this.update_Min_Max_Age = async (preferences, newMinAge, newMaxAge) => {
+    this.update_Min_Max_Age = async (preferences, newMinAge, newMaxAge, callback) => {
         try {
             const result = await db.collection("preferences").find({ userEmail: preferences.userEmail }).toArray();
             console.log(result);
@@ -1849,6 +1860,7 @@ function indexmodel() {
             if (result.length > 0) {
                 await db.collection('preferences').updateOne({ userEmail: preferences.userEmail }, { $set: { min_age: newMinAge, max_age: newMaxAge } });
                 console.log('new min and max Age updated successfully');
+                callback(result)
                 return result;
             } else {
                 console.log('user preference not found.');
@@ -2040,10 +2052,6 @@ function indexmodel() {
             }
         }
     };
-
-
-
-
 
 
 
@@ -2363,7 +2371,7 @@ function indexmodel() {
     //         });
     // }
     // user SuperLike Someone api
-    this.UserSuperLikeSomeOne = async (usersuperlikesomeones) => {
+    this.UserSuperLikeSomeOne = async (usersuperlikesomeones, callback) => {
         try {
             const val = await db.collection("usersuperlikesomeones").find().toArray();
             console.log(val);
@@ -2402,6 +2410,7 @@ function indexmodel() {
 
                 await db.collection("users").updateOne({ email: usersuperlikesomeones.UserEmail }, { $set: { isSuperLiked: true } });
 
+                callback(true)
                 return true;
             } else {
                 return false;
@@ -2440,7 +2449,7 @@ function indexmodel() {
     //         })
     // }
     // get liked user api
-    this.getLikedUser = async () => {
+    this.getLikedUser = async (callback) => {
         try {
             const data = await db.collection("users")
                 .aggregate([
@@ -2455,6 +2464,7 @@ function indexmodel() {
                 ]).toArray();
 
             console.log(data);
+            callback(data)
             return data;
         } catch (err) {
             console.log(err);
@@ -2487,7 +2497,7 @@ function indexmodel() {
     //         });
     // }
     // get user like Count api
-    this.getLikeCount = async (userlikesomeones) => {
+    this.getLikeCount = async (userlikesomeones, callback) => {
         try {
             const data = await db.collection("userlikesomeones").aggregate([
                 {
@@ -2499,6 +2509,7 @@ function indexmodel() {
             ]).toArray();
 
             console.log(data);
+            callback(data)
             return data;
         } catch (err) {
             console.error(err);
