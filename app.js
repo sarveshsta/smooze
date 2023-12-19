@@ -77,11 +77,7 @@ const order = require('./routes/CreateOrder/order');
 const sendNotification = require('./routes/CreateNotification/sendNotification');
 const getUserProfileQuestions = require('./routes/usersRoute/getUserProfileQuestions');
 
-
-
 var app = express();
-
-
 
 app.use(expressWinston.logger({
   winstonInstance: loggerr,

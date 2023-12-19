@@ -1,5 +1,7 @@
 const { createLogger, format , transports} = require("winston");
 var { URL } = require('./constants/constants');
+
+
 const logger = createLogger({
     
   transports: [
@@ -29,8 +31,6 @@ const logger = createLogger({
     format.prettyPrint()
   )
 })
-
-
 
 
 module.exports = logger;

@@ -9529,3 +9529,148 @@
     timestamp: '2023-12-19T07:44:51.620Z'
   }
 }
+{
+  level: 'info',
+  message: 'HTTP POST /register',
+  metadata: {
+    meta: {
+      req: {
+        url: '/register',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': 'a695c4ed-c8d3-44b0-bac4-34dc9e0b0590',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '171',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDI5NzE4NTd9.X3hLoQjvWT_OZBAau5l5Zm8calyyMocPpQ3HT8ZuBAs'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/register',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 152
+    },
+    timestamp: '2023-12-19T09:26:09.469Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /register',
+  metadata: {
+    meta: {
+      req: {
+        url: '/register',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': '9f3657f1-4dd4-4055-8b5b-67822337ecd2',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '171',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDI5Nzc5Njl9.zcdiYd3xT0x8uW1cOFcWMmE35SAuCo9DDlnuiBRaL70'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/register',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 118
+    },
+    timestamp: '2023-12-19T10:28:27.466Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /register',
+  metadata: {
+    meta: {
+      req: {
+        url: '/register',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': '88927f71-1af4-4b0c-85fd-c37c09c19432',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '171',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDI5ODE3MDd9.le4lk_FRIbaa0kOf4skxjnyisyoU1nhlsGR1tiQDHwk'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/register',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 78
+    },
+    timestamp: '2023-12-19T10:28:52.648Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /register',
+  metadata: {
+    meta: {
+      req: {
+        url: '/register',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': 'd0a02647-fdf0-4974-aeb5-23ca4d5207c1',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '171',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDI5ODE3MzJ9.9pRrqtTuiCQ1bZ_oYO6_X2cOIH4eZIjTps2rgNdewuY'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/register',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 109
+    },
+    timestamp: '2023-12-19T10:38:49.948Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /register',
+  metadata: {
+    meta: {
+      req: {
+        url: '/register',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': 'd59d2f43-d512-4aec-8a42-52eaa576d72c',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '171',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDI5ODIzMjl9._IrD6NdJP8QLIPIwixiDN89FKVK-9uyi0_LzOLvHYB4'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/register',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 116
+    },
+    timestamp: '2023-12-19T10:42:52.941Z'
+  }
+}
