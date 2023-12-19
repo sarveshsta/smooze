@@ -51,6 +51,7 @@ router.post('/', (req, res, next) => {
                 console.log(GivenMenu[currentMenuIndex]);
                 res.status(200).json({ message: "Moving to the next Item..." });
             } else {
+                currentMenuIndex = 0;
                 console.log("All Menu Item submitted.");
                 res.status(200).json({ message: "All Menu Item submitted." });
             }

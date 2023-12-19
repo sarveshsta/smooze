@@ -124,9 +124,9 @@ const crypto = require('crypto');
 
 function MenuModel() {
     // clubMenu api
-    this.clubMenu = async (menu, Club_name, selectedOptions, callback) => {
+    this.clubMenu = async (menus, Club_name, selectedOptions, callback) => {
         try {
-            const val = await db.collection("menu").find().toArray();
+            const val = await db.collection("menus").find().toArray();
             console.log(val);
             var result = val;
             if (result.length > 0) {
@@ -136,14 +136,14 @@ function MenuModel() {
                         max_id = row._id;
                     }
                 }
-                menu._id = max_id + 1;
+                menus._id = max_id + 1;
             } else {
-                menu._id = 1;
+                menus._id = 1;
             }
             var flag = 1;
             if (result.length > 0) {
                 for (let row of result) {
-                    if (menu._id == row._id) {
+                    if (menus._id == row._id) {
                         flag = 0;
                         break;
                     }
@@ -153,11 +153,11 @@ function MenuModel() {
             let uuid = crypto.randomUUID();
 
             if (flag == 1) {
-                menu.OptedMenu = selectedOptions;
-                menu.Club_name = Club_name;
-                menu.uuid = uuid;
-                menu.dt = Date();
-                await db.collection("menu").insertOne(menu);
+                menus.OptedMenu = selectedOptions;
+                menus.Club_name = Club_name;
+                menus.uuid = uuid;
+                menus.dt = Date();
+                await db.collection("menus").insertOne(menus);
                 callback(true);
             } else {
                 callback(false);
@@ -174,7 +174,7 @@ function MenuModel() {
             const data = await db.collection("clubs").aggregate([
                 {
                     $lookup: {
-                        from: "menu",
+                        from: "menus",
                         localField: "Club_name",
                         foreignField: "Club_name",
                         as: "Details",
@@ -190,10 +190,10 @@ function MenuModel() {
     };
 
     // api for update menu
-    this.updatePrice = async (menu, OptedMenu, callback) => {
+    this.updatePrice = async (menus, OptedMenu, callback) => {
         try {
-            const result = await db.collection("menu").updateOne(
-                { Club_name: menu.Club_name },
+            const result = await db.collection("menus").updateOne(
+                { Club_name: menus.Club_name },
                 { $set: { OptedMenu: OptedMenu } }
             );
             if (result.modifiedCount > 0) {

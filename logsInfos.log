@@ -9784,3 +9784,61 @@
     timestamp: '2023-12-19T11:58:52.418Z'
   }
 }
+{
+  level: 'info',
+  message: 'HTTP POST /clubMenu',
+  metadata: {
+    meta: {
+      req: {
+        url: '/clubMenu',
+        headers: {
+          'content-type': 'application/json',
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': 'c0ecd4d7-cff2-4ae9-ae76-ee90aae551ad',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-length': '308',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDI5ODcxMzJ9.VbiO71d3P5AwRT_aNEQwPuP5jbf-m8PUgytO7AAHTVg'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/clubMenu',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 75
+    },
+    timestamp: '2023-12-19T12:45:21.373Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /clubMenu',
+  metadata: {
+    meta: {
+      req: {
+        url: '/clubMenu',
+        headers: {
+          'content-type': 'application/json',
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': '7d6b646a-a982-4392-9750-b93f1eab1b69',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-length': '318',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDI5ODcxMzJ9.VbiO71d3P5AwRT_aNEQwPuP5jbf-m8PUgytO7AAHTVg'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/clubMenu',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 18
+    },
+    timestamp: '2023-12-19T12:45:42.291Z'
+  }
+}

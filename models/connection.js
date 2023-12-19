@@ -191,7 +191,7 @@ const Menu = mongoose.Schema({
         }
     ]
 })
-const menu = mongoose.model('Menu', Menu);
+const menus = mongoose.model('Menu', Menu);
 
 
 //Event Model
@@ -434,7 +434,7 @@ module.exports = {
     userphotos,
     onboardings,
     clubs,
-    menu,
+    menus,
     events,
     profilequestion,
     preferences,

@@ -2768,5 +2768,3 @@ function indexmodel() {
 }
 
 module.exports = new indexmodel();
-
-
