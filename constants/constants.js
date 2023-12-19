@@ -1,4 +1,4 @@
-const name = "Smooz-Dating"
+const name = "Smooz"
 const host = 27017
 const URL = `mongodb://localhost:${host}/${name}`;
 const EMAIL= 'himanshuseizetheads@gmail.com'

@@ -9674,3 +9674,113 @@
     timestamp: '2023-12-19T10:42:52.941Z'
   }
 }
+{
+  level: 'info',
+  message: 'HTTP GET /clubvisited',
+  metadata: {
+    meta: {
+      req: {
+        url: '/clubvisited',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': 'bff0fb5f-c31b-4535-8283-e21e9fe51c7c',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDI5ODI1NzJ9.p6lk0r-5rvFdQjl0ZwppcFkwfvoT41BoTabc_aG-QxE'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/clubvisited',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 46
+    },
+    timestamp: '2023-12-19T10:56:27.739Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP GET /clubvisited',
+  metadata: {
+    meta: {
+      req: {
+        url: '/clubvisited',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': '35e2cbfc-d83d-4aeb-a262-03d291047d39',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDI5ODI1NzJ9.p6lk0r-5rvFdQjl0ZwppcFkwfvoT41BoTabc_aG-QxE'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/clubvisited',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 25
+    },
+    timestamp: '2023-12-19T10:58:26.594Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP GET /UserCompatibility',
+  metadata: {
+    meta: {
+      req: {
+        url: '/UserCompatibility',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': 'c353e279-3684-4b93-a004-8bd4e7b1aff5',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDI5ODI1NzJ9.p6lk0r-5rvFdQjl0ZwppcFkwfvoT41BoTabc_aG-QxE'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/UserCompatibility',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 36
+    },
+    timestamp: '2023-12-19T10:59:35.209Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /UserProfile',
+  metadata: {
+    meta: {
+      req: {
+        url: '/UserProfile',
+        headers: {
+          'content-type': 'application/json',
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': '1ae78590-3d27-4f18-8cb5-902875cdfe54',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-length': '336',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDI5ODI1NzJ9.p6lk0r-5rvFdQjl0ZwppcFkwfvoT41BoTabc_aG-QxE'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/UserProfile',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 46
+    },
+    timestamp: '2023-12-19T11:58:52.418Z'
+  }
+}

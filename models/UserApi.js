@@ -1282,7 +1282,7 @@ function indexmodel() {
     //         });
     // }
     // getting userprofile details from user
-    this.UserProfile = async (profilequestions, accessToken) => {
+    this.UserProfile = async (profilequestions, accessToken, callback) => {
         try {
             const val = await db.collection("profilequestions").find().toArray();
             console.log(val);
@@ -1313,6 +1313,7 @@ function indexmodel() {
 
                 await db.collection("profilequestions").insertOne(profilequestions);
 
+                callback(true)
                 return true;
             } else {
                 return false;
