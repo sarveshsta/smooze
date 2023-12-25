@@ -2791,3 +2791,77 @@
     timestamp: '2023-12-15T12:10:45.845Z'
   }
 }
+{
+  level: 'warn',
+  message: 'HTTP GET /',
+  metadata: {
+    meta: {
+      req: {
+        url: '/',
+        headers: {
+          host: '4444-2405-201-301d-f92a-25dd-5214-1d84-28f.ngrok-free.app',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+          accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          'cache-control': 'max-age=0',
+          cookie: 'abuse_interstitial=4444-2405-201-301d-f92a-25dd-5214-1d84-28f.ngrok-free.app',
+          'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-dest': 'document',
+          'sec-fetch-mode': 'navigate',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-user': '?1',
+          'upgrade-insecure-requests': '1',
+          'x-forwarded-for': '2405:201:301d:f92a:25dd:5214:1d84:28f',
+          'x-forwarded-host': '4444-2405-201-301d-f92a-25dd-5214-1d84-28f.ngrok-free.app',
+          'x-forwarded-proto': 'https'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/',
+        query: {}
+      },
+      res: { statusCode: 404 },
+      responseTime: 13
+    },
+    timestamp: '2023-12-25T07:46:59.891Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP GET /favicon.ico',
+  metadata: {
+    meta: {
+      req: {
+        url: '/favicon.ico',
+        headers: {
+          host: '4444-2405-201-301d-f92a-25dd-5214-1d84-28f.ngrok-free.app',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+          accept: 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
+          cookie: 'abuse_interstitial=4444-2405-201-301d-f92a-25dd-5214-1d84-28f.ngrok-free.app',
+          referer: 'https://4444-2405-201-301d-f92a-25dd-5214-1d84-28f.ngrok-free.app/',
+          'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-dest': 'image',
+          'sec-fetch-mode': 'no-cors',
+          'sec-fetch-site': 'same-origin',
+          'x-forwarded-for': '2405:201:301d:f92a:25dd:5214:1d84:28f',
+          'x-forwarded-host': '4444-2405-201-301d-f92a-25dd-5214-1d84-28f.ngrok-free.app',
+          'x-forwarded-proto': 'https'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/favicon.ico',
+        query: {}
+      },
+      res: { statusCode: 404 },
+      responseTime: 9
+    },
+    timestamp: '2023-12-25T07:47:00.027Z'
+  }
+}
