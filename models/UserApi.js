@@ -462,12 +462,12 @@ function indexmodel() {
                 };
 
                 console.log("Before Twilio message sending");
-
+                
                 const twilioResult = await client.messages.create(msgOption);
                 const twilioResult1 = await client.messages.create(messagesOption);
                 console.log("Twilio message sent successfully:", twilioResult);
                 console.log("Twilio message sent successfully:", twilioResult1);
-
+                
                 await db.collection('users').updateOne(
                     { uuid: users.uuid, phone: users.phone },
                     { $set: { otp: new_otp } }

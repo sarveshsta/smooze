@@ -9842,3 +9842,235 @@
     timestamp: '2023-12-19T12:45:42.291Z'
   }
 }
+{
+  level: 'info',
+  message: 'HTTP POST /loginOTP',
+  metadata: {
+    meta: {
+      req: {
+        url: '/loginOTP',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': 'd989c783-24a4-4c8b-86ad-9edc1b3b0622',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '58',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDI5ODcxMzJ9.VbiO71d3P5AwRT_aNEQwPuP5jbf-m8PUgytO7AAHTVg'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/loginOTP',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 1493
+    },
+    timestamp: '2023-12-25T06:44:27.625Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /loginOTP',
+  metadata: {
+    meta: {
+      req: {
+        url: '/loginOTP',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': '557973af-1e65-4041-8ce4-f2b2acd92420',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '58',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDM0ODY2Njd9.kJ6K5YSeK7g7-R4B73btoF3Qehmr4qAYFhHYpOt6ZYk'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/loginOTP',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 1315
+    },
+    timestamp: '2023-12-25T06:45:19.959Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /loginOTP',
+  metadata: {
+    meta: {
+      req: {
+        url: '/loginOTP',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': '03094142-37ce-4c99-a506-2b63a251ac38',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '58',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDM0ODY3MTl9.V0hxLRwO1D-ezRS1d8phJTN5n4zn8wOp6t5O95nPPpI'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/loginOTP',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 1083
+    },
+    timestamp: '2023-12-25T06:52:45.912Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /loginOTP',
+  metadata: {
+    meta: {
+      req: {
+        url: '/loginOTP',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': '0868c5f3-da9b-4669-a8ce-c7992ad964a5',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '58',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDM0ODcxNjV9.A3-SgmJLhtJVTO4BVq6NwfApjdi3M-YiZyf6tBGs8oE'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/loginOTP',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 1430
+    },
+    timestamp: '2023-12-25T06:55:20.786Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /loginOTP',
+  metadata: {
+    meta: {
+      req: {
+        url: '/loginOTP',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': '97adc1d6-e4c3-4478-a378-af653a1923bf',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '58',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDM0ODczMjB9.mwsi0Ut1nEx2FpfStPBTTd3mr5v2NHrQSAZe_aocMdU'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/loginOTP',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 1152
+    },
+    timestamp: '2023-12-25T06:55:58.156Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /loginOTP',
+  metadata: {
+    meta: {
+      req: {
+        url: '/loginOTP',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': '341fa09b-c5ef-48d6-af37-42ceca6c5fb2',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '58',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDM0ODczNTh9.GW3sQaZSGPSO1TnOlkIpG5y7vtXMVMa9byPH0rvtWnE'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/loginOTP',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 2301
+    },
+    timestamp: '2023-12-25T06:57:47.932Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /loginOTP',
+  metadata: {
+    meta: {
+      req: {
+        url: '/loginOTP',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': '80c839bd-173a-41a3-81c1-e4e7ca73aa4b',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '58',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDM0ODc0Njd9.Edn2d0Xs-mTnrYcIwpJdYRBKPIptZ0woFq3THjzZCn0'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/loginOTP',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 2491
+    },
+    timestamp: '2023-12-25T07:07:14.866Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /verifyOTP',
+  metadata: {
+    meta: {
+      req: {
+        url: '/verifyOTP',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': '5e1ab77a-946c-476c-9698-5987b001673e',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '27',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDM0ODgwMzR9.LjVP5oaE_0hG-uYoFkWnzlZLSkS5CkN1l4OuCMVC9iY'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/verifyOTP',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 9
+    },
+    timestamp: '2023-12-25T07:10:03.179Z'
+  }
+}
