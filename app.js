@@ -76,6 +76,7 @@ const allSentMessages = require('./routes/ChattingRoute/allSentMessages');
 const order = require('./routes/CreateOrder/order');
 const sendNotification = require('./routes/CreateNotification/sendNotification');
 const getUserProfileQuestions = require('./routes/usersRoute/getUserProfileQuestions');
+const inAppMessaging = require('./routes/CreateNotification/inAppMessaging');
 
 var app = express();
 
@@ -182,6 +183,7 @@ app.use('/chatting', chatting);
 app.use('/allSentMessages', allSentMessages);
 app.use('/order',order);
 app.use('/sendNotification',sendNotification);
+app.use('/inAppMessage', inAppMessaging);
 
 
 // catch 404 and forward to error handler

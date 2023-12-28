@@ -2865,3 +2865,30 @@
     timestamp: '2023-12-25T07:47:00.027Z'
   }
 }
+{
+  level: 'warn',
+  message: 'HTTP GET /',
+  metadata: {
+    meta: {
+      req: {
+        url: '/',
+        headers: {
+          host: '952f-2405-201-301d-f92a-41f1-df0b-ff88-29a0.ngrok-free.app',
+          'user-agent': 'WhatsApp/2.23.20.0',
+          'accept-encoding': 'gzip',
+          'accept-language': 'en',
+          'x-forwarded-for': '2405:201:301d:f92a:9566:7a51:39a8:f7aa',
+          'x-forwarded-host': '952f-2405-201-301d-f92a-41f1-df0b-ff88-29a0.ngrok-free.app',
+          'x-forwarded-proto': 'https'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/',
+        query: {}
+      },
+      res: { statusCode: 404 },
+      responseTime: 14
+    },
+    timestamp: '2023-12-25T09:43:31.232Z'
+  }
+}

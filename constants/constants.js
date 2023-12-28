@@ -8,8 +8,9 @@ const SSID = "AC3232cb02565ece6f6eb392884c58bd6b";
 const AUth_TOKEN = "5687b1508059c67ee03ac78294f35ad4";
 const PhoneNumber = +12034634291;
 const WhatsappNumber = +14155238886;
-const key_id = '';
-const key_secret = '';
+const oneSignalappID = 'bc42bb67-b613-474e-be7f-bf02bc311434'
+const appAuthKey='NDZjNWI2NzgtMjY1NS00YTBiLTgzZTItYWQyYmI0NjkwNjZi'
+const userAuthKey='*********************************************NWQ2'
 
 
-module.exports = {URL,EMAIL,PASS,authOTPKEY,SSID, AUth_TOKEN, PhoneNumber,key_id,key_secret,WhatsappNumber};
+module.exports = {URL,EMAIL,PASS,authOTPKEY,SSID, AUth_TOKEN, PhoneNumber,WhatsappNumber,oneSignalappID, appAuthKey, userAuthKey};
