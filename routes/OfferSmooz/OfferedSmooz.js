@@ -19,7 +19,9 @@ router.post('/', (req, res) => {
 
     const TotalPrice = totalItemPrice;
 
-    OfferModel.OfferedSmooz(req.body, TotalPrice, (result) => {
+    const itemOffered = req.body.itemOffered;
+
+    OfferModel.OfferedSmooz(req.body, TotalPrice,itemOffered, (result) => {
         if (result) {
             res.send("offered Smooz")
             console.log("Offered Smooz");

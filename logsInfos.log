@@ -10467,3 +10467,232 @@
     timestamp: '2023-12-26T09:23:24.881Z'
   }
 }
+{
+  level: 'info',
+  message: 'HTTP GET /OfferSmooz',
+  metadata: {
+    meta: {
+      req: {
+        url: '/OfferSmooz',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': 'fa3e92a5-fc16-4c3c-bfa0-fc0ef51c3ba7',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDM0OTA3NzZ9.Y4vpJO0ArMMlyVUG0Jxz3coJR-ib3xJ9NhshDn1RzBs'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/OfferSmooz',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 74
+    },
+    timestamp: '2023-12-28T07:30:36.633Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP GET /SmoozBill',
+  metadata: {
+    meta: {
+      req: {
+        url: '/SmoozBill',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': 'e2b00365-e36e-4b47-90bc-abbc063bca6d',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '36',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDM0OTA3NzZ9.Y4vpJO0ArMMlyVUG0Jxz3coJR-ib3xJ9NhshDn1RzBs'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/SmoozBill',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 43
+    },
+    timestamp: '2023-12-28T07:32:28.792Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /OfferedSmooz',
+  metadata: {
+    meta: {
+      req: {
+        url: '/OfferedSmooz',
+        headers: {
+          'content-type': 'application/json',
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': '231daa58-89a0-43be-9870-4f2d99b4b914',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-length': '289',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDM0OTA3NzZ9.Y4vpJO0ArMMlyVUG0Jxz3coJR-ib3xJ9NhshDn1RzBs'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/OfferedSmooz',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 50
+    },
+    timestamp: '2023-12-28T07:33:59.587Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP GET /SmoozBill',
+  metadata: {
+    meta: {
+      req: {
+        url: '/SmoozBill',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': 'b62b2e38-a16e-4de0-bd63-4f6285ce350d',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '36',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDM0OTA3NzZ9.Y4vpJO0ArMMlyVUG0Jxz3coJR-ib3xJ9NhshDn1RzBs'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/SmoozBill',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 3
+    },
+    timestamp: '2023-12-28T07:34:17.396Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP GET /SmoozBill',
+  metadata: {
+    meta: {
+      req: {
+        url: '/SmoozBill',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': '539e5aa1-f4bc-4695-9cf8-cbf9d9afbb41',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '35',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDM0OTA3NzZ9.Y4vpJO0ArMMlyVUG0Jxz3coJR-ib3xJ9NhshDn1RzBs'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/SmoozBill',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 2
+    },
+    timestamp: '2023-12-28T07:35:30.679Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP GET /SmoozBill',
+  metadata: {
+    meta: {
+      req: {
+        url: '/SmoozBill',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': 'dc1dbca5-cb0c-4daa-8d35-16dc835c34ee',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '36',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDM0OTA3NzZ9.Y4vpJO0ArMMlyVUG0Jxz3coJR-ib3xJ9NhshDn1RzBs'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/SmoozBill',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 4
+    },
+    timestamp: '2023-12-28T07:36:00.405Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /itemOfferedMe',
+  metadata: {
+    meta: {
+      req: {
+        url: '/itemOfferedMe',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': '464cd611-affc-47e7-bfd4-661199d54c2e',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          'content-type': 'application/x-www-form-urlencoded',
+          'content-length': '58',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDM0OTA3NzZ9.Y4vpJO0ArMMlyVUG0Jxz3coJR-ib3xJ9NhshDn1RzBs'
+        },
+        method: 'POST',
+        httpVersion: '1.1',
+        originalUrl: '/itemOfferedMe',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 42
+    },
+    timestamp: '2023-12-28T07:38:04.806Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP GET /getUserDetails',
+  metadata: {
+    meta: {
+      req: {
+        url: '/getUserDetails',
+        headers: {
+          host: '0de9-2405-201-301d-f92a-2838-1a5e-1783-7bd0.ngrok-free.app',
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'accept-encoding': 'gzip, deflate, br',
+          'postman-token': '2c8a9c36-2870-4650-ba42-550f17502f45',
+          'x-forwarded-for': '49.43.5.185',
+          'x-forwarded-host': '0de9-2405-201-301d-f92a-2838-1a5e-1783-7bd0.ngrok-free.app',
+          'x-forwarded-proto': 'https'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/getUserDetails',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 30
+    },
+    timestamp: '2023-12-28T07:50:52.061Z'
+  }
+}

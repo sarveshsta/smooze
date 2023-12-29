@@ -208,6 +208,7 @@ function OfferModel() {
             console.log('Error while answering the Offer:', err);
         }
     };
+    
 }
 
 module.exports = new OfferModel();
