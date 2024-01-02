@@ -339,7 +339,7 @@ function indexmodel() {
                 } else {
                     if (!user.Isactive) {
                         // Activate the user
-                        await db.collection('users').updateOne({ email: users.email }, { $set: { Isactive: true } });
+                        await db.collection('users').updateOne({ email: users.email }, { $set: { Isactive: true , status : 1} });
                         console.log('User activated.');
                     }
                     callback(result)
@@ -470,7 +470,7 @@ function indexmodel() {
                 
                 await db.collection('users').updateOne(
                     { uuid: users.uuid, phone: users.phone },
-                    { $set: { otp: new_otp } }
+                    { $set: { otp: new_otp, status : 1 } }
                 );
 
                 callback(true, new_otp);

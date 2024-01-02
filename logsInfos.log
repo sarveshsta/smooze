@@ -10696,3 +10696,84 @@
     timestamp: '2023-12-28T07:50:52.061Z'
   }
 }
+{
+  level: 'info',
+  message: 'HTTP GET /clubvisited',
+  metadata: {
+    meta: {
+      req: {
+        url: '/clubvisited',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': '2ccabfa8-467e-42fb-a6db-bb9a72e7f0cf',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDM0OTA3NzZ9.Y4vpJO0ArMMlyVUG0Jxz3coJR-ib3xJ9NhshDn1RzBs'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/clubvisited',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 80
+    },
+    timestamp: '2024-01-01T07:22:58.136Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP GET /clubvisited',
+  metadata: {
+    meta: {
+      req: {
+        url: '/clubvisited',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': '60cad9dd-de4a-4d85-953e-4fa471099b88',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDM0OTA3NzZ9.Y4vpJO0ArMMlyVUG0Jxz3coJR-ib3xJ9NhshDn1RzBs'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/clubvisited',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 16
+    },
+    timestamp: '2024-01-01T07:26:20.846Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP GET /clubvisited',
+  metadata: {
+    meta: {
+      req: {
+        url: '/clubvisited',
+        headers: {
+          'user-agent': 'PostmanRuntime/7.36.0',
+          accept: '*/*',
+          'postman-token': 'e2d593d0-caf9-470e-93db-6f4e5f70f5b2',
+          host: 'localhost:3000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          cookie: 'access-Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDM0OTA3NzZ9.Y4vpJO0ArMMlyVUG0Jxz3coJR-ib3xJ9NhshDn1RzBs'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/clubvisited',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 92
+    },
+    timestamp: '2024-01-01T11:50:52.573Z'
+  }
+}

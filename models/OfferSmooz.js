@@ -141,6 +141,9 @@ function OfferModel() {
         }
     };
 
+
+
+
     // Offer the Smooz to a particular person
     this.OfferedSmooz = async (offersmoozs, TotalPrice, callback) => {
         try {
@@ -184,6 +187,9 @@ function OfferModel() {
         }
     };
 
+
+
+
     // Billing of the Smooz offered
     this.SmoozBill = async (offersmoozs, callback) => {
         try {
@@ -194,21 +200,51 @@ function OfferModel() {
         }
     };
 
+
+
+
+    
     // Receive the Smooz (Accept or Reject)
-    this.itemOfferedMe = async (offersmoozs, option, callback) => {
+    // this.itemOfferedMe = async (offersmoozs, option, callback) => {
+    //     try {
+    //         const result = await db.collection("offersmoozs").find({ OfferSmoozEmail: offersmoozs.OfferSmoozEmail }).toArray();
+    //         await db.collection("offersmoozs").updateOne(
+    //             { OfferSmoozEmail: offersmoozs.OfferSmoozEmail },
+    //             { $set: { option: option } }
+    //         );
+    //         console.log("User Answered");
+    //         callback(result);
+    //     } catch (err) {
+    //         console.log('Error while answering the Offer:', err);
+    //     }
+    // };
+    this.itemOfferedMe = async (offersmoozs, option, timeoutDuration, callback) => {
         try {
             const result = await db.collection("offersmoozs").find({ OfferSmoozEmail: offersmoozs.OfferSmoozEmail }).toArray();
-            await db.collection("offersmoozs").updateOne(
-                { OfferSmoozEmail: offersmoozs.OfferSmoozEmail },
-                { $set: { option: option } }
-            );
-            console.log("User Answered");
+
+            // Set a timeout for the user to respond
+            setTimeout(async () => {
+                // Check if the user hasn't responded within the timeout
+                if (!result.some(offer => offer.option === option)) {
+                    // Set a default option (e.g., reject) if no response within the timeout
+                    option = 'reject';
+                    await db.collection("offersmoozs").updateOne(
+                        { OfferSmoozEmail: offersmoozs.OfferSmoozEmail },
+                        { $set: { option: option } }
+                    );
+                    console.log("User did not respond within the timeout, defaulted to reject");
+                    callback(result);
+                }
+            }, timeoutDuration);
+
+            console.log("User has a limited time to respond");
             callback(result);
         } catch (err) {
             console.log('Error while answering the Offer:', err);
         }
     };
-    
+
+
 }
 
 module.exports = new OfferModel();

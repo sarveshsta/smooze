@@ -14,6 +14,7 @@
     "express": "~4.16.1",
     "express-validator": "^7.0.1",
     "express-winston": "^4.2.0",
+    "firebase-admin": "^12.0.0",
     "http-errors": "~1.6.3",
     "indian-cities-database": "^1.0.5",
     "jsonwebtoken": "^9.0.2",
